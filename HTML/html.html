@@ -1,43 +1,71 @@
 <!--DOCTYPE是声明文档类型 html是根元素，包裹了整个页面 head表示头部，body表示正文，两者都在视图区 meta是元信息元素-->
 <!DOCTYPE html>
 <html>
-  <head>
-    <!-- 在head中修改字符集会影响全局 默认应该就是utf-8 --> 
-    <meta charset="utf-8">
-    <title>我的测试站点</title>
-    <!-- 添加图标 --> 
-    <link rel="shortcut icon" href="LQT202.ico" type="image/x-icon">
-    <!-- author以及description的元数据使得网页更容易被搜索引擎根据内容中的关键词搜索到 --> 
-    <meta name="author" content="Elliot Zhang">
-    <meta name="description" content="Html Learning.">
-    <!-- 头部在正文的前面，但是也在视图区 -->
-    <p>Japanese example: ご飯が熱い。</p>
-    <link rel="stylesheet" href="../CSS/style.css">
-  </head>
-  <body>
-    <h1>&lt;h1&gt; 大标题</h1>
-    <p><strong>这是我的页面</strong></p>
-    <!-- 内联元素和块级元素 块级元素会有自动的行间距，这是块级元素自带的css style -->
-    内联元素：<em>刀枪剑戟 斧钺钩叉</em><strong>刀枪剑戟 斧钺钩叉</strong>
-    <p>块级元素：我的猫咪脾气<strong>爆</strong>:)</p>
 
-    <!-- img src='url'可以插入图片，img元素由于没有结束符也没有内容，所以是一种空元素 -->
-    <img src="https://roy-tian.github.io/learning-area/extras/getting-started-web/beginner-html-site/images/firefox-icon.png">
+<head>
+  <!-- 在head中修改字符集会影响全局 默认应该就是utf-8 -->
+  <meta charset="utf-8">
+  <title>我的测试站点</title>
+  <!-- 添加图标 -->
+  <link rel="shortcut icon" href="LQT202.ico" type="image/x-icon">
+  <!-- author以及description的元数据使得网页更容易被搜索引擎根据内容中的关键词搜索到 -->
+  <meta name="author" content="Elliot Zhang">
+  <meta name="description" content="Html Learning.">
+  <!-- 头部在正文的前面，但是也在视图区 -->
+  <p>Japanese example: <span lang="jp">ご飯が熱い。</span>.</p>
+  <link rel="stylesheet" href="../CSS/style.css">
+</head>
 
-    <!-- 元素<a>是锚，它使被标签包裹的内容成为一个超链接。元素的属性值用单引号双引号都可以，甚至不用引号都可以，但一旦属性值出现空格就出问题了 -->
-    <p><a href="https://www.baidu.com/" title="百度首页" target="_blank">欲练葵花宝典，需引刀自宫</a></p>
+<body>
+  <h1>&lt;h1&gt; 大标题</h1>
 
-    <!-- 使用disabled属性来防止终端用户输入文本到输入框中 disable属性是布尔属性不用赋值 -->
-    <input type="text" disabled>
+  <ul>
+    <li>豆浆</li>
+    <li>油条</li>
+    <li>豆汁</li>
+    <li>焦圈</li>
+  </ul>
 
-    <!-- 下面这个输入框没有disabled属性，所以用户可以向其中输入 -->
-    <input type="text">
+  <p><strong>这是我的页面</strong></p>
+  <!-- 内联元素和块级元素 块级元素会有自动的行间距，这是块级元素自带的css style -->
+  内联元素：<em>刀枪剑戟 斧钺钩叉</em><strong>刀枪剑戟 斧钺钩叉</strong>
+  <p>块级元素：我的猫咪脾气<strong>爆</strong>:)</p>
 
-    <!--在一个HTML中已使用一种引号，你可以在此引号中嵌套另外一种引号：-->
-    <a href="http://www.example.com" title='你觉得"好玩吗"？'>示例站点链接</a>
-    
-    <!--特殊符号<>&'"等必须用等价字符引用，类似于其他语言中的转义字符-->
-    <p>HTML 中用 &lt;p&gt; 来定义段落元素</p>
-    <script src="../JavaScript/script.js"></script>
-  </body>
+  <!-- img src='url'可以插入图片，img元素由于没有结束符也没有内容，所以是一种空元素 -->
+  <img
+    src="https://roy-tian.github.io/learning-area/extras/getting-started-web/beginner-html-site/images/firefox-icon.png">
+
+  <!-- 元素<a>是锚，它使被标签包裹的内容成为一个超链接。元素的属性值用单引号双引号都可以，甚至不用引号都可以，但一旦属性值出现空格就出问题了 -->
+  <p><a href="https://www.baidu.com/" title="百度首页" target="_blank">欲练葵花宝典，需引刀自宫</a></p>
+
+  <!-- 使用disabled属性来防止终端用户输入文本到输入框中 disable属性是布尔属性不用赋值 -->
+  <input type="text" disabled>
+
+  <!-- 下面这个输入框没有disabled属性，所以用户可以向其中输入 -->
+  <input type="text">
+
+  <!--在一个HTML中已使用一种引号，你可以在此引号中嵌套另外一种引号：-->
+  <a href="http://www.example.com" title='你觉得"好玩吗"？'>示例站点链接</a>
+
+  <!--特殊符号<>&'"等必须用等价字符引用，类似于其他语言中的转义字符-->
+  <p>HTML 中用 &lt;p&gt; 来定义段落元素</p>
+
+  <p>罗贯中</p>
+
+  <!--HTML有h1~h6六级标题-->
+  <h2>第一回 宴桃园豪杰三结义 斩黄巾英雄首立功</h2>
+
+  <p>话说天下大势，分久必合，合久必分。周末七国分争，并入于秦。及秦灭之后，楚、汉分争，又并入于汉……</p>
+
+  <h2>第二回 张翼德怒鞭督邮 何国舅谋诛宦竖</h2>
+
+  <p>且说董卓字仲颖，陇西临洮人也，官拜河东太守，自来骄傲。当日怠慢了玄德，张飞性发，便欲杀之……</p>
+
+  <h3>却说张飞</h3>
+
+  <p>却说张飞饮了数杯闷酒，乘马从馆驿前过，见五六十个老人，皆在门前痛哭。飞问其故，众老人答曰：“督邮逼勒县吏，欲害刘公；我等皆来苦告，不得放入，反遭把门人赶打！”……</p>
+
+  <script src="../JavaScript/script.js"></script>
+</body>
+
 </html>

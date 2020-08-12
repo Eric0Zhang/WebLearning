@@ -1,4 +1,5 @@
 <!--DOCTYPE是声明文档类型 html是根元素，包裹了整个页面 head表示头部，body表示正文，两者都在视图区 meta是元信息元素-->
+<!-- 快捷键说明：CTRL+/添加注释 输入元素名称然后TAB自动添加元素块 !+TAB自动添加HTML框架-->
 <!DOCTYPE html>
 <html>
 
@@ -12,13 +13,23 @@
   <meta name="author" content="Elliot Zhang">
   <meta name="description" content="Html Learning.">
   <!-- 头部在正文的前面，但是也在视图区 -->
-  <p>Japanese example: <span lang="jp">ご飯が熱い。</span>.</p>
+
   <link rel="stylesheet" href="../CSS/style.css">
 </head>
 
 <body>
-  <h1>&lt;h1&gt; 大标题</h1>
+  <li><a href="index.html">
+      Index</a>
+  </li>
+  <li><a href="projects.html">
+      Projects</a>
+  </li>
+  <li><a href="picture.html">
+      Picture</a>
+  </li>
 
+  <h1>Index of My Website</h1>
+  <p>Japanese example: <span lang="jp">ご飯が熱い。</span>.</p>
   <!--有序列表-->
   <ol>
     <li>沿着条路走到头</li>
@@ -35,19 +46,67 @@
     <li>豆汁</li>
     <li>焦圈</li>
   </ul>
-  <!--强调-->
+  <!--斜体 带语义 强调-->
   <p>I am <em>glad</em> you weren't <em>late</em>.</p>
-  <!--加粗-->
+  <!--加粗 带语义 加强-->
   <p><strong>这是我的页面</strong></p>
+
+  <!-- 下面的几个斜体加粗和下划线是不带语义，仅有格式-->
+  <!-- 学名 -->
+  <p>
+    红喉北蜂鸟（学名：<i>Archilocus colubris</i>）
+    是北美东部最常见的蜂鸟品种。
+  </p>
+
+  <!-- 舶来词 无语义的斜体 通过属性值标记语言-->
+  <p>
+    菜单上有好多舶来词汇，比如 <i lang="uk-latn">vatrushka</i>（东欧乳酪面包）,
+    <i lang="id">nasi goreng</i>（印尼炒饭）以及<i lang="fr">soupe à l'oignon</i>（法式洋葱汤）。
+  </p>
+
+  <!-- 已知的错误书写 属性sytle引用了CSS语法对外观进行修饰-->
+  <p>
+    总有一天我会改掉写<u style="text-decoration-line: underline; text-decoration-style: wavy;">措字</u>的毛病。
+  </p>
+
+  <!-- 在一组指令中突出显示关键字 -->
+  <ol>
+    <li>
+      <b>切</b>下两片面包，
+    </li>
+    <li>
+      在两片面包中间<b>夹入</b>一片西红柿和一片生菜叶。
+    </li>
+  </ol>
+
+
+  <!-- 注意尽量使用相对URL，例如下面的这个查找标题，其实就是当前的绝对URL中，相对的#位置 
+  使用绝对URL的形式会是这样：http://www.xxx.com/html.html#Mailing_address 绝对URL的缺点是
+  DNS服务器，会在每次点击超链接都重新进行解析，相对URL则不会，它会根据当前文件位置查找相对位置-->
+  <p>想要给我们写信？点击这里 <a href="#Mailing_address">mailing address</a>.</p>
+
+  <!-- 邮件链接用mailto:开头，可以用?cc抄送，还有其他很多功能 -->
+  <h2 id="Mailing_address"> Mailing Adredss</h2>
+  <p> <a href="mailto:silentstorm321f@qq.com?cc=silentstorm321f@gmail.com">silentstorm321f@qq.com</a> </p>
+
+  <!-- 对于可下载的文件，需要使用download属性提供默认的保存文件名 -->
+  <p><a href="https://download.mozilla.org/?product=firefox-latest-ssl&os=win64&lang=en-US"
+      download="firefox-latest-64bit-installer.exe">
+      Download Latest Firefox for Windows (64-bit) (English, US)
+    </a></p>
+
   <!-- 内联元素和块级元素 块级元素会有自动的行间距，这是块级元素自带的css style -->
   内联元素：<em>刀枪剑戟 斧钺钩叉</em><strong>刀枪剑戟 斧钺钩叉</strong>
   <p>块级元素：我的猫咪脾气<strong>爆</strong>:)</p>
 
   <!-- img src='url'可以插入图片，img元素由于没有结束符也没有内容，所以是一种空元素 -->
-  <img
-    src="https://roy-tian.github.io/learning-area/extras/getting-started-web/beginner-html-site/images/firefox-icon.png">
+  <a href="https://www.mozilla.org/en-US/" target="_blank">
+    <img
+      src="https://roy-tian.github.io/learning-area/extras/getting-started-web/beginner-html-site/images/firefox-icon.png">
+  </a>
 
-  <!-- 元素<a>是锚，它使被标签包裹的内容成为一个超链接。元素的属性值用单引号双引号都可以，甚至不用引号都可以，但一旦属性值出现空格就出问题了 -->
+  <!-- 元素<a>是锚，它使被标签包裹的内容成为一个超链接。元素的属性值用单引号双引号都可以，
+    甚至不用引号都可以，但一旦属性值出现空格就出问题了 -->
   <p><a href="https://www.baidu.com/" title="百度首页" target="_blank">欲练葵花宝典，需引刀自宫</a></p>
 
   <!-- 使用disabled属性来防止终端用户输入文本到输入框中 disable属性是布尔属性不用赋值 -->

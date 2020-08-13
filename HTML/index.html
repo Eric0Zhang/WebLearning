@@ -1,7 +1,7 @@
 <!--DOCTYPE是声明文档类型 html是根元素，包裹了整个页面 head表示头部，body表示正文，两者都在视图区 meta是元信息元素-->
 <!-- 快捷键说明：CTRL+/添加注释 输入元素名称然后TAB自动添加元素块 !+TAB自动添加HTML框架-->
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 
 <head>
   <!-- 在head中修改字符集会影响全局 默认应该就是utf-8 -->
@@ -18,123 +18,169 @@
 </head>
 
 <body>
-  <li><a href="index.html">
-      Index</a>
-  </li>
-  <li><a href="elements.html">
-      Elements</a>
-  </li>
-  <li><a href="media.html">
-      Media</a>
-  </li>
+  <!-- 关于布局
+    <main> 正文 存放每个页面独有的内容。每个页面上只能用一次 <main>，且直接位于 <body> 中。最好不要把它嵌套进其它元素。
+    <article> 正文中的文章 包围的内容即一篇文章，与页面其它部分无关（比如一篇博文）。
+    <section> 正文中的分区 与 <article> 类似，但 <section> 更适用于组织页面使其按功能（比如迷你地图、一组文章标题和摘要）分块。一般的最佳用法是：以 标题 作为开头；也可以把一篇 <article> 分成若干部分并分别置于不同的 <section> 中，也可以把一个区段 <section> 分成若干部分并分别置于不同的 <article> 中，取决于上下文。
+    <aside> 侧边栏 包含一些间接信息（术语条目、作者简介、相关链接，等等）。
+    <header> 标题栏 是简介形式的内容。如果它是 <body> 的子元素，那么就是网站的全局页眉。如果它是 <article> 或<section> 的子元素，那么它是这些部分特有的页眉（此 <header> 非彼 标题）。
+    <nav> 导航栏 包含页面主导航功能。其中不应包含二级链接等内容。
+    <footer> 页脚 包含了页面的页脚部分。 -->
 
-  <h1>Basic Knowledge</h1>
-  <p>Japanese example: <span lang="jp">ご飯が熱い。</span>.</p>
-  <!--有序列表-->
-  <ol>
-    <li>沿着条路走到头</li>
-    <li>右转</li>
-    <li>直行穿过第一个十字路口</li>
-    <li>在第三个十字路口处左转</li>
-    <li>继续走 300 米，学校就在你的右手边</li>
-  </ol>
+  <header>
+    <!-- 本站所有网页的统一主标题 -->
+    <h1>基础知识</h1>
+  </header>
 
-  <!--无序列表-->
-  <ul>
-    <li>豆浆</li>
-    <li>油条</li>
-    <li>豆汁</li>
-    <li>焦圈</li>
-  </ul>
-  <!--斜体 带语义 强调-->
-  <p>I am <em>glad</em> you weren't <em>late</em>.</p>
-  <!--加粗 带语义 加强-->
-  <p><strong>这是我的页面</strong></p>
+  <nav>
+    <!-- 本站统一的导航栏 -->
+    <ul>
+      <li><a href="index.html">
+          Index</a>
+      </li>
+      <li><a href="elements.html">
+          Elements</a>
+      </li>
+      <li><a href="media.html">
+          Media</a>
+      </li>
+      <li><a href="projects.html">
+          Projects</a>
+      </li>
+    </ul>
 
-  <!-- 下面的几个斜体加粗和下划线是不带语义，仅有格式-->
-  <!-- 学名 -->
-  <p>
-    红喉北蜂鸟（学名：<i>Archilocus colubris</i>）
-    是北美东部最常见的蜂鸟品种。
-  </p>
+    <form>
+      <!-- 搜索栏是站点内导航的一个非线性的方式。 -->
+      <input type="search" name="q" placeholder="要搜索的内容">
+      <input type="submit" value="搜索">
+    </form>
+  </nav>
 
-  <!-- 舶来词 无语义的斜体 通过属性值标记语言-->
-  <p>
-    菜单上有好多舶来词汇，比如 <i lang="uk-latn">vatrushka</i>（东欧乳酪面包）,
-    <i lang="id">nasi goreng</i>（印尼炒饭）以及<i lang="fr">soupe à l'oignon</i>（法式洋葱汤）。
-  </p>
+  <main>
+    <!-- 网页主体内容 -->
+    <article>
+      <!-- 此处包含一个 article（一篇文章），内容略…… -->
+      <p>Japanese example: <span lang="ja">ご飯が熱い。</span>.</p>
+      <!--有序列表-->
+      <ol>
+        <li>沿着条路走到头</li>
+        <li>右转</li>
+        <li>直行穿过第一个十字路口</li>
+        <li>在第三个十字路口处左转</li>
+        <li>继续走 300 米，学校就在你的右手边</li>
+      </ol>
 
-  <!-- 已知的错误书写 属性sytle引用了CSS语法对外观进行修饰-->
-  <p>
-    总有一天我会改掉写<u style="text-decoration-line: underline; text-decoration-style: wavy;">措字</u>的毛病。
-  </p>
+      <!--无序列表-->
+      <ul>
+        <li>豆浆</li>
+        <li>油条</li>
+        <li>豆汁</li>
+        <li>焦圈</li>
+      </ul>
+      <!--斜体 带语义 强调-->
+      <p>I am <em>glad</em> you weren't <em>late</em>.</p>
+      <!--加粗 带语义 加强-->
+      <p><strong>这是我的页面</strong></p>
 
-  <!-- 在一组指令中突出显示关键字 -->
-  <ol>
-    <li>
-      <b>切</b>下两片面包，
-    </li>
-    <li>
-      在两片面包中间<b>夹入</b>一片西红柿和一片生菜叶。
-    </li>
-  </ol>
+      <!-- 下面的几个斜体加粗和下划线是不带语义，仅有格式-->
+      <!-- 学名 -->
+      <p>
+        红喉北蜂鸟（学名：<i>Archilocus colubris</i>）
+        是北美东部最常见的蜂鸟品种。
+      </p>
+
+      <!-- 舶来词 无语义的斜体 通过属性值标记语言-->
+      <p>
+        菜单上有好多舶来词汇，比如 <i lang="uk-latn">vatrushka</i>（东欧乳酪面包）,
+        <i lang="id">nasi goreng</i>（印尼炒饭）以及<i lang="fr">soupe à l'oignon</i>（法式洋葱汤）。
+      </p>
+
+      <!-- 已知的错误书写 属性sytle引用了CSS语法对外观进行修饰-->
+      <p>
+        总有一天我会改掉写<u style="text-decoration-line: underline; text-decoration-style: wavy;">措字</u>的毛病。
+      </p>
+
+      <!-- 在一组指令中突出显示关键字 -->
+      <ol>
+        <li>
+          <b>切</b>下两片面包，
+        </li>
+        <li>
+          在两片面包中间<b>夹入</b>一片西红柿和一片生菜叶。
+        </li>
+      </ol>
 
 
-  <!-- 注意尽量使用相对URL，例如下面的这个查找标题，其实就是当前的绝对URL中，相对的#位置 
-  使用绝对URL的形式会是这样：http://www.xxx.com/html.html#Mailing_address 绝对URL的缺点是
-  DNS服务器，会在每次点击超链接都重新进行解析，相对URL则不会，它会根据当前文件位置查找相对位置-->
-  <p>想要给我们写信？点击这里 <a href="#Mailing_address">mailing address</a>.</p>
+      <!-- 注意尽量使用相对URL，例如下面的这个查找标题，其实就是当前的绝对URL中，相对的#位置 
+          使用绝对URL的形式会是这样：http://www.xxx.com/html.html#Mailing_address 绝对URL的缺点是
+          DNS服务器，会在每次点击超链接都重新进行解析，相对URL则不会，它会根据当前文件位置查找相对位置-->
+      <p>想要给我们写信？点击这里 <a href="#Mailing_address">mailing address</a>.</p>
 
-  <!-- 邮件链接用mailto:开头，可以用?cc抄送，还有其他很多功能 -->
-  <h2 id="Mailing_address"> Mailing Adredss</h2>
-  <p> <a href="mailto:silentstorm321f@qq.com?cc=silentstorm321f@gmail.com">silentstorm321f@qq.com</a> </p>
+      <!-- 邮件链接用mailto:开头，可以用?cc抄送，还有其他很多功能 -->
+      <h2 id="Mailing_address"> Mailing Adredss</h2>
+      <p> <a href="mailto:silentstorm321f@qq.com?cc=silentstorm321f@gmail.com">silentstorm321f@qq.com</a> </p>
 
-  <!-- 对于可下载的文件，需要使用download属性提供默认的保存文件名 -->
-  <p><a href="https://download.mozilla.org/?product=firefox-latest-ssl&os=win64&lang=en-US"
-      download="firefox-latest-64bit-installer.exe">
-      Download Latest Firefox for Windows (64-bit) (English, US)
-    </a></p>
+      <!-- 对于可下载的文件，需要使用download属性提供默认的保存文件名 -->
+      <p><a href="https://download.mozilla.org/?product=firefox-latest-ssl&os=win64&lang=en-US"
+          download="firefox-latest-64bit-installer.exe">
+          Download Latest Firefox for Windows (64-bit) (English, US)
+        </a></p>
 
-  <!-- 内联元素和块级元素 块级元素会有自动的行间距，这是块级元素自带的css style -->
-  内联元素：<em>刀枪剑戟 斧钺钩叉</em><strong>刀枪剑戟 斧钺钩叉</strong>
-  <p>块级元素：我的猫咪脾气<strong>爆</strong>:)</p>
+      <!-- 内联元素和块级元素 块级元素会有自动的行间距，这是块级元素自带的css style -->
+      内联元素：<em>刀枪剑戟 斧钺钩叉</em><strong>刀枪剑戟 斧钺钩叉</strong>
+      <p>块级元素：我的猫咪脾气<strong>爆</strong>:)</p>
 
-  <!-- img src='url'可以插入图片，img元素由于没有结束符也没有内容，所以是一种空元素 -->
-  <a href="https://www.mozilla.org/en-US/" target="_blank">
-    <img
-      src="https://roy-tian.github.io/learning-area/extras/getting-started-web/beginner-html-site/images/firefox-icon.png">
-  </a>
+      <!-- img src='url'可以插入图片，img元素由于没有结束符也没有内容，所以是一种空元素 -->
+      <a href="https://www.mozilla.org/en-US/" target="_blank">
+        <img alt="火狐图标"
+          src="https://roy-tian.github.io/learning-area/extras/getting-started-web/beginner-html-site/images/firefox-icon.png">
+      </a>
 
-  <!-- 元素<a>是锚，它使被标签包裹的内容成为一个超链接。元素的属性值用单引号双引号都可以，
-    甚至不用引号都可以，但一旦属性值出现空格就出问题了 -->
-  <p><a href="https://www.baidu.com/" title="百度首页" target="_blank">欲练葵花宝典，需引刀自宫</a></p>
+      <!-- 元素<a>是锚，它使被标签包裹的内容成为一个超链接。元素的属性值用单引号双引号都可以，
+          甚至不用引号都可以，但一旦属性值出现空格就出问题了 -->
+      <p><a href="https://www.baidu.com/" title="百度首页" target="_blank">欲练葵花宝典，需引刀自宫</a></p>
 
-  <!-- 使用disabled属性来防止终端用户输入文本到输入框中 disable属性是布尔属性不用赋值 -->
-  <input type="text" disabled>
+      <!-- 使用disabled属性来防止终端用户输入文本到输入框中 disable属性是布尔属性不用赋值 -->
+      <input type="text" disabled>
 
-  <!-- 下面这个输入框没有disabled属性，所以用户可以向其中输入 -->
-  <input type="text">
+      <!-- 下面这个输入框没有disabled属性，所以用户可以向其中输入 -->
+      <input type="text">
 
-  <!--在一个HTML中已使用一种引号，你可以在此引号中嵌套另外一种引号：-->
-  <a href="http://www.example.com" title='你觉得"好玩吗"？'>示例站点链接</a>
+      <!--在一个HTML中已使用一种引号，你可以在此引号中嵌套另外一种引号：-->
+      <a href="http://www.example.com" title='你觉得"好玩吗"？'>示例站点链接</a>
 
-  <!--特殊符号<>&'"等必须用等价字符引用，类似于其他语言中的转义字符-->
-  <p>HTML 中用 &lt;p&gt; 来定义段落元素</p>
+      <!--特殊符号<>&'"等必须用等价字符引用，类似于其他语言中的转义字符-->
+      <p>HTML 中用 &lt;p&gt; 来定义段落元素</p>
 
-  <p>罗贯中</p>
+      <p>罗贯中</p>
 
-  <!--HTML有h1~h6六级标题-->
-  <h2>第一回 宴桃园豪杰三结义 斩黄巾英雄首立功</h2>
+      <!--HTML有h1~h6六级标题-->
+      <h2>第一回 宴桃园豪杰三结义 斩黄巾英雄首立功</h2>
 
-  <p>话说天下大势，分久必合，合久必分。周末七国分争，并入于秦。及秦灭之后，楚、汉分争，又并入于汉……</p>
+      <p>话说天下大势，分久必合，合久必分。周末七国分争，并入于秦。及秦灭之后，楚、汉分争，又并入于汉……</p>
 
-  <h2>第二回 张翼德怒鞭督邮 何国舅谋诛宦竖</h2>
+      <h2>第二回 张翼德怒鞭督邮 何国舅谋诛宦竖</h2>
 
-  <p>且说董卓字仲颖，陇西临洮人也，官拜河东太守，自来骄傲。当日怠慢了玄德，张飞性发，便欲杀之……</p>
+      <p>且说董卓字仲颖，陇西临洮人也，官拜河东太守，自来骄傲。当日怠慢了玄德，张飞性发，便欲杀之……</p>
 
-  <h3>却说张飞</h3>
+      <h3>却说张飞</h3>
 
-  <p>却说张飞饮了数杯闷酒，乘马从馆驿前过，见五六十个老人，皆在门前痛哭。飞问其故，众老人答曰：“督邮逼勒县吏，欲害刘公；我等皆来苦告，不得放入，反遭把门人赶打！”……</p>
+      <p>却说张飞饮了数杯闷酒，乘马从馆驿前过，见五六十个老人，皆在门前痛哭。飞问其故，众老人答曰：“督邮逼勒县吏，欲害刘公；我等皆来苦告，不得放入，反遭把门人赶打！”……</p>
+    </article>
+
+    <aside>
+      <!-- 侧边栏在主内容右侧 -->
+      <h2>相关链接</h2>
+      <ul>
+        <li><a href="#">这是一个超链接</a></li>
+        <!-- 侧边栏有n个超链接，略略略…… -->
+      </ul>
+    </aside>
+  </main>
+  <footer>
+    <!-- 本站所有网页的统一页脚 -->
+    <p>© 2050 某某保留所有权利</p>
+  </footer>
 
   <script src="../JavaScript/script.js"></script>
 </body>

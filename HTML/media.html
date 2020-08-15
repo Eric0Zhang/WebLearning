@@ -11,17 +11,32 @@
 </head>
 
 <body>
-        <h1>多媒体等高级功能</h1>
-        <li><a href="index.html">
-                        Index</a>
-        </li>
-        <li><a href="elements.html">
-                        Elements</a>
-        </li>
-        <li><a href="picture.html">
-                        Media</a>
-        </li>
-
+        <header>
+                <h1>多媒体等高级功能</h1>
+        </header>
+        <nav>
+                <li><a href="index.html">
+                                Index</a>
+                </li>
+                <li><a href="elements.html">
+                                Elements</a>
+                </li>
+                <li><a href="media.html">
+                                Media</a>
+                </li>
+        </nav>
+        <main>
+                <section>
+                        <h3>图片加载</h3>
+                        <!-- figure和figurecation是html5用来实现媒体和标题绑定的，此前一般用div和p元素来实现
+                        注意figure中不一定非要是图片可以是表格 程序 音乐 视频等等都可以 -->
+                        <figure>
+                                <img src="https://raw.githubusercontent.com/mdn/learning-area/master/html/multimedia-and-embedding/images-in-html/dinosaur_small.jpg"
+                                        alt="一只恐龙头部和躯干的骨架，它有一个巨大的头，长着锋利的牙齿。" width="400" height="341">
+                                <figcaption>曼彻斯特大学博物馆展出的一只霸王龙的化石</figcaption>
+                        </figure>
+                </section>
+        </main>
 </body>
 
 </html>

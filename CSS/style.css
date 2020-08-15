@@ -15,6 +15,9 @@ body {
   min-width: 800px;
   margin: 0 auto;
 }
+p {
+  background-image: url("images/dinosaur.jpg");
+}
 
 /* || 排版 */
 
@@ -46,6 +49,12 @@ h3 {
 p, li {
   font-size: 1.6rem;
   line-height: 1.5;
+}
+
+ul {
+  background: rgba(124, 187, 142, 0.5);
+  padding: 10px;
+  /*border: 1px solid black;*/
 }
 
 /* || 标题和布局 */

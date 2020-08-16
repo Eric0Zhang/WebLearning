@@ -35,21 +35,20 @@
                                         alt="一只恐龙头部和躯干的骨架，它有一个巨大的头，长着锋利的牙齿。" width="400" height="341">
                                 <figcaption>曼彻斯特大学博物馆展出的一只霸王龙的化石</figcaption>
                         </figure>
-                        <audio controls>
-                                <!-- 放多个音源在这里，防止某个没用 -->
-                                <source src="/Media/viper.mp3" type="audio/mp3">
-                                <source src="/Media/viper.ogg" type="audio/ogg">
-                                <p>你的浏览器不支持 HTML5 音频，可点击<a href="/Media/viper.mp3">此链接</a>收听。</p>
-                        </audio>
                         <p>
                                 <em>福禄寿－Floruit Show-我用什么把你留住.flac</em>
                                 <audio controls>
-                                        <source src="/Local/福禄寿－Floruit Show-我用什么把你留住.flac" type="audio/flac">
+                                        <!-- 放多个音源在这里，防止某个没用 -->
+                                        <source src="/Media/viper.mp3" type="audio/mp3">
+                                        <source src="/Media/viper.ogg" type="audio/ogg">
+                                        <p>你的浏览器不支持 HTML5 音频，可点击<a href="/Media/viper.mp3">此链接</a>收听。</p>
                                 </audio>
                         </p>
+
                         <!-- 注意一定要使用沙盒sandbox 然后设置权限 除了视频和地图这种必须要开的 不要同时打开scripts 和 same origin -->
-                        <iframe src="https://map.baidu.com/@13248838.74772356,3828898.2248050002,19z" scrolling="no" border="0"
-                                frameborder="no" framespacing="0" allowfullscreen="true" width="600" height="400" sandbox="allow-same-origin allow-scripts">
+                        <iframe src="https://map.baidu.com/@13248838.74772356,3828898.2248050002,19z" scrolling="no"
+                                border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="600"
+                                height="400" sandbox="allow-same-origin allow-scripts">
                                 <p> <a href="https://map.baidu.com/@13248838.74772356,3828898.2248050002,19z">
                                                 Fallback link for browsers that don't support iframes
                                         </a> </p>
@@ -70,7 +69,8 @@
                         <!-- iframe用于将其他网页或者网页元素嵌入到你的网页当中去，
                                 注意这里嵌入youtube的视频是，原来的url里面的 watch?v= 应当替换为 embed/ -->
                         <iframe src="https://www.youtube.com/embed/zofBinqC2F4" scrolling="no" border="0"
-                                frameborder="no" framespacing="0" allowfullscreen="true" width="600" height="400" sandbox="allow-same-origin allow-scripts">
+                                frameborder="no" framespacing="0" allowfullscreen="true" width="600" height="400"
+                                sandbox="allow-same-origin allow-scripts">
                                 <p>如果无法打开，您可以到Youtube上直接观看，<a href="https://www.youtube.com/watch?v=zofBinqC2F4">4K
                                                 Relaxing River</a> </p>
                         </iframe>

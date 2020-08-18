@@ -49,8 +49,21 @@
         caption {
             padding: 10px;
         }
+        /* 这里可以重写覆盖css文件中的属性 */
+        main {
+            display: grid;
+        }
 
         /* 表格居中，需要在表格添加class = "CenterTable"属性 */
+        /* css的选择器分为四类:
+        1 元素选择器,上面哪些都是元素选择器 
+        2 id选择器,在元素名中指定id="xxx" #xxx{ }设置css声明块,id是唯一的,所以id只能指定某一个元素的css样式
+        3 class选择器,在元素名中指定class="xxx" .xxx{ }设置css声明块,class可以给多个元素添加属性,可以指定多个元素的样式
+        4 通配选择器, *{ }设置声明块,所有元素共有的属性
+
+        注意:class是最常用的选择器,每个元素可以有多个class属性,用空格分开,
+        如: <p class="BigFont RedColor BoldFont">,这样不同的元素可以有交叉的class
+        */
         .CenterTable {
             margin: 0px auto;
         }
@@ -122,7 +135,10 @@
                 <td>Will eat till he explodes</td>
             </tr>
         </table>
+
+        
         <h2>动物表格</h2>
+
         <!--th:table header td:table data tr:table row -->
         <table class="CenterTable">
             <tr>
@@ -151,8 +167,9 @@
                 <td>Rooster</td>
             </tr>
         </table>
+
         <h2>课程表格</h2>
-        <table>
+        <table class="CenterTable">
             <tr>
                 <td>&nbsp;</td>
                 <th>Mon</th>

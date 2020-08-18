@@ -25,6 +25,7 @@
                                 Media</a>
                 </li>
         </nav>
+
         <main>
                 <section>
                         <h3>图片加载</h3>
@@ -35,17 +36,18 @@
                                         alt="一只恐龙头部和躯干的骨架，它有一个巨大的头，长着锋利的牙齿。" width="400" height="341">
                                 <figcaption>曼彻斯特大学博物馆展出的一只霸王龙的化石</figcaption>
                         </figure>
-                        <p>
-                                <em>福禄寿－Floruit Show-我用什么把你留住.flac</em>
-                                <audio controls>
-                                        <!-- 放多个音源在这里，防止某个没用 -->
-                                        <source src="/Media/viper.mp3" type="audio/mp3">
-                                        <source src="/Media/viper.ogg" type="audio/ogg">
-                                        <p>你的浏览器不支持 HTML5 音频，可点击<a href="/Media/viper.mp3">此链接</a>收听。</p>
-                                </audio>
-                        </p>
+
+                        <p><em>viper.mp3</em></p>
+                        <audio controls>
+                                <!-- 放多个音源在这里，防止某个没用 -->
+                                <source src="/Media/viper.mp3" type="audio/mp3">
+                                <source src="/Media/viper.ogg" type="audio/ogg">
+                                <p>你的浏览器不支持 HTML5 音频，可点击<a href="/Media/viper.mp3">此链接</a>收听。</p>
+                        </audio>
+
 
                         <!-- 注意一定要使用沙盒sandbox 然后设置权限 除了视频和地图这种必须要开的 不要同时打开scripts 和 same origin -->
+                        <!-- 另外same origin的意思是允许跟这个加载项同源（域名端口相同）的资源载入进来 -->
                         <iframe src="https://map.baidu.com/@13248838.74772356,3828898.2248050002,19z" scrolling="no"
                                 border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="600"
                                 height="400" sandbox="allow-same-origin allow-scripts">
@@ -53,6 +55,23 @@
                                                 Fallback link for browsers that don't support iframes
                                         </a> </p>
                         </iframe>
+                        <!-- 可以直接加载svg的文件，载入矢量图形 -->
+                        <img src="./../Media/rectcircle.svg" alt="通过svg文件加载的矢量图形">
+                        <!-- 也可以直接复制svg的代码到html中，但是注意svg不是html的元素，他是svg图形的专用元素，只不过也用了xml的语法 -->
+                        <!-- 这种直接写的方式称之为内联svg，可以用js或者css来操作或调整样式,并且内联SVG还可以用<a>做成超链接 -->
+                        <svg width="220" height="200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                        <radialGradient id="grey_blue" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                                                <stop offset="0%" style="stop-color:rgb(10, 7, 163);
+                                                        stop-opacity:0" />
+                                                <stop offset="100%" style="stop-color:rgb(233, 178, 60);
+                                                        stop-opacity:1" />
+                                        </radialGradient>
+                                </defs>
+
+                                <ellipse cx="120" cy="100" rx="100" ry="100" style="fill:url(#grey_blue)" />
+                        </svg>
+    
                 </section>
                 <section>
                         <!-- 用户必须能够控制视频和音频的回放功能。你可以使用 controls 来包含浏览器提供的控件界面 -->

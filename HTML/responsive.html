@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Responsive HTML images demo</title>
+    <style>
+        html {
+            font-family: sans-serif;
+            background-color: gray;
+        }
+
+        body {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+        }
+
+        header {
+            background: url(../Media/header.jpg) no-repeat center;
+            height: 200px;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        p {
+            line-height: 1.5;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+
+    </header>
+
+    <main>
+        <section>
+            <h1>My website</h1>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget venenatis ligula. Ut lacinia at
+                dolor vitae pulvinar. Aliquam pretium dignissim eros. Integer faucibus, dui non aliquet bibendum, lectus
+                orci lobortis odio, ornare porttitor est tellus eget velit. Nulla eros elit, malesuada id neque vel,
+                viverra vehicula neque. Nullam auctor turpis non leo iaculis finibus. Quisque blandit arcu venenatis
+                libero tempor, ac pulvinar ligula dapibus.</p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam facere, natus fugiat quia, quibusdam ex consequatur esse inventore assumenda vero modi sed necessitatibus distinctio at ipsam maiores optio debitis vitae.
+            <!-- 响应式图像，加载时检测浏览器槽的宽度，根据srcset和size来决定需要加载的尺寸 -->
+            <img srcset="../Media/elva-fairy-320w.jpg 320w,
+                        ../Media/elva-fairy-480w.jpg 480w,
+                        ../Media/elva-fairy-800w.jpg 800w" sizes="(max-width: 320px) 280px,
+                        (max-width: 480px) 440px,
+                        800px" src="../Media/elva-fairy-800w.jpg" alt="Elva dressed as a fairy">
+                
+            <p>Header image originally by <a href="https://www.flickr.com/photos/miwok/17086751527/">Miwok</a>.</p>
+        </section>
+    </main>
+</body>
+
+</html>

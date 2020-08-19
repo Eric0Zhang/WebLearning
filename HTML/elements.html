@@ -8,6 +8,15 @@
         <meta name="author" content="Elliot Zhang">
         <meta name="description" content="Html Learning.">
         <link rel="stylesheet" href="../CSS/style.css">
+        <style>
+                .spanclass {
+                        color: red;
+                }
+
+                .divclass {
+                        font-size: x-large;
+                }
+        </style>
 </head>
 
 <body>
@@ -124,6 +133,14 @@
                         <hr>
                         <p>却说那妖精，脱命升空。原来行者那一棒不曾打杀妖精，妖精出神去了。”
                         </p>
+
+                        <!-- 无语义的块元素和内联元素 div span -->
+                        <!-- div和span是最常用到的无语义的元素,他们可以定义一块内容或者一段内联的内容,然后结合class或者id等属性,用css来操作他们 -->
+                        <!-- html5之前没有header nav main footer这些语义结构元素,所有的结构都是用div配合class id来进行操作的 -->
+                        <div class="divclass">Lorem ipsum dolor sit amet consectetur, adipisicing elit. <span
+                                        class="spanclass"> Dicta </span>accusamus reiciendis adipisci.
+                                Dignissimos possimus facilis quas officiis, voluptas quos sequi expedita quidem magnam
+                                alias iste ipsa, dicta ducimus quia cupiditate?</div>
                 </article>
         </main>
 </body>

@@ -49,6 +49,7 @@
         caption {
             padding: 10px;
         }
+
         /* 这里可以重写覆盖css文件中的属性 */
         main {
             display: grid;
@@ -136,7 +137,7 @@
             </tr>
         </table>
 
-        
+
         <h2>动物表格</h2>
 
         <!--th:table header td:table data tr:table row -->
@@ -170,6 +171,14 @@
 
         <h2>课程表格</h2>
         <table class="CenterTable">
+            <colgroup>
+                <!-- span=2表示这个属性包括前两列,没有属性 -->
+                <col span="3">
+                <col style="width: 42px;">
+                <col>
+                <col style="border:4px solid #C1437A;">
+                <col style="width: 42px;">
+            </colgroup>
             <tr>
                 <td>&nbsp;</td>
                 <th>Mon</th>
@@ -221,6 +230,7 @@
                 <td>&nbsp;</td>
             </tr>
         </table>
+
     </main>
     <footer>
         <p>© 2020 GeniusElliot保留所有权利</p>

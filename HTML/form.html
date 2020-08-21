@@ -1,0 +1,149 @@
+<!--DOCTYPE是声明文档类型 html是根元素，包裹了整个页面 head表示头部，body表示正文，两者都在视图区 meta是元信息元素-->
+<!-- 快捷键说明：CTRL+/添加注释 输入元素名称然后TAB自动添加元素块 !+TAB自动添加HTML框架-->
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <!-- 在head中修改字符集会影响全局 默认应该就是utf-8 -->
+    <meta charset="utf-8">
+    <title>表单</title>
+    <!-- 添加图标 -->
+    <link rel="shortcut icon" href="/Media/LQT202.ico" type="image/x-icon">
+    <!-- author以及description的元数据使得网页更容易被搜索引擎根据内容中的关键词搜索到 -->
+    <meta name="author" content="Elliot Zhang">
+    <meta name="description" content="Html Learning.">
+    <!-- 头部在正文的前面，但是也在视图区 -->
+
+    <link rel="stylesheet" href="../CSS/style.css">
+    <style>
+        form {
+            /* 居中表单 */
+            margin: 0 auto;
+            width: 400px;
+            /* 显示表单的轮廓 */
+            padding: 1em;
+            border: 1px solid #CCC;
+            border-radius: 1em;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        form li+li {
+            margin-top: 1em;
+        }
+
+        label {
+            /* 确保所有label大小相同并正确对齐 */
+            display: inline-block;
+            width: 90px;
+            text-align: right;
+        }
+
+        input,
+        textarea {
+            /* 确保所有文本输入框字体相同
+     textarea默认是等宽字体 */
+            font: 1em sans-serif;
+
+            /* 使所有文本输入框大小相同 */
+            width: 300px;
+            box-sizing: border-box;
+
+            /* 调整文本输入框的边框样式 */
+            border: 1px solid #999;
+        }
+
+        input:focus,
+        textarea:focus {
+            /* 给激活的元素一点高亮效果 */
+            border-color: #000;
+        }
+
+        textarea {
+            /* 使多行文本输入框和它们的label正确对齐 */
+            vertical-align: top;
+
+            /* 给文本留下足够的空间 */
+            height: 5em;
+        }
+
+        .button {
+            /* 把按钮放到和文本输入框一样的位置 */
+            padding-left: 90px;
+            /* 和label的大小一样 */
+        }
+
+        button {
+            /* 这个外边距的大小与label和文本输入框之间的间距差不多 */
+            margin-left: .5em;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>表单</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">
+                    Index</a>
+            </li>
+            <li><a href="elements.html">
+                    Elements</a>
+            </li>
+            <li><a href="media.html">
+                    Media</a>
+            </li>
+            <li>
+                <a href="table.html">
+                    Table</a>
+            </li>
+            <li>
+                <a href="form.html">
+                    Form</a>
+            </li>
+            <li><a href="projects.html">
+                    Projects</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- action 属性定义了在提交表单时,应该把所收集的数据送给谁(/那个模块)(URL)去处理。
+                method 属性定义了发送数据的HTTP方法(它可以是“get”或“post”) -->
+        <form action="/my-handling-form-page" method="post">
+            <div>
+                <!-- for属性:它是将标签链接到表单小部件的一种正规方式。
+                    这个属性引用对应的小部件的id。这样做有一些好处。
+                    最明显的一个好处是允许用户单击标签以激活相应的小部件。 -->
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="usr_name">
+            </div>
+            <div>
+                <label for="mail">E-mail:</label>
+                <input type="email" id="mail" name="usr_email">
+            </div>
+            <div>
+                <label for="msg">Message:</label>
+                <textarea id="msg" name="usr_msg"></textarea>
+            </div>
+            <!-- submit按钮在按下时，调用form的action和method
+            即将表单内容post到action的地址, 服务器端则是后端的内容
+            这里不表-->
+            <div class="button">
+                <button type="submit">Send your message</button>
+            </div>
+        </form>
+    </main>
+    <footer>
+        <p>© 2020 GeniusElliot保留所有权利</p>
+    </footer>
+</body>
+
+</html>

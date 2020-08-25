@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>选择器</title>
+    <!-- 加载CSS有两种方式,一种通过文件加载, 
+        一种直接在head中添加style属性,其中的代码都是CSS语法风格 -->
+    <!-- <link rel="stylesheet" href="../CSS/style.css"> -->
+    <style>
+        /* 元素选择器 */
+        h1 {
+            color: rgb(58, 184, 0);
+            font-size: 30px;
+        }
+
+        /* class选择器 */
+        .orange {
+            color: orange;
+        }
+
+        /* id选择器 */
+        #idgreen {
+            color: rgb(58, 184, 0);
+        }
+
+        /* 组合选择器 */
+        /* 并集选择器 */
+        dt,
+        dd {
+            color: rgb(76, 14, 221);
+        }
+
+        /* 交集选择器 */
+        dt.bigger {
+            font-size: 20px;
+        }
+
+        /* 关系选择器 */
+        /* 子元素选择器 父元素>子元素*/
+        dl.son>dd {
+            color: saddlebrown;
+        }
+
+        /* 孙子元素选择器 爷爷>父亲>儿子 */
+        div.descendants>dl>dt {
+            font-size: 35px;
+        }
+
+        /* 后代元素选择器 祖先 后代 注意后代元素可以是间接包含的*/
+        div.descendants dd {
+            color: seagreen;
+        }
+
+        /* 兄弟元素选择器 
+        下一个兄弟: 兄弟1+兄弟2 对兄弟2生效 在后面的兄弟无效*/
+        p+span {
+            color: slategrey;
+        }
+
+        /* 所有兄弟: 兄弟1~兄弟2 对所有后面的兄弟2类型的元素生效 */
+        p~span {
+            font-size: 30px;
+        }
+
+        /* 属性选择器 */
+        /* 所有有title属性的列表都改字体 */
+        li[title] {
+            font-size: 25px;
+        }
+
+        /* 所有title=step5的列表改颜色 */
+        li[title=step5] {
+            color: tomato;
+        }
+
+        /* 所有title属性值以step开头的改成斜体 */
+        li[title^=step] {
+            font-style: italic;
+        }
+
+        /* 所有title属性以p3结尾的改成绿色 注意至少匹配两个字符,一个无效 */
+        li[title$=p3] {
+            color: seagreen;
+        }
+
+        /* 所有title属性包含ep1的改成紫色 */
+        li[title*=ep1] {
+            color: purple;
+        }
+
+        /* 伪class选择器 */
+        /* 伪类用来描述一个元素的特殊状态 
+        比如:第一个元素 被点击的元素 鼠标移入的元素 */
+        /* 伪类区别于类,用冒号标识 */
+        /* 常用的伪类: 
+            第几个子元素 
+                第一个子元素 first-child 
+                最后一个子元素 last-child 
+                第n个子元素 nth-child(n) n可以是数字,也可以是n全选, 2n或even偶数个, 2n+1或odd奇数个  
+            
+            同类型中的第几个子元素
+                与上面类似, 有 fisrt-of-type last-of-type nth-of-type
+
+            否定伪类
+                :not()将符合条件的元素, 去除效果.
+
+            超链接的伪类
+                :link为正常链接,可以改字体和颜色
+                :visited为访问过的链接,只能改颜色
+                :hover鼠标悬停,可以修改字体和颜色
+                :active鼠标点击,可以修改字体和颜色
+                hover和active是两个通用伪类
+        */
+        ul>li:first-child {
+            color: red;
+        }
+
+        /* 这里是li元素的所有非奇数元素设为蓝色 */
+        ul>li:not(:nth-of-type(odd)) {
+            color: rgb(76, 14, 221);
+        }
+
+        a:hover {
+            color: rgb(58, 184, 0);
+        }
+
+        /* 伪元素选择器 */
+        /* 伪元素用来表示页面元素中一些特殊的位置, 例如一段文字的首字母 */
+        /*
+            首字母 ::first-letter 
+            第一行 ::first-line
+            选中的文字 ::selection
+
+            元素的开始位置 ::before
+            元素的结束位置 ::after
+                before和after必须配合content使用,不然没有内容
+         */
+        p.orange::first-letter {
+            font-size: 40px;
+        }
+
+        p.orange::selection {
+            background-color: slategray;
+        }
+
+        #idgreen::before {
+            content: "[";
+            color: tan;
+        }
+
+        #idgreen::after {
+            content: "]";
+            color: tan;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CSS学习页面</h1>
+    <p class="orange">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Harum libero maxime ut minus voluptates recusandae,
+        sequi ullam ea animi voluptas eum laboriosam praesentium officiis repellat?
+        Recusandae fugiat necessitatibus quam expedita!</p>
+    <p id="idgreen">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Harum libero maxime ut minus voluptates recusandae,
+        sequi ullam ea animi voluptas eum laboriosam praesentium officiis repellat?
+        Recusandae fugiat necessitatibus quam expedita!</p>
+    <p class="orange">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Harum libero maxime ut minus voluptates recusandae,
+        sequi ullam ea animi voluptas eum laboriosam praesentium officiis repellat?
+        Recusandae fugiat necessitatibus quam expedita!</p>
+    <dl class="son">
+        <dt class="bigger">内心独白</dt>
+        <dd>戏剧中，某个角色对自己的内心活动或感受进行念白表演，这些台词只面向观众，而其他角色不会听到。</dd>
+        <dt>语言独白</dt>
+        <dd>戏剧中，某个角色把自己的想法直接进行念白表演，观众和其他角色都可以听到。</dd>
+        <dt>旁白</dt>
+        <dd>戏剧中，为渲染幽默或戏剧性效果而进行的场景之外的补充注释念白，只面向观众，内容一般都是角色的感受、想法、以及一些背景信息等。</dd>
+    </dl>
+    <div class="descendants">
+        <dl>
+            <dt class="bigger">内心独白</dt>
+            <dd>戏剧中，某个角色对自己的内心活动或感受进行念白表演，这些台词只面向观众，而其他角色不会听到。</dd>
+            <dt>语言独白</dt>
+            <dd>戏剧中，某个角色把自己的想法直接进行念白表演，观众和其他角色都可以听到。</dd>
+            <dt>旁白</dt>
+            <dd>戏剧中，为渲染幽默或戏剧性效果而进行的场景之外的补充注释念白，只面向观众，内容一般都是角色的感受、想法、以及一些背景信息等。</dd>
+        </dl>
+    </div>
+
+    <div>
+        <p>我是DIV中的P</p>
+        <span>我是div中的span</span>
+        <span>我是div中的第二个span</span>
+        <li>我是div中的list</li>
+    </div>
+    <ol>
+        <li title="step1">沿着条路走到头</li>
+        <li title="step2">右转</li>
+        <li title="step3">直行穿过第一个十字路口</li>
+        <li title="step4">在第三个十字路口处左转</li>
+        <li title="step5">继续走 300 米，学校就在你的右手边</li>
+    </ol>
+
+    <!-- 注意这里可以利用css的子元素选择器语法快速输入结构 -->
+    <!-- 输入ul>li*3然后按tab或回车,会自动产生包含的结构 -->
+    <!-- 填完一个内容,按tab键会跳到第二个当中 -->
+    <ul>
+        <li>第一个</li>
+        <li>第二个</li>
+        <span>我是夹在中间的span</span>
+        <li>第三个</li>
+        <li>第四个</li>
+        <li>第五个</li>
+    </ul>
+
+    <!-- 超链接伪类选择器 -->
+    <p>
+        <a href="http://www.geniuseric.xyz/weblearning/HTML/index.html">谷歌云镜像</a>
+    </p>
+</body>
+
+</html>

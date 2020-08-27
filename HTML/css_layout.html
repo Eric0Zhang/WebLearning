@@ -1,20 +1,64 @@
 <!DOCTYPE html>
 <html lang="zh">
+<!-- 本节内容：继承 优先级  -->
 
 <head>
     <meta charset="UTF-8">
     <title>布局</title>
     <style>
+        /* body选择器的内容会被所有正文部分的元素继承 
+        但是特殊的例如背景相关和布局相关的样式，不会被继承
+        要查看某个样式是否能够被继承可以查看该样式的
+        Formal definition表格中的inherited是否为yes*/
+        body {
+            font-family: 'Microsoft YaHei';
+        }
 
+        p {
+            font-weight: bold;
+        }
+
+        /* 样式冲突 通过不同的选择器选择相同的元素
+        且同一个样式的值不同，这时由选择器的权重决定谁生效
+        权重由高到底：
+        0、特权优先级 ∞ （!important）
+        1、内联样式 1000
+        2、id选择器 0100
+        3、类和伪类选择器 0010
+        4、元素选择器 0001
+        5、通配选择器 0000
+        6、继承的样式 -1
+        对于组合选择器，要将优先级的值相加后得到的值作为新的优先级
+        例如 p#id 就是元素+id = 0101
+        但是同类的优先级不能进位，如某个组合选择器有20个class，
+        他所有的class加起来最多算到0090，不会达到id选择器的优先级
+        优先级相同的情况下，排在后面的选择器生效
+        
+        */
+        /* 0011 */
+        div.red {
+            color: rgb(140, 202, 26);
+        }
+
+        /* 0010 */
+        .red {
+            color: red;
+        }
     </style>
 </head>
 
 <body>
     <h1>布局学习</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    <h2>继承</h2>
+    <!-- 注意这里p元素加粗，其后代元素span也自动被加粗，这就是CSS的继承机制 -->
+    <p>Lorem ipsum dolor <span>sit amet</span> consectetur adipisicing elit.
         Harum libero maxime ut minus voluptates recusandae,
         sequi ullam ea animi voluptas eum laboriosam praesentium officiis repellat?
         Recusandae fugiat necessitatibus quam expedita!</p>
+    <h2>优先级</h2>
+    <div id="box1" class="red">我是一个DIV</div>
+    <h2>像素和百分比</h2>
+
 </body>
 
 </html>

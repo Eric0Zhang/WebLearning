@@ -44,6 +44,109 @@
         .red {
             color: red;
         }
+
+        /* 长度单位:
+                像素 不同设备不同
+                百分比 相对于父元素大小的百分比
+                em 字体像素大小, 例如字体16px, 10em = 160px
+                rem 相对于根元素(html)的字体大小, 修改html的字体才会变
+        */
+        /* 颜色单位
+            颜色名 比如red green
+            RGB 比如rgb(100,100,100) 可以用0-255 也可以用百分比
+            RGBA A通道表示透明度 0-1浮点数
+            十六进制RGB #ff0000 如果每两位重复可以简写, 如#bfa
+            HSL HSLA H色相(0-360) S饱和度(0-100%) L亮度(0-100%)
+         */
+        .box {
+
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+        }
+
+        .boxin {
+            /* 百分比跟着父元素变化,实现组合变化 */
+            width: 50%;
+            height: 50%;
+            background-color: rgba(100, 100, 100, 0.2);
+        }
+
+        .box2 {
+            /* em数 X 字体大小 = 像素数 */
+            font-size: 20px;
+            width: 10em;
+            height: 10em;
+            background-color: hsl(0, 50%, 50%);
+        }
+
+        .div1 {
+            background-color: rgb(184, 106, 240);
+        }
+
+        .span1 {
+            background-color: lightcoral;
+        }
+
+        .bmdiv1 {
+            /* 
+             - width height为内容区content宽高 
+             - 边框至少要设置三个样式:border-width border-color border-style 边框的宽 色 样式   
+             - 边框的大小会影响盒子的整体大小, 边框变大, 会在内容区大小基础上外扩
+             - 
+            */
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            /* 边框默认3像素,可以不写, 也可以分开写:
+                - 四个值:上右下左 
+                - 三个值:上 左右 下
+                - 两个值:上下 左右
+                - 一个值:上下左右都一样
+                也可以用 border-top-width boder-left-width等单独指定
+                */
+            border-width: 5px 10px 15px 20px;
+            /* 颜色也是可以指定四个边不同 默认使用color的颜色 即前景色(文本)的颜色 */
+            border-color: lightcoral green red blue;
+            /* 边框样式也是可以四个方向单独指定 
+                - none 无边框
+                - solid 实线
+                - dotted 点状虚线
+                - dashed 虚线
+                - double 双线
+                虚线类的背景色会沿用内容区的背景色,即backgroud-color所指定的颜色
+                边框样式默认是无边框
+                */
+            border-style: solid dotted dashed double;
+            /* 边框也可以使用简写样式,指定所有参数 */
+            /*
+            border: 10px orange solid;
+            border-top...
+            border-left...
+            border-bottom...
+            border-right...
+            */
+
+            /* 内边距(padding) 
+                - 内容区和边框之间的距离是内边距
+                - 一共有四个方向: top right bottom left
+                - 内边距的变化会影响盒子大小
+                - 背景颜色会延伸到内边距
+
+                盒子的所有可见部分的大小由content padding border三者的宽高相加得到
+                */
+            padding: 5px 10px 15px 20px;
+
+            /* 外边距(margin) 
+                - 
+            */
+        }
+
+        .bmdivinner {
+            width: 100%;
+            height: 100%;
+            background-color: orange;
+        }
     </style>
 </head>
 
@@ -56,9 +159,53 @@
         sequi ullam ea animi voluptas eum laboriosam praesentium officiis repellat?
         Recusandae fugiat necessitatibus quam expedita!</p>
     <h2>优先级</h2>
-    <div id="box1" class="red">我是一个DIV</div>
+    <div class="red">我是一个DIV</div>
     <h2>像素和百分比</h2>
+    <!-- 可以输入.box tab或回车直接输入div -->
+    <div class="box">
+        <div class="boxin"></div>
+    </div>
+    <div class="box2"></div>
+    <h2>布局</h2>
+    <!-- 文档流(normal flow)
+        - 网页是一个多层结构,一层落着一层
+        - 通过CSS可以分别为每一层来设置样式
+        - 作为用户只能看到最上面一层
+        - 这些层中,最底下的一层称为文档流,文档流是网页的基础
+        - 我们所创建的元素默认都是在文档流中进行排列 
+        - 元素可以脱离文档流, 后面在学习
+        - 元素在文档流中分为两种形式:
+            - 块元素 
+                - 块元素会独占一行 
+                - 默认宽度填满父元素的整行 
+                - 默认高度是内容的高度 比如文字的高度 图片的高度
+            - 内联元素 
+                - 内联元素只占本身的宽度大小
+                - 如果一行容纳不下了,会自动换行,继续自左向右排列
+        -->
+    <div class="div1">我是一号DIV</div>
+    <div class="div2">我是二号DIV</div>
+    <span class="span1">我是一个SPAN</span>
+    <span class="span1">我是一个SPAN</span>
+    <span class="span1">我是一个SPAN</span>
+    <span class="span1">我是一个SPAN</span>
+    <h2>盒模型</h2>
+    <!-- 
+        盒模型(box model)
+            - CSS将页面中的所有元素都设置为一个矩形的盒子
+            - 将元素设置为矩形的盒子后,对页面的收据就变成了将盒子放到指定位置
+            - 所有的元素都是一个矩形盒子
+            - 每个盒子都有下面几个部分组成:
+                - 内容区(content) 内容放置的区域
+                - 边框(border) 边框也有粗细
+                - 内边距(padding) 内容和边框中间的间距
+                - 外边距(margin) 边框和外部其他盒子之间的间距
 
+     -->
+    <div class="bmdiv1">
+        <!-- 用无边框无间距的内部元素撑满内容区 -->
+        <div class="bmdivinner"></div>
+    </div>
 </body>
 
 </html>

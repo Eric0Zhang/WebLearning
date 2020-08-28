@@ -138,14 +138,87 @@
             padding: 5px 10px 15px 20px;
 
             /* 外边距(margin) 
-                - 
+                - 外边距不会影响盒子的可见框大小
+                - 但是外边距会影响盒子的位置
+                - 外边距也有四个方向：margin-top ...
+                - margin可以设置为负值
             */
+            margin: 20px;
         }
 
         .bmdivinner {
             width: 100%;
             height: 100%;
             background-color: orange;
+        }
+
+        .bmdiv2 {
+            width: 200px;
+            height: 200px;
+            border: solid 10px red;
+            background-color: #bfa;
+            margin: 20px;
+        }
+
+        .spdiv1 {
+            width: 800px;
+            height: 200px;
+            border: 10px orange solid;
+        }
+
+        .spinner1 {
+            width: 200px;
+            height: 200px;
+            background-color: #bbffaa;
+            /* 水平方向布局
+                - 元素再起父元素中水平方向的位置由以下几个属性决定
+                    - margin-left
+                    - border-left
+                    - padding-left
+                    - width
+                    - padding-right
+                    - border-right
+                    - margin-right
+                - 一个元素在其父元素中，水平布局必须满足：上面七个值的和 = 父元素content宽度
+                - 在不使用auto的情况下，如果等式不成立，那么浏览器会自动将缺少的值加到margin-right
+                - 上述七个样式中，有三个可以设置为auto：
+                    - width
+                    - margin-left
+                    - margin-right
+                - 在上述三个样式有auto的情况下，浏览器会自动分配上述三个值
+                - 例如width：auto; 则会让宽度填满父元素
+                - width的默认值是auto, 
+                - 如果width和外边距都设置为auto，按照宽度最大原则自动
+                - 如果左右两个外边距是auto，width给定，那么width居中
+                    - width: 100px;
+                    - margin:0 auto; 上下为零，左右auto
+             */
+            margin-left: auto;
+            width: 400px;
+            margin-right: auto;
+        }
+
+        .czdiv {
+            background-color: #bfa;
+            height:100px;
+            /* 
+                默认情况下父元素的高度被子元素，即内容撑开
+                如果指定的父元素的高度，而子元素的高度超过了父元素的高度，那么子元素会溢出
+                可以用父元素的overflow属性来处理这种溢出
+                    overflow:hidden 可以隐藏溢出部分
+                    overflow:scroll 滚动溢出部分，垂直水平滚动条都出现
+                    overflow:auto 根据需要生成滚动条
+                    overflow-x 处理水平溢出
+                    overflow-y 处理垂直溢出
+             */
+             overflow: auto;
+        }
+
+        .czinner {
+            width: 100px;
+            background-color: orange;
+            height: 300px;
+            margin-bottom: 100px;
         }
     </style>
 </head>
@@ -205,6 +278,15 @@
     <div class="bmdiv1">
         <!-- 用无边框无间距的内部元素撑满内容区 -->
         <div class="bmdivinner"></div>
+    </div>
+    <div class="bmdiv2"></div>
+    <h2>水平方向的布局</h2>
+    <div class="spdiv1">
+        <div class="spinner1"></div>
+    </div>
+    <h2>垂直方向的布局</h2>
+    <div class="czdiv">
+        <div class="czinner"></div>
     </div>
 </body>
 

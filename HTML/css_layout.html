@@ -14,6 +14,14 @@
             font-family: 'Microsoft YaHei';
         }
 
+        /* 去除浏览器的默认样式 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 还可以调用通用的重置样式表reset.css 或者 normalize.css去除所有元素的默认样式 */
+
         p {
             font-weight: bold;
         }
@@ -200,7 +208,7 @@
 
         .czdiv {
             background-color: #bfa;
-            height:100px;
+            height: 100px;
             /* 
                 默认情况下父元素的高度被子元素，即内容撑开
                 如果指定的父元素的高度，而子元素的高度超过了父元素的高度，那么子元素会溢出
@@ -211,7 +219,7 @@
                     overflow-x 处理水平溢出
                     overflow-y 处理垂直溢出
              */
-             overflow: auto;
+            overflow: auto;
         }
 
         .czinner {
@@ -219,6 +227,100 @@
             background-color: orange;
             height: 300px;
             margin-bottom: 100px;
+        }
+
+        .zdbox1,
+        .zdbox2 {
+            width: 200px;
+            height: 200px;
+            font-size: 100px;
+        }
+
+        /* 
+            垂直外边距的重叠（折叠）
+                - 相邻的垂直方向外边距会发生重叠现象
+                - 兄弟元素
+                    - 兄弟元素间的相邻垂直外边距会取两者之间的较大值（两者都是正值）
+                    - 特殊情况：
+                        如果相邻的外边距一正一负，则取两者的和
+                        如果相邻的外边距都是负值，则取两者中绝对值较大的
+                    - 兄弟元素之间的外边距的重叠，对于开发是有利的，所以我们不需要进行处理
+
+
+                - 父子元素
+                    - 父子元素间相邻外边距，子元素的会传递给父元素（上外边距）
+                    - 父子外边距的折叠会影响到页面的布局，必须要进行处理
+        
+         */
+
+        .zdbox1 {
+            background-color: #bfa;
+
+            /* 设置一个下外边距 */
+            margin-bottom: 50px;
+        }
+
+        .zdbox2 {
+            background-color: orange;
+
+            /* 设置一个上外边距 */
+            margin-top: 50px;
+        }
+
+        .zdbox3 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            /* padding-top: 100px; */
+            /* border-top: 1px #bfa solid; */
+        }
+
+        .zdbox4 {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            margin-top: 100px;
+        }
+
+        .hns1 {
+            background-color: orange;
+            /* 
+                内联元素的盒模型
+                    - 内联元素不支持设置宽度和高度
+                    - 内联元素可以设置padding,但是垂直方向padding不会影响页面布局(不会挤走下面的元素)
+                    - 内联元素可以设置border,但是垂直方向border不会影响页面布局
+                    - 内联元素可以设置margin,但是垂直方向margin不会影响页面布局
+                    - 水平方向和块元素一样,两个margin相加,不会折叠
+             */
+            margin: 100px;
+        }
+
+        .hndiv1 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+        }
+
+        .hna {
+            /* 
+                a元素 超链接 属于内联元素, 是无法设置宽高的
+                如果一定要实现固定大小的宽高,可以通过display样式
+                display 用来设置元素显示的类型
+                    inline 设置为内联元素
+                    block 设置为块元素
+                    inline-block 设置为块元素,但是不会独占一行
+                    table 设置为表格
+                    none 元素不在页面中显示,不占位
+                visibility 用来设置元素的显示状态
+                    visible 正常显示
+                    hidden 元素在页面中隐藏,不显示 但是仍然占位
+
+             */
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+            background-color: #bfa;
         }
     </style>
 </head>
@@ -273,7 +375,6 @@
                 - 边框(border) 边框也有粗细
                 - 内边距(padding) 内容和边框中间的间距
                 - 外边距(margin) 边框和外部其他盒子之间的间距
-
      -->
     <div class="bmdiv1">
         <!-- 用无边框无间距的内部元素撑满内容区 -->
@@ -288,6 +389,22 @@
     <div class="czdiv">
         <div class="czinner"></div>
     </div>
+
+    <h2>外边距的折叠</h2>
+    <div class="zdbox1"></div>
+    <div class="zdbox2"></div>
+
+    <div class="zdbox3">
+        <div class="zdbox4"></div>
+    </div>
+    <h2>内联元素盒模型</h2>
+    <a class="hna" href="">我是超链接</a>
+    <span class="hns1">我是span</span>
+    <span class="hns1">我是span</span>
+    <div class="hndiv1"></div>
+
+
+
 </body>
 
 </html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh">
+<!-- 本节内容：浮动 -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>浮动</title>
+    <style>
+        .bibox0 {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(21, 117, 207);
+        }
+
+        .bibox1 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+
+            /* 
+                通过浮动可以使一个元素向其父元素的左侧或右侧移动
+                    使用 float 属性来设置于元素的浮动
+                        可选值：
+                            none 默认值 ，元素不浮动
+                            left 元素向左浮动
+                            right 元素向右浮动
+
+                    注意，元素设置浮动以后，水平布局的等式便不需要强制成立
+                        元素设置浮动以后，会完全从文档流中脱离，不再占用文档流的位置，
+                            所以元素下边的还在文档流中的元素会自动向上移动
+
+                    浮动的特点：
+                        1、浮动元素会完全脱离文档流，不再占据文档流中的位置
+                        2、设置浮动以后元素会向父元素的左侧或右侧移动，
+                        3、浮动元素默认不会从父元素中移出
+                        4、浮动元素向左或向右移动时，不会超过它前边的其他浮动元素
+                        5、如果浮动元素的上边是一个没有浮动的块元素，则浮动元素无法上移
+                        6、浮动元素不会超过它上边的浮动的兄弟元素，最多最多就是和它一样高
+
+                    简单总结：
+                        浮动目前来讲它的主要作用就是让页面中的元素可以水平排列，
+                            通过浮动可以制作一些水平方向的布局    
+             */
+
+            float: left;
+        }
+
+        .bibox2 {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            float: left;
+        }
+
+        .bibox3 {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            float: right;
+        }
+
+        .tdbox1 {
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            float: left;
+        }
+
+        .tdbox2 {
+            background-color: #bfa;
+            float: left;
+        }
+
+        .tdbox3 {
+            background-color: orange;
+            /* float: left; */
+        }
+
+        .tds1 {
+            width: 100px;
+            height: 100px;
+            background-color: palegoldenrod;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">
+                    Index</a>
+            </li>
+            <li><a href="csslearning.html">
+                    CSS Index</a>
+            </li>
+            <li><a href="css_projects.html">
+                    CSS Projects</a>
+            </li>
+        </ul>
+    </nav>
+    <h1>浮动</h1>
+    <h2>浮动的简介</h2>
+    <div class="bibox0">不浮动</div>
+    <div class="bibox1">左浮动</div>
+    <div class="bibox2">左浮动</div>
+    <div class="bibox3">右浮动</div>
+
+    <br><br><br><br><br><br><br><br><br><br><br>
+
+    <h2>浮动的特点</h2>
+    <div class="tdbox1"></div>
+    <!-- 这里注意文字不会被浮动块覆盖，会自动实现文字环绕 -->
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+        Neque, voluptas enim quod dolores perferendis quia eum
+        voluptatum perspiciatis ipsam, eaque natus alias quidem debitis,
+        ducimus nesciunt expedita veritatis? Veritatis,
+        odit!</p>
+    <br>
+    <br>
+    <br>
+    <!-- 块元素 设置浮动以后 从文档流脱离，不再像文档流中的块元素那样独占一行，
+        自动填充的右边距消失，宽度高度被内容撑开
+    -->
+    <div class="tdbox2">hello</div>
+    <div class="tdbox3">hello</div>
+
+    <!-- 内联元素 设置浮动以后 从文档流脱离，不再像文档流中的内联元素一样无法设置宽高（被内容撑开） 
+            宽高设置将对浮动的内联元素生效
+    -->
+    <span class="tds1">我是一个span</span>
+    <!-- 总结一下：脱离文档流以后，就不再区分块元素和内联元素了，成为了独立的浮动元素 -->
+</body>
+
+</html>

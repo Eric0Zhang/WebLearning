@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh">
-<!-- 本节内容：继承 优先级  -->
+<!-- 本节内容：继承 优先级 基础布局 盒模型 -->
 
 <head>
     <meta charset="UTF-8">
-    <title>布局</title>
+    <title>基础布局</title>
     <style>
         /* body选择器的内容会被所有正文部分的元素继承 
         但是特殊的例如背景相关和布局相关的样式，不会被继承
@@ -322,12 +322,98 @@
             margin-bottom: 10px;
             background-color: #bfa;
         }
+
+        .ccbox1 {
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            border: 10px red solid;
+            margin: 0 auto;
+            /* 
+                默认情况下盒子的大小是由content padding border共同组成
+                但是可以通过指定box-sizing属性的值，修改width height的作用对象
+                默认值就是content-box，改成border-box，则w h将指定边框大小
+             */
+            box-sizing: content-box;
+        }
+
+        .lkbox1 {
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            margin: 0 auto;
+        }
+
+        .lkbox1:hover {
+            outline: 10px red solid;
+            /* outline和border用法类似，但是它是向content和padding外增加一个轮廓，
+            不会影响布局和盒子尺寸，相邻的元素不会被挤走 */
+        }
+
+        .lktext {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+        }
+
+        .lkbox2 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+
+            /* box-shadow 用来设置元素的阴影效果，阴影不会影响页面布局 
+                第一个值 水平偏移量 设置阴影的水平位置 正值向右移动 负值向左移动
+                第二个值 垂直偏移量 设置阴影的水平位置 正值向下移动 负值向上移动
+                第三个值 阴影的模糊半径
+                第四个值 阴影的颜色
+            */
+
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, .6);
+        }
+
+
+
+        .lkbox3 {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+
+            /* border-radius: 用来设置圆角 圆角设置的圆的半径大小*/
+
+            /* border-top-left-radius:  */
+            /* border-top-right-radius */
+            /* border-bottom-left-radius:  */
+            /* border-bottom-right-radius:  */
+            /* border-top-left-radius:50px 100px; 可以指定两个值，则两边弧度不一样*/
+
+            /* 
+                border-radius 可以分别指定四个角的圆角
+                    四个值 左上 右上 右下 左下
+                    三个值 左上 右上/左下 右下 
+                    两个个值 左上/右下 右上/左下  
+              */
+            border-radius: 20%;
+        }
     </style>
 </head>
 
 <body>
-    <h1>布局学习</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">
+                    Index</a>
+            </li>
+            <li><a href="csslearning.html">
+                    CSS Index</a>
+            </li>
+            <li><a href="css_projects.html">
+                    CSS Projects</a>
+            </li>
+        </ul>
+    </nav>
+    <h1>基础布局</h1>
     <h2>继承</h2>
+
     <!-- 注意这里p元素加粗，其后代元素span也自动被加粗，这就是CSS的继承机制 -->
     <p>Lorem ipsum dolor <span>sit amet</span> consectetur adipisicing elit.
         Harum libero maxime ut minus voluptates recusandae,
@@ -402,9 +488,14 @@
     <span class="hns1">我是span</span>
     <span class="hns1">我是span</span>
     <div class="hndiv1"></div>
-
-
-
+    <h2>盒子的尺寸</h2>
+    <div class="ccbox1"></div>
+    <h2>轮廓阴影和圆角</h2>
+    <div class="lkbox1"></div>
+    <div class="lktext">你好啊</div>
+    <div class="lkbox2"></div>
+    <br>
+    <div class="lkbox3"></div>
 </body>
 
 </html>

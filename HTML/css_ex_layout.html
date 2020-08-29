@@ -23,7 +23,12 @@
         }
 
         .jddh p {
-            margin: 3px 15px;
+            padding: 3px 15px;
+            font-size: 14px;
+            margin: 0px;
+            /* 要让超链接在P中垂直居中，可以用line-height与p一致即可 */
+            height: 25px;
+            line-height: 25px;
         }
 
         div.jddh p:hover {
@@ -38,33 +43,75 @@
 
         .tplb {
             margin-left: 2px;
+
         }
 
         .tplb ul {
+            background-color: rgb(231, 230, 230);
+            width: 190px;
+            height: 470px;
             padding-left: 0px;
             margin-left: 0px;
+            overflow: hidden;
+            margin: 50px auto;
+            padding: 10px;
         }
 
         .tplb ul li {
             list-style: none;
+            padding: 3px 0px;
         }
 
         .tplb img {
-            width: 200px;
-            height: 160px;
+            /* 
+                改一个宽度 高度会按比例一起改 
+                这里是父元素ul的100%
+                */
+            width: 100%;
+        }
+
+        .wyxw {
+            background-color: white;
+            width: 300px;
+            padding: 0px 20px;
+            border-top: 1px rgb(163, 162, 162) solid;
+        }
+
+        .wyxw>h3 {
+            margin-top: 0px;
+        }
+
+        .wyxw .title {
+            border-top: 1px red solid;
+            margin-top: -1px;
+            text-decoration: none;
         }
 
         .wyxw a.newsmain {
             display: block;
+            text-decoration: none;
         }
 
         .wyxw ul {
             margin-left: 0px;
             padding-left: 15px;
+            list-style-type: square;
         }
 
+        .wyxw ul li {
+            margin-top: 8px;
+        }
+
+        /* 
+        .wyxw ul li::before {
+            content: "■";
+            font-size: 12px;
+            color: rgb(104, 104, 104);
+        } */
+
         .wyxw ul li a {
-            color: rgb(109, 109, 109);
+            font-size: 14px;
+            color: rgb(104, 104, 104);
         }
 
         .wyxw ul li a:link {
@@ -73,6 +120,14 @@
 
         .wyxw ul li a:hover {
             color: red;
+        }
+
+        .newsmain>.imgtitle {
+            margin-top: -30px;
+            margin-left: 10px;
+            font-size: 16px;
+            font: bold;
+            color: white;
         }
     </style>
 </head>
@@ -155,9 +210,11 @@
     <img src="/Media/03_网易的新闻列表.png" alt="网易新闻列表">
     <h2>练习实现</h2>
     <div class="wyxw">
+        <h3> <a class="title" href="">军事新闻</a></h3>
         <a class="newsmain" href="">
             <img src="https://cms-bucket.ws.126.net/2020/0828/0bf94e7bj00qfr2z80030c000s600e3c.jpg?imageView&thumbnail=300y150&type=webp"
                 alt="国际军事">
+            <h3 class="imgtitle">解放军华东野战军 针对络嵌控制全军演戏</h3>
         </a>
         <ul>
             <li>

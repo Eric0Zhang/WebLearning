@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>布局练习</title>
+    <style>
+        body {
+            background-color: rgb(238, 238, 238);
+        }
+
+        .jddh a {
+            color: black;
+        }
+
+        .jddh a:link {
+            text-decoration: none;
+        }
+
+        .jddh a:hover {
+            color: rgb(248, 61, 28);
+        }
+
+        .jddh p {
+            margin: 3px 15px;
+        }
+
+        div.jddh p:hover {
+            background-color: rgb(236, 236, 236);
+        }
+
+        div.jddh {
+            width: fit-content;
+            /* padding: 10px 15px; */
+            background-color: white;
+        }
+
+        .tplb {
+            margin-left: 2px;
+        }
+
+        .tplb ul {
+            padding-left: 0px;
+            margin-left: 0px;
+        }
+
+        .tplb ul li {
+            list-style: none;
+        }
+
+        .tplb img {
+            width: 200px;
+            height: 160px;
+        }
+
+        .wyxw a.newsmain {
+            display: block;
+        }
+
+        .wyxw ul {
+            margin-left: 0px;
+            padding-left: 15px;
+        }
+
+        .wyxw ul li a {
+            color: rgb(109, 109, 109);
+        }
+
+        .wyxw ul li a:link {
+            text-decoration: none;
+        }
+
+        .wyxw ul li a:hover {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>京东左侧导航</h1>
+    <h2>效果图</h2>
+    <img src="/Media/02_京东左侧导航.png" alt="京东垂直导航栏">
+    <h2>练习实现</h2>
+    <div class="jddh">
+        <p>
+            <a href="">家用电器</a>
+        </p>
+        <p>
+            <a href="">手机</a>/<a href="">运营商</a>/<a href="">数码</a>
+        </p>
+        <p>
+            <a href="">电脑</a>/<a href="">办公</a>
+        </p>
+        <p>
+            <a href="">家居</a>/<a href="">家居</a>/<a href="">家装</a>/<a href="">厨具</a>
+        </p>
+        <p>
+            <a href="">男装</a>/<a href="">女装</a>/<a href="">童装</a>/<a href="">内衣</a>
+        </p>
+        <p>
+            <a href="">房产</a>/<a href="">汽车</a>
+        </p>
+        <p>
+            <a href="">母婴</a>/<a href="">玩具</a>
+        </p>
+        <p>
+            <a href="">食品</a>/<a href="">酒类</a>
+        </p>
+        <p>
+            <a href="">图书</a>/<a href="">电子书</a>
+        </p>
+        <p>
+            <a href="">机票</a>/<a href="">酒店</a>/<a href="">旅游</a>/<a href="">生活</a>
+        </p>
+        <p>
+            <a href="">理财</a>/<a href="">众筹</a>/<a href="">白条</a>/<a href="">保险</a>
+        </p>
+        <p>
+            <a href="">安装</a>/<a href="">维修</a>/<a href="">清洗</a>/<a href="">二手</a>
+        </p>
+        <p>
+            <a href="">工业品</a>
+        </p>
+    </div>
+    <h1>图片列表</h1>
+    <h2>效果图</h2>
+    <img src="/Media/01_图片列表.png" alt="图片列表">
+    <h2>练习实现</h2>
+    <div class="tplb">
+        <ul>
+            <li>
+                <a href="">
+                    <img src="http://img12.360buyimg.com/babel/s380x300_jfs/t1/112807/27/16340/77041/5f489113E3cdfa2db/43dcbfd2920d7b90.jpg.webp"
+                        alt="肉">
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="//img11.360buyimg.com/babel/s380x300_jfs/t1/139808/3/5975/65954/5f3faedaE0b786631/56586c4b6d00b205.jpg.webp"
+                        alt="书">
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="//img11.360buyimg.com/pop/s380x300_jfs/t1/111733/32/15029/51392/5f363bdcE8e0de26f/b195cff6af3a6dd7.jpg.webp"
+                        alt="护肤">
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <h1>网易新闻列表</h1>
+    <h2>效果图</h2>
+    <img src="/Media/03_网易的新闻列表.png" alt="网易新闻列表">
+    <h2>练习实现</h2>
+    <div class="wyxw">
+        <a class="newsmain" href="">
+            <img src="https://cms-bucket.ws.126.net/2020/0828/0bf94e7bj00qfr2z80030c000s600e3c.jpg?imageView&thumbnail=300y150&type=webp"
+                alt="国际军事">
+        </a>
+        <ul>
+            <li>
+                <a href="">浙江武警支队大练兵：使用崭新03式自动步枪</a>
+            </li>
+            <li>
+                <a href="">现实版飞行航母，空中母舰试飞验证回收系统</a>
+            </li>
+            <li>
+                <a href="">京沈高铁顺利完成全部架梁任务</a>
+            </li>
+            <li>
+                <a href="">回国机票层层加价经济舱炒至18万 已成立专</a>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

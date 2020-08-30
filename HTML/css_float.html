@@ -82,6 +82,53 @@
             background-color: palegoldenrod;
             float: left;
         }
+
+        .fdtd {
+            background-color: #2e2c2c;
+        }
+
+        .txouter {
+            border: 10px red solid;
+
+            /* 
+                BFC(Block Formatting Context) 块级格式化环境
+                    - BFC是一个CSS中的一个隐含的属性，可以为一个元素开启BFC
+                        开启BFC该元素会变成一个独立的布局区域
+                    - 元素开启BFC后的特点：
+                        1.开启BFC的元素不会被浮动元素所覆盖
+                        2.开启BFC的元素子元素和父元素外边距不会重叠
+                        3.开启BFC的元素可以包含浮动的子元素
+
+                    - 可以通过一些特殊方式来开启元素的BFC：
+                        1、设置元素的浮动（不推荐）
+                        2、将元素设置为行内块元素（不推荐）
+                        3、将元素的overflow设置为一个非visible的值
+                            - 常用的方式 为元素设置 overflow:hidden 开启其BFC 以使其可以包含浮动元素
+            
+             */
+
+            /* float: left; */
+            /* display: inline-block; */
+            overflow: hidden;
+        }
+
+        .txinner {
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+
+            /* 
+                高度塌陷的问题：
+                    在浮动布局中，父元素的高度默认是被子元素撑开的，
+                        当子元素浮动后，其会完全脱离文档流，子元素从文档流中脱离
+                        将会无法撑起父元素的高度，导致父元素的高度丢失
+
+                    父元素高度丢失以后，其下的元素会自动上移，导致页面的布局混乱
+
+                    所以高度塌陷是浮动布局中比较常见的一个问题，这个问题我们必须要进行处理！
+             */
+            float: left;
+        }
     </style>
 </head>
 
@@ -107,29 +154,48 @@
     <div class="bibox3">右浮动</div>
 
     <br><br><br><br><br><br><br><br><br><br><br>
-
-    <h2>浮动的特点</h2>
-    <div class="tdbox1"></div>
-    <!-- 这里注意文字不会被浮动块覆盖，会自动实现文字环绕 -->
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-        Neque, voluptas enim quod dolores perferendis quia eum
-        voluptatum perspiciatis ipsam, eaque natus alias quidem debitis,
-        ducimus nesciunt expedita veritatis? Veritatis,
-        odit!</p>
-    <br>
-    <br>
-    <br>
-    <!-- 块元素 设置浮动以后 从文档流脱离，不再像文档流中的块元素那样独占一行，
+    <!-- 本节内容的div没有指定高度，其高度一直被块元素tdbox3撑到其下沿，内部的浮动元素（tds1）导致其高度塌陷 -->
+    <div class="fdtd">
+        <h2>浮动的特点</h2>
+        <div class="tdbox1"></div>
+        <!-- 这里注意文字不会被浮动块覆盖，会自动实现文字环绕 -->
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Neque, voluptas enim quod dolores perferendis quia eum
+            voluptatum perspiciatis ipsam, eaque natus alias quidem debitis,
+            ducimus nesciunt expedita veritatis? Veritatis,
+            odit!</p>
+        <br>
+        <br>
+        <br>
+        <!-- 块元素 设置浮动以后 从文档流脱离，不再像文档流中的块元素那样独占一行，
         自动填充的右边距消失，宽度高度被内容撑开
     -->
-    <div class="tdbox2">hello</div>
-    <div class="tdbox3">hello</div>
+        <div class="tdbox2">hello</div>
+        <div class="tdbox3">hello</div>
 
-    <!-- 内联元素 设置浮动以后 从文档流脱离，不再像文档流中的内联元素一样无法设置宽高（被内容撑开） 
+        <!-- 内联元素 设置浮动以后 从文档流脱离，不再像文档流中的内联元素一样无法设置宽高（被内容撑开） 
             宽高设置将对浮动的内联元素生效
     -->
-    <span class="tds1">我是一个span</span>
-    <!-- 总结一下：脱离文档流以后，就不再区分块元素和内联元素了，成为了独立的浮动元素 -->
+        <span class="tds1">我是一个span</span>
+        <!-- 总结一下：脱离文档流以后，就不再区分块元素和内联元素了，成为了独立的浮动元素 -->
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div>
+        <h2>浮动导致的父元素高度塌陷</h2>
+        <!-- 上一节的tds1就导致了fdtd的塌陷 临时用br分隔开-->
+        <div class="txouter">
+
+            <div class="txinner"></div>
+
+        </div>
+
+        <div style="width: 200px;height: 200px;background-color:yellow;"></div>
+    </div>
+
 </body>
 
 </html>

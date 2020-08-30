@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>全局布局框架</title>
+    <style>
+        header,
+        main,
+        footer {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* 设置头部 */
+        header {
+            height: 150px;
+            background-color: silver;
+        }
+
+        /* 设置主体 */
+        main {
+            height: 500px;
+            background-color: #bfa;
+            margin: 10px auto;
+        }
+
+        /* 水平布局用浮动，垂直布局直接块元素语义或无语义都可以 */
+        nav,
+        article,
+        aside {
+            float: left;
+            height: 100%;
+        }
+
+        /* 设置左侧的导航 */
+        nav {
+            width: 190px;
+            background-color: rgb(65, 131, 230);
+        }
+
+        /* 设置中间的内容 */
+        article {
+            width: 600px;
+            background-color: orange;
+            margin: 0 10px;
+        }
+
+        /* 设置右侧的内容 */
+        aside {
+            width: 190px;
+            background-color: rgb(151, 91, 21);
+        }
+
+        /* 设置底部 */
+        footer {
+            height: 150px;
+            background-color: tomato;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 创建头部 -->
+    <header></header>
+
+    <!-- 创建网页的主体 -->
+    <main>
+        <!-- 左侧导航 -->
+        <nav></nav>
+
+        <!-- 中间的内容 -->
+        <article></article>
+
+        <!-- 右边的边栏 -->
+        <aside></aside>
+
+    </main>
+
+    <!-- 网页的底部 -->
+    <footer></footer>
+</body>
+
+</html>

@@ -5,10 +5,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>W3School的导航栏</title>
+    <link rel="stylesheet" href="./CSS/normalize.css">
+    <style>
+        .nav {
+            width: 1210px;
+            height: 48px;
+            background-color: #e8e7e3;
+            margin: 100px auto;
+            padding: 0px;
+            list-style-type: none;
+        }
+
+
+        .nav li {
+            padding: 0px;
+            float: left;
+            line-height: 48px;
+
+        }
+
+        .nav a {
+            /* 超链接的高度无法设置,因为是内联元素,可以改成块元素
+                改成块元素以后,将继承其父元素li的高度 */
+            display: block;
+            padding: 0 38px;
+            text-decoration: none;
+            color: #777777;
+            font-size: 18px;
+        }
+
+        .nav li:last-child a {
+            padding: 0px 42px;
+        }
+
+        .nav a:hover {
+            background-color: #3f3f3f;
+            color: #e8e7e3;
+        }
+    </style>
 </head>
 
 <body>
-
+    <ul class="nav">
+        <li>
+            <a href="">HTML/CSS</a>
+        </li>
+        <li>
+            <a href="">Brownser Side</a>
+        </li>
+        <li>
+            <a href="">Server Side</a>
+        </li>
+        <li>
+            <a href="">Programming</a>
+        </li>
+        <li>
+            <a id="xml" href="">XML</a>
+        </li>
+        <li>
+            <a href="">Web Building</a>
+        </li>
+        <li>
+            <a href="">Reference</a>
+        </li>
+    </ul>
 </body>
 
 </html>

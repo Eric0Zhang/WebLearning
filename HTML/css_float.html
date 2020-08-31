@@ -84,7 +84,7 @@
         }
 
         .fdtd {
-            background-color: #2e2c2c;
+            background-color: #b3b3b3;
         }
 
         .txouter {
@@ -104,6 +104,7 @@
                         2、将元素设置为内联块元素（不推荐）
                         3、将元素的overflow设置为一个非visible的值
                             - 常用的方式 为元素设置 overflow:hidden 开启其BFC 以使其可以包含浮动元素
+                            - auto scroll也可以，但是scroll有滚动条
             
              */
 
@@ -128,6 +129,61 @@
                     所以高度塌陷是浮动布局中比较常见的一个问题，这个问题我们必须要进行处理！
              */
             float: left;
+        }
+
+        .bfcbox1 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            float: left;
+        }
+
+        .bfcbox2 {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            overflow: hidden;
+            /* 打开BFC, 将不会被浮动元素BOX1覆盖 */
+        }
+
+        .clrbox1 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            float: left;
+        }
+
+        .clrbox2 {
+            width: 400px;
+            height: 400px;
+            background-color: #ff0;
+            float: right;
+        }
+
+        .clrbox3 {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            /* 
+                由于box1的浮动，导致box3位置上移
+                    也就是box3收到了box1浮动的影响，位置发生了改变
+
+                如果我们不希望某个元素因为其他元素浮动的影响而改变位置，
+                    可以通过clear属性来清除浮动元素对当前元素所产生的影响
+
+                clear
+                    - 作用：清除浮动元素对当前元素所产生的影响
+                    - 可选值：
+                        left 清除左侧浮动元素对当前元素的影响
+                        right 清除右侧浮动元素对当前元素的影响
+                        both 清除两侧中最大影响的那侧
+
+                    原理：
+                        设置清除浮动以后，浏览器会自动为元素添加一个上外边距，
+                            以使其位置不受其他元素的影响
+             */
+
+            clear: both;
         }
     </style>
 </head>
@@ -194,6 +250,21 @@
         </div>
 
         <div style="width: 200px;height: 200px;background-color:yellow;"></div>
+    </div>
+
+    <div>
+        <h2>BFC原理</h2>
+        <div class="bfcbox1"></div>
+        <div class="bfcbox2"></div>
+    </div>
+
+    <div>
+        <h2>clear解决高度塌陷</h2>
+        <div class="clrbox1">1</div>
+        <div class="clrbox2">2</div>
+        <!-- 3文字不会随着div的背景一起陷入上面的浮动块里面
+            文字都会自动环绕在浮动块外面 -->
+        <div class="clrbox3">3</div>
     </div>
 
 </body>

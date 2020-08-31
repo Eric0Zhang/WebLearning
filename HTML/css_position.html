@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh">
+<!-- 本节内容：定位 -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>定位</title>
+    <link rel="stylesheet" href="./CSS/normalize.css">
+    <style>
+        .xd,
+        .jd,
+        .gd {
+            font-size: 60px;
+        }
+
+        .xd1 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+        }
+
+        .xd2 {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+
+            /*
+                定位（position）
+                    - 定位是一种更加高级的布局手段
+                    - 通过定位可以将元素摆放到页面的任意位置
+                    - 使用position属性来设置定位
+                        可选值：
+                            static 默认值，元素是静止的没有开启定位
+                            relative 开启元素的相对定位
+                            absolute 开启元素的绝对定位
+                            fixed 开启元素的固定定位
+                            sticky 开启元素的粘滞定位
+
+                    - 相对定位：
+                        - 当元素的position属性值设置为relative时则开启了元素的相对定位
+                        - 相对定位的特点：
+                            1.元素开启相对定位以后，如果不设置偏移量元素不会发生任何的变化
+                            2.相对定位是参照于元素在文档流中的位置进行定位的
+                            3.相对定位会提升元素的层级
+                            4.相对定位不会使元素脱离文档流
+                            5.相对定位不会改变元素的性质块还是块，行内还是行内
+
+                    - 偏移量（offset）
+                        - 当元素开启了定位以后，可以通过偏移量来设置元素的位置
+                        - 注意相对偏移量的参照物就是元素本身原来的位置(在文档流中的位置)
+                            top
+                                - 定位元素和定位位置上边的距离
+                            bottom
+                                - 定位元素和定位位置下边的距离
+
+                                - 定位元素垂直方向的位置由top和bottom两个属性来控制
+                                    通常情况下我们只会使用其中一
+                                - top值越大，定位元素越向下移动
+                                - bottom值越大，定位元素越向上移动
+                            left
+                                - 定位元素和定位位置的左侧距离
+                            right
+                                - 定位元素和定位位置的右侧距离
+
+                                - 定位元素水平方向的位置由left和right两个属性控制
+                                    通常情况下只会使用一个
+                                - left越大元素越靠右
+                                - right越大元素越靠左
+
+              */
+
+            position: relative;
+
+            left: 200px;
+            top: -200px;
+
+        }
+
+        .xd3 {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+
+        }
+
+        .jd1 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+        }
+
+        .jd2 {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+
+            /* 
+            绝对定位
+                - 当元素的position属性值设置为absolute时，则开启了元素的绝对定位
+                - 绝对定位的特点：
+                    1.开启绝对定位后，如果不设置偏移量元素的位置不会发生变化
+                    2.开启绝对定位后，元素会从文档流中脱离
+                    3.绝对定位会改变元素的性质，行内变成块，块的宽高被内容撑开
+                    4.绝对定位会使元素提升一个层级
+                    5.绝对定位元素是相对于其包含块进行定位的
+
+                    包含块( containing block )
+                        - 正常情况下：
+                            包含块就是离当前元素最近的祖先块元素
+                            <div> <div></div> </div>
+                            <div><span><em>hello</em></span></div>
+
+                        - 绝对定位的包含块:
+                            包含块就是离它最近的开启了定位的祖先元素，
+                                如果所有的祖先元素都没有开启定位则根元素就是它的包含块
+
+                        - html（根元素、初始包含块）
+
+            */
+
+            position: absolute;
+            /* left: 0;
+            top: 0; */
+            bottom: 0;
+            right: 0;
+        }
+
+        .jd3 {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+
+        }
+
+        .jd4 {
+            width: 400px;
+            height: 400px;
+            background-color: tomato;
+            position: relative;
+        }
+
+        .jd5 {
+            width: 300px;
+            height: 300px;
+            background-color: aliceblue;
+            /* position: relative; */
+        }
+
+        .gd1 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+        }
+
+        .gd2 {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            /*
+                固定定位：
+                    - 将元素的position属性设置为fixed则开启了元素的固定定位
+                    - 固定定位也是一种绝对定位，所以固定定位的大部分特点都和绝对定位一样
+                        唯一不同的是固定定位永远参照于浏览器的视口进行定位
+                        固定定位的元素不会随网页的滚动条滚动
+
+              */
+
+            position: fixed;
+
+            right: 0;
+            top: 0;
+
+
+
+        }
+
+        .gd3 {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+
+        }
+
+        .gd4 {
+            width: 400px;
+            height: 400px;
+            background-color: tomato;
+
+        }
+
+        .gd5 {
+            width: 300px;
+            height: 300px;
+            background-color: aliceblue;
+        }
+
+        .nz{
+            height: 3000px;
+        }
+        .nz .nav {
+            width: 1210px;
+            height: 48px;
+            background-color: #e8e7e3;
+            margin: 100px auto;
+            padding: 0px;
+            list-style-type: none;
+
+            /* 
+                粘滞定位
+                    - 当元素的position属性设置为sticky时则开启了元素的粘滞定位
+                    - 粘滞定位和相对定位的特点基本一致，
+                        不同的是粘滞定位可以在元素到达某个位置时将其固定
+             */
+
+            position: sticky;
+            top: 10px;
+
+        }
+
+        .nz .nav li {
+            padding: 0px;
+            float: left;
+            line-height: 48px;
+
+        }
+
+        .nz .nav a {
+            /* 超链接的高度无法设置,因为是内联元素,可以改成块元素
+                改成块元素以后,将继承其父元素li的高度 */
+            display: block;
+            padding: 0 38px;
+            text-decoration: none;
+            color: #777777;
+            font-size: 18px;
+        }
+
+        .nz .nav li:last-child a {
+            padding: 0px 47px;
+        }
+
+        .nz .nav a:hover {
+            background-color: #3f3f3f;
+            color: #e8e7e3;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">
+                    Index</a>
+            </li>
+            <li><a href="csslearning.html">
+                    CSS Index</a>
+            </li>
+            <li><a href="css_projects.html">
+                    CSS Projects</a>
+            </li>
+        </ul>
+    </nav>
+    <h1>定位</h1>
+    <h2>相对定位</h2>
+    <div class="xd">
+        <div class="xd1">XD1</div>
+        <div class="xd2">XD2</div>
+        <div class="xd3">XD3</div>
+    </div>
+
+    <h2>绝对定位</h2>
+    <div class="jd">
+        <div class="jd1">JD1</div>
+        <div class="jd4">JD4
+            <div class="jd5">JD5
+                <div class="jd2">JD2</div>
+            </div>
+        </div>
+        <div class="jd3">JD3</div>
+    </div>
+
+    <h2>固定定位</h2>
+    <div class="gd">
+        <div class="gd1">GD1</div>
+        <div class="gd4">GD4
+            <div class="gd5">GD5
+                <div class="gd2">GD2</div>
+            </div>
+        </div>
+        <div class="gd3">GD3</div>
+    </div>
+
+    <h2>粘滞定位</h2>
+    <div class="nz">
+        <!-- 创建导航条的结构 -->
+        <ul class="nav">
+            <li>
+                <a href="#">HTML/CSS</a>
+            </li>
+            <li>
+                <a href="#">Browser Side</a>
+            </li>
+            <li>
+                <a href="#">Server Side</a>
+            </li>
+            <li>
+                <a href="#">Programming</a>
+            </li>
+            <li>
+                <a href="#">XML</a>
+            </li>
+            <li>
+                <a href="#">Web Building</a>
+            </li>
+            <li>
+                <a href="#">Reference</a>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

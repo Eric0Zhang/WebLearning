@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh">
-<!-- 本节内容：浮动 -->
+<!-- 本节内容：浮动 高度塌陷 clearfix -->
 
 <head>
     <meta charset="UTF-8">
@@ -185,6 +185,63 @@
 
             clear: both;
         }
+
+        .clrbox4 {
+            border: 10px red solid;
+
+            /* overflow: hidden; */
+        }
+
+        .clrbox5 {
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            float: left;
+        }
+
+        .clrbox4::after {
+            /* 必须要有内容,不然无法撑开 */
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .clrbox6 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+        }
+
+        .clrbox7 {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            /* 
+                子元素的margin-top会折叠到父元素上
+                因为子元素的上沿会贴着父元素的内容区上沿, margin表现在外部
+             */
+            margin-top: 100px;
+        }
+
+
+        /* 
+                解决外边距折叠的问题, 相当于在box6前面增加一个空表格
+                那么下面的子元素的边距就是相对于这个空表格
+                之所以不用文字, 文字为空时, 不起作用, 文字非空时,占据高度, 所以必须用表格
+                 */
+        /* .clrbox6::before {
+       
+            content: "";
+            display: table;
+        } */
+
+        /* before解决外边距折叠, after解决高度塌陷, 用于包裹其他元素的div外框 */
+        .clearfix::before,
+        .clearfix::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
     </style>
 </head>
 
@@ -260,11 +317,25 @@
 
     <div>
         <h2>clear解决高度塌陷</h2>
+        <h3>clear的作用</h3>
         <div class="clrbox1">1</div>
         <div class="clrbox2">2</div>
         <!-- 3文字不会随着div的背景一起陷入上面的浮动块里面
             文字都会自动环绕在浮动块外面 -->
         <div class="clrbox3">3</div>
+        <h3>clear解决塌陷</h3>
+        <!-- 利用不定高块元素clrbox4的伪类after解决塌陷问题
+            相当于在box5后面又添加了一个虚拟的块元素, 
+            设置其clear属性,即可撑开box4    
+        -->
+        <div class="clrbox4">
+            <div class="clrbox5"></div>
+        </div>
+        <h3>clear解决margin折叠问题</h3>
+        <div style="height: 10px; background-color: black;"></div>
+        <div class="clrbox6 clearfix">
+            <div class="clrbox7"></div>
+        </div>
     </div>
 
 </body>

@@ -136,6 +136,9 @@
             width: 400px;
             height: 400px;
             background-color: tomato;
+            /* 注意我们设计当中最常用的是绝对定位, 而相对定位由于不设置偏移量对布局没有任何影响
+                于是我们经常像这里一样, 设置相对定位, 也就是设置绝对定位的包含块
+             */
             position: relative;
         }
 
@@ -194,9 +197,10 @@
             background-color: aliceblue;
         }
 
-        .nz{
+        .nz {
             height: 3000px;
         }
+
         .nz .nav {
             width: 1210px;
             height: 48px;

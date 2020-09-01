@@ -284,11 +284,62 @@
             
              */
 
+            /* 这里系统发现过度约束, 这里上下左右都是零, margin都是auto, 那么自动调整margin, 实现水平和垂直居中 */
             left: 0;
             right: 0;
 
             top: 0;
             bottom: 0;
+        }
+
+        .cj {
+            font-size: 60px;
+            position: relative;
+        }
+
+        .cj1 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            position: absolute;
+            /* 
+                对于开启了定位元素，可以通过z-index属性来指定元素的层级
+                    z-index需要一个整数作为参数，值越大元素的层级越高
+                        元素的层级越高越优先显示 
+                    - z-index不写的话,默认值为0
+                    - 如果元素的层级一样，则优先显示靠下的元素
+                    - 祖先的元素的层级再高也不会盖住后代元素
+             */
+            /* z-index: 3; */
+        }
+
+        .cj2 {
+            width: 200px;
+            height: 200px;
+            background-color: rgba(255, 0, 0, .3);
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            /* z-index: 3; */
+
+        }
+
+        .cj3 {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            z-index: 3;
+
+        }
+
+        .cj4 {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            position: absolute;
         }
     </style>
 </head>
@@ -369,6 +420,15 @@
     <!-- 基本思路就是全局用绝对定位进行布局, 用相对定位指定其包含块 -->
     <div class="jdbj1">
         <div class="jdbj2"></div>
+    </div>
+
+    <h2>元素层级</h2>
+    <div class="cj">
+        <div class="cj1">1</div>
+        <div class="cj2">2</div>
+        <div class="cj3">3
+            <div class="cj4">4</div>
+        </div>
     </div>
 </body>
 

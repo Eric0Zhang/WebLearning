@@ -11,15 +11,15 @@
         font-face可以将服务器中的字体直接提供给用户去使用 
             问题：
                 1.加载速度
-                2.版权
+                2.版权 只有fontface才会设计版权,用font-family只是建议字体,不涉及版权
                 3.字体格式
         
         */
         @font-face {
             /* 指定字体的名字 */
             font-family: 'myfont';
-            /* 服务器中字体的路径 */
-            src: url('./font/ZCOOLKuaiLe-Regular.ttf') format("truetype");
+            /* 服务器中字体的路径 ttf 即truetype font的缩写 一般可以直接识别*/
+            src: url('./../Media/font/ZCOOLKuaiLe-Regular.ttf') format("truetype");
         }
 
         p {
@@ -48,7 +48,7 @@
             font-size: 40px;
 
             /* font-family: 'Courier New', Courier, monospace; */
-            font-family: myfont;
+            font-family: myfont, '华文彩云', '微软雅黑', monospace;
         }
     </style>
 </head>

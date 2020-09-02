@@ -5,14 +5,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>轮播图</title>
-    <link rel="stylesheet" href="/CSS/normalize.css">
+    <link rel="stylesheet" href="/CSS/reset.css">
     <style>
+        .img-list {
+            width: 590px;
+            height: 470px;
+            margin: 100px auto;
+            position: relative;
+        }
 
+        .img-list li {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+
+        .img-list li:nth-child(4) {
+            z-index: 1;
+        }
+
+        .img-list .pointer {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            z-index: 9999;
+        }
+
+        .img-list .pointer a {
+            float: left;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin: 4px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border: transparent 3px solid;
+            background-clip: content-box;
+        }
+
+        .img-list .pointer a:hover,
+        .img-list .pointer a.active {
+            background-color: white;
+            border: rgba(255, 255, 255, 0.5) 3px solid;
+        }
     </style>
 </head>
 
 <body>
+    <ul class="img-list">
+        <li><a href="javascript:;"><img src="./../Media/img/carousel/1.jpg"></a></li>
+        <li><a href="javascript:;"><img src="./../Media/img/carousel/2.jpg"></a></li>
+        <li><a href="javascript:;"><img src="./../Media/img/carousel/3.jpg"></a></li>
+        <li><a href="javascript:;"><img src="./../Media/img/carousel/4.jpg"></a></li>
+        <li><a href="javascript:;"><img src="./../Media/img/carousel/5.jpg"></a></li>
+        <li><a href="javascript:;"><img src="./../Media/img/carousel/6.jpg"></a></li>
+        <li><a href="javascript:;"><img src="./../Media/img/carousel/7.jpg"></a></li>
+        <li><a href="javascript:;"><img src="./../Media/img/carousel/8.jpg"></a></li>
 
+        <div class="pointer">
+            <a class="active" href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </ul>
 </body>
 
 </html>

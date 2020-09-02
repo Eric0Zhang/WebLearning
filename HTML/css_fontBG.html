@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./../Media/font awesome/css/all.css">
     <title>背景和字体</title>
     <style>
         /* 
@@ -50,6 +51,32 @@
             /* font-family: 'Courier New', Courier, monospace; */
             font-family: myfont, '华文彩云', '微软雅黑', monospace;
         }
+
+        .tbzt li {
+            list-style: none;
+        }
+
+        .tbzt li::before {
+            /* 
+                通过伪元素来设置图标字体
+                    1.找到要设置图标的元素通过before或after选中
+                    2.在content中设置字体的编码
+                    3.设置字体的样式
+                        fab
+                        font-family: 'Font Awesome 5 Brands';
+
+                        fas
+                        font-family: 'Font Awesome 5 Free';
+                        font-weight: 900; 
+
+            */
+            content: '\f1b0';
+            /* font-family: 'Font Awesome 5 Brands'; */
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            color: blue;
+            margin-right: 10px;
+        }
     </style>
 </head>
 
@@ -72,6 +99,52 @@
     <p>
         今天天气真不错，Hello Hello How are you！
     </p>
+
+    <h2>图标字体</h2>
+    <div>
+        <!-- 
+                图标字体（iconfont）
+                    - 在网页中经常需要使用一些图标，可以通过图片来引入图标
+                        但是图片大小本身比较大，并且非常的不灵活
+                    - 所以在使用图标时，我们还可以将图标直接设置为字体，
+                        然后通过font-face的形式来对字体进行引入
+                    - 这样我们就可以通过使用字体的形式来使用图标
+        
+                fontawesome 使用步骤
+                    1.下载 https://fontawesome.com/
+                    2.解压
+                    3.将css和webfonts移动到项目中
+                    4.将all.css引入到网页中
+                    5.使用图标字体
+                        - 直接通过类名来使用图标字体
+                            class="fas fa-bell" FAS一般的图形
+                            class="fab fa-accessible-icon" FAB商标图形
+        
+             -->
+
+        <i class="fas fa-bell" style="font-size:80px; color:red;"></i>
+        <i class="fas fa-bell-slash" style="font-size:80px; color:orange;"></i>
+        <i class="fab fa-twitter-square" style="font-size:100px; color:blue"></i>
+        <i class="fab fa-weibo" style="font-size: 100px; color:green;"></i>
+    </div>
+    <h2>图标字体应用</h2>
+    <div class="tbzt">
+        <!-- <i class="fas fa-cat"></i> -->
+
+        <ul>
+            <li>锄禾日当午</li>
+            <li>汗滴禾下土</li>
+            <li>谁知盘中餐</li>
+            <li>粒粒皆辛苦</li>
+        </ul>
+
+        <!-- 
+
+        通过实体来使用图标字体：
+            &#x图标的编码;
+     -->
+        <span class="fas">&#xf0f3;</span>
+    </div>
 </body>
 
 </html>

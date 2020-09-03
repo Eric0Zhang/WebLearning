@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./../Media/font awesome/css/all.css">
+    <link rel="stylesheet" href="./../Media/iconfont/iconfont.css">
     <title>背景和字体</title>
     <style>
         /* 
@@ -77,6 +78,139 @@
             color: blue;
             margin-right: 10px;
         }
+
+        .hg {
+            font-size: 50px;
+
+            /* 可以将行高设置为和高度一样的值，使单行文字在一个元素中垂直居中 */
+            line-height: 200px;
+
+            /* 
+                行高（line height）
+                    - 行高指的是文字占有的实际高度
+                    - 可以通过line-height来设置行高
+                        行高可以直接指定一个大小（px em）
+                        也可以直接为行高设置一个整数
+                            如果是一个整数的话，行高将会是字体的指定的倍数
+                    - 行高经常还用来设置文字的行间距
+                        行间距 = 行高 - 字体大小
+
+                字体框
+                    - 字体框就是字体存在的格子，设置font-size实际上就是在设置字体框的高度
+
+                行高会在字体框的上下平均分配
+
+            */
+
+            border: 1px red solid;
+
+            /* line-height: 1.33; */
+            /* line-height: 1; */
+            /* line-height: 10 */
+        }
+
+        .jxsx {
+            border: 1px red solid;
+
+
+            /* 
+                font 可以设置字体相关的所有属性
+                    语法：
+                        font: (font-weight) (font-style) 字体大小(/行高) 字体族
+                        括号中的可以省略, 如果不写使用默认值 行高的normal值为1.3em
+            
+            */
+            font: bold italic 50px/2 微软雅黑, 'Times New Roman', Times, serif;
+
+
+            /* font-weight 字重 字体的加粗 
+                可选值：
+                    normal 默认值 不加粗
+                    bold 加粗
+                    100-900 九个级别（没什么用）
+
+                font-style 字体的风格
+                    normal 正常的
+                    italic 斜体
+            */
+
+        }
+
+        .wbys {
+            width: 800px;
+            border: 1px red solid;
+            /* 
+                text-align 文本的水平对齐
+                    可选值：
+                        left 左侧对齐
+                        right 右对齐
+                        center 居中对齐
+                        justify 两端对齐
+            */
+            text-align: center;
+
+            font-size: 50px;
+        }
+
+        .wbys span {
+            font-size: 20px;
+            border: 1px blue solid;
+
+            /*
+                vertical-align 设置元素垂直对齐的方式
+                    可选值：
+                        baseline 默认值 基线对齐
+                        top 顶部对齐
+                        bottom 底部对齐
+                        middle 居中对齐
+                */
+            vertical-align: middle;
+        }
+
+        .wbys p {
+            border: 1px red solid;
+
+        }
+
+        .wbys img {
+            /* 
+                注意图片也有基线,垂直对齐默认基线对齐,那么下沿就会有间隙
+                改成其他对齐方式就没有了.
+             */
+            vertical-align: middle;
+        }
+
+        .wbys .dec {
+            font-size: 50px;
+            font-family: 微软雅黑;
+
+
+            /* 
+                text-decoration 设置文本修饰
+                    可选值：
+                        none 什么都没有
+                        underline 下划线
+                        line-through 删除线
+                        overline 上划线
+            */
+            /* 注意像下面这样 颜色和形式的修饰IE是不支持的 */
+            text-decoration: underline red dotted;
+        }
+
+        .wbys .dec2 {
+            width: 800px;
+            /* 
+                white-space 设置网页如何处理空白
+                    可选值：
+                        normal 正常
+                        nowrap 不换行
+                        pre 保留空白和换行
+
+            */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     </style>
 </head>
 
@@ -121,7 +255,7 @@
                             class="fab fa-accessible-icon" FAB商标图形
         
              -->
-
+        <!-- 通常用i元素指定fas(字体族)和fa-xxx(某个图标) -->
         <i class="fas fa-bell" style="font-size:80px; color:red;"></i>
         <i class="fas fa-bell-slash" style="font-size:80px; color:orange;"></i>
         <i class="fab fa-twitter-square" style="font-size:100px; color:blue"></i>
@@ -139,12 +273,53 @@
         </ul>
 
         <!-- 
-
         通过实体来使用图标字体：
             &#x图标的编码;
-     -->
+        不推荐, 因为用字体族类+图标名称类 更方便直观
+        -->
         <span class="fas">&#xf0f3;</span>
     </div>
+
+    <h2>阿里字体库</h2>
+    <i class="iconfont icon-gouwu" style="font-size: 100px; color:black;"></i>
+    <i class="iconfont icon-gouwuchekong" style="font-size: 100px; color:black;"></i>
+    <i class="iconfont icon-gouwucheman" style="font-size: 100px; color:black;"></i>
+    <i class="iconfont icon-3cdianqi" style="font-size: 100px; color:black;"></i>
+    <i class="iconfont icon-fhushi" style="font-size: 100px; color:black;"></i>
+    <i class="iconfont icon-shuji" style="font-size: 100px; color:black;"></i>
+    <i class="iconfont icon-huazhuangpin" style="font-size: 100px; color:black;"></i>
+
+    <h2>行高</h2>
+    <div class="hg">今天天气这不错 Hello hello 今天天气这不错 Hello hello 今天天气这不错 Hello hello 今天天气这不错 Hello hello</div>
+
+    <h2>字体的简写属性</h2>
+    <div class="jxsx">今天天气这不错 Hello hello</div>
+
+    <h2>文本的样式</h2>
+    <div class="wbys">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi aspernatur blanditiis tempore atque
+        reprehenderit illo nobis sit labore minus consectetur amet dolor magnam tenetur, quibusdam similique quis aut
+        suscipit sequi. 你们好啊, 我们来看看垂直对齐<span>Hello 我是 SPAN</span>
+
+        <p>
+            <img src="./../Media/elva-fairy-480w.jpg" alt="elva">
+        </p>
+
+        <div class="dec">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo similique reprehenderit quasi delectus
+            numquam magnam placeat sint cum sed nisi voluptatem vitae ut, voluptatibus, eos ea quis aliquam, laudantium
+            ipsam!
+            今天天气真不错，Hello
+        </div>
+        <br>
+        <div class="dec2">
+            溢出省略:
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo similique reprehenderit quasi delectus
+            numquam magnam placeat sint cum sed nisi voluptatem vitae ut, voluptatibus, eos ea quis aliquam, laudantium
+            ipsam!
+        </div>
+    </div>
+
 </body>
 
 </html>

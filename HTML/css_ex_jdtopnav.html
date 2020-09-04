@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东顶部导航条</title>
+    <link rel="stylesheet" href="./../Media/font awesome/css/all.css">
+    <link rel="stylesheet" href="./../CSS/reset.css">
+    <style>
+        nav {
+            border-bottom: 1px solid #ddd;
+            background-color: #e3e4e5;
+        }
+
+        nav .w {
+            height: 30px;
+            width: 1190px;
+            color: #999;
+            line-height: 30px;
+            margin: 0px auto;
+            font-size: 12px;
+        }
+
+        nav i {
+            color: red;
+            margin-left: 10px;
+            font-size: 12px;
+        }
+
+        nav ul {
+            float: left;
+            margin-left: 200px;
+        }
+
+        nav ul>li {
+            float: left;
+            margin-left: 10px;
+            /* position: absolute; */
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #999;
+        }
+
+        nav a:hover {
+            color: red;
+        }
+
+        nav ul>li:not(:first-child):not(:nth-child(2)):before {
+            content: "|";
+            font-size: 12px;
+            margin-right: 10px;
+            color: #999;
+        }
+
+        .pos {
+            float: left;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .down::after {
+            content: " ∨";
+            vertical-align: 0px;
+            font-size: 11px;
+            color: #999;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="w">
+            <div class="pos">
+                <a href="#">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>上海</span>
+                </a>
+            </div>
+            <ul>
+                <li><a href="#"> 你好, 请登录 &nbsp;&nbsp;</a></li>
+                <li ><a class="red" href="#">免费注册</a></li>
+                <li><a href="#">我的订单</a></li>
+                <li class="down"><a href="#">我的京东</a></li>
+                <li><a href="#">京东会员</a></li>
+                <li class="down"><a class="red" href="#">企业采购</a></li>
+                <li class="down"><a href="#">客户服务</a></li>
+                <li class="down"><a href="#">网站导航</a></li>
+                <li><a href="#">手机京东</a></li>
+            </ul>
+        </div>
+    </nav>
+</body>
+
+</html>

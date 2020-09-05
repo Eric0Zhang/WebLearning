@@ -13,8 +13,15 @@
             background-color: #e3e4e5;
         }
 
+        .clearfix::before,
+        .clearfix::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
         nav .w {
-            height: 30px;
+            /* height: 30px; */
             width: 1190px;
             color: #999;
             line-height: 30px;
@@ -22,21 +29,55 @@
             font-size: 12px;
         }
 
-        nav i {
+        nav .pos {
+            padding-right: 10px;
+        }
+
+        nav .pos:hover {
+            background-color: white;
+            display: block;
+            outline: 1px solid #ddd;
+        }
+
+        nav .pos i {
             color: red;
             margin-left: 10px;
             font-size: 12px;
         }
 
+        nav .pos .white {
+            display: none;
+            width: 56.5px;
+            height: 1px;
+            background-color: white;
+            position: absolute;
+            z-index: 9999;
+            top: 29px;
+        }
+
+        nav .pos .cities {
+            display: none;
+            width: 320px;
+            height: 436px;
+            background-color: white;
+            outline: 1px solid #ddd;
+            position: absolute;
+            box-shadow: 1px 1px 1px rgba(0, 0, 0, .6);
+        }
+
+        nav .pos:hover>.cities,
+        nav .pos:hover>.white {
+            display: block;
+        }
+
         nav ul {
-            float: left;
+            float: right;
             margin-left: 200px;
         }
 
         nav ul>li {
             float: left;
             margin-left: 10px;
-            /* position: absolute; */
         }
 
         nav a {
@@ -62,34 +103,43 @@
         .red {
             color: red;
         }
-
-        .down::after {
-            content: " ∨";
-            vertical-align: 0px;
-            font-size: 11px;
-            color: #999;
-        }
     </style>
 </head>
 
 <body>
     <nav>
-        <div class="w">
+        <div class="w clearfix">
             <div class="pos">
                 <a href="#">
                     <i class="fas fa-map-marker-alt"></i>
                     <span>上海</span>
                 </a>
+                <div class="white"></div>
+                <div class="cities">
+
+                </div>
             </div>
             <ul>
                 <li><a href="#"> 你好, 请登录 &nbsp;&nbsp;</a></li>
-                <li ><a class="red" href="#">免费注册</a></li>
+                <li><a class="red" href="#">免费注册</a></li>
                 <li><a href="#">我的订单</a></li>
-                <li class="down"><a href="#">我的京东</a></li>
+                <li class="down">
+                    <a href="#">我的京东</a>
+                    <i class="fas fa-angle-down"></i>
+                </li>
                 <li><a href="#">京东会员</a></li>
-                <li class="down"><a class="red" href="#">企业采购</a></li>
-                <li class="down"><a href="#">客户服务</a></li>
-                <li class="down"><a href="#">网站导航</a></li>
+                <li class="down">
+                    <a class="red" href="#">企业采购</a>
+                    <i class="fas fa-angle-down"></i>
+                </li>
+                <li class="down">
+                    <a href="#">客户服务</a>
+                    <i class="fas fa-angle-down"></i>
+                </li>
+                <li class="down">
+                    <a href="#">网站导航</a>
+                    <i class="fas fa-angle-down"></i>
+                </li>
                 <li><a href="#">手机京东</a></li>
             </ul>
         </div>

@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="./../Media/iconfont/iconfont.css">
     <title>背景和字体</title>
     <style>
+        .clearfix::before,
+        .clearfix::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
         /* 
         font-face可以将服务器中的字体直接提供给用户去使用 
             问题：
@@ -211,6 +218,235 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
+
+        .bg {
+            width: 500px;
+            height: 500px;
+            /* 
+                background-color 设置背景颜色
+             */
+            background-color: #bfa;
+            /* 自动产生滚动条处理溢出 */
+            overflow: auto;
+            /* 
+                background-image 设置背景图片 
+                    - 可以同时设置背景图片和背景颜色，这样背景颜色将会成为图片的背景色
+                    - 如果背景的图片小于元素，则背景图片会自动在元素中平铺将元素铺满
+                    - 如果背景的图片大于元素，将会一个部分背景无法完全显示
+                    - 如果背景图片和元素一样大，则会直接正常显示
+                    
+            */
+            background-image: url("./../Media/pattern.png");
+
+            /* 
+                background-repeat 用来设置背景的重复方式
+                    可选值：
+                        repeat 默认值 ， 背景会沿着x轴 y轴双方向重复
+                        repeat-x 沿着x轴方向重复
+                        repeat-y 沿着y轴方向重复
+                        no-repeat 背景图片不重复
+             */
+            background-repeat: repeat-y;
+
+            /*
+                background-position 用来设置背景图片的位置
+                    设置方式：
+                        通过 top left right bottom center 几个表示方位的词来设置背景图片的位置
+                            使用方位词时必须要同时指定两个值，如果只写一个则第二个默认就是center
+
+                        通过偏移量来指定背景图片的位置：
+                            水平方向的偏移量 垂直方向变量
+            */
+            /* background-position: center; */
+            /* background-position: -50px 300px; */
+            border: red 10px double;
+            padding: 10px;
+
+            /*
+                 设置背景的范围 
+                    background-clip 
+                        可选值：
+                            border-box 默认值，背景会出现在边框的下边
+                            padding-box 背景不会出现在边框，只出现在内容区和内边距
+                            content-box 背景只会出现在内容区
+
+                    background-origin 背景图片的偏移量计算的原点
+                            padding-box 默认值，background-position从内边距处开始计算
+                            content-box 背景图片的偏移量从内容区处计算
+                            border-box 背景图片的变量从边框处开始计算
+            */
+            /* background-origin: border-box; */
+            background-clip: content-box;
+
+            /* 
+                background-size 设置背景图片的大小
+                    第一个值表示宽度 
+                    第二个值表示高度
+                    - 如果只写一个，则第二个值默认是 auto
+
+                    cover 图片的比例不变，将元素铺满
+                    contain 图片比例不变，将图片在元素中完整显示
+            */
+            /* background-size: 400px; */
+            background-size: cover;
+
+            /* 
+                background-color
+                background-image
+                background-repeat
+                background-position
+                background-size
+                background-origin
+                background-clip
+                background-attachment
+
+                - backgound 背景相关的简写属性，所有背景相关的样式都可以通过该样式来设置
+                    并且该样式没有顺序要求，也没有哪个属性是必须写的
+
+                    注意：
+                        background-size必须写在background-position的后边，并且使用/隔开
+                            background-position/background-size
+
+                        background-origin background-clip 两个样式 ，orgin要在clip的前边
+                
+
+            
+             */
+
+
+        }
+
+        .bg2 {
+            width: 300px;
+            height: 1000px;
+            background-image: url('./../Media/elva-fairy-320w.jpg');
+            background-repeat: no-repeat;
+            background-origin: content-box;
+            background-position: 100px 500px;
+            z-index: 3;
+            font-size: 18px;
+            color: orange;
+            /* 
+            background-attachment
+                - 背景图片是否跟随元素移动
+                - 可选值：
+                    scroll 默认值 背景图片会跟随元素移动
+                    fixed 背景会固定在页面中，不会随元素移动, 相对于视口(当前显示区域的左上角)
+                        注意：视口移动的话，fixed则会跟着动。
+             */
+            background-attachment: fixed;
+        }
+
+        .bg3 {
+            width: 1190px;
+            height: 32px;
+            margin: 0 auto;
+            background-repeat: repeat-x;
+            background-image: url("./../Media/verycd.png");
+        }
+
+        .bg4 {
+            width: 93px;
+            margin: 0 auto;
+        }
+
+        .bg4>a:link {
+            float: left;
+            width: 93px;
+            height: 29px;
+            background-image: url('./../Media/btn/link.png');
+        }
+
+        .bg4>a:hover {
+            background-image: url('./../Media/btn/hover.png');
+        }
+
+        .bg4>a:active {
+            background-image: url('./../Media/btn/active.png');
+        }
+
+        .xbt {
+            width: 93px;
+            margin: 0 auto;
+        }
+
+        .xbt>a:link {
+            float: left;
+            width: 93px;
+            height: 29px;
+            background-image: url('./../Media/btn/btn.png');
+        }
+
+        .xbt>a:hover {
+            background-position-x: -93px;
+        }
+
+        .xbt>a:active {
+            background-position-x: -186px;
+        }
+
+        .jb {
+            width: 200px;
+            height: 200px;
+            /* 
+                通过渐变可以设置一些复杂的背景颜色，可以实现从一个颜色向其他颜色过渡的效果
+                ！！渐变是图片，需要通过background-image来设置
+
+                线性渐变，颜色沿着一条直线发生变化
+                    linear-gradient()
+
+                    linear-gradient(red,yellow) 红色在开头，黄色在结尾，中间是过渡区域
+                    - 线性渐变的开头，我们可以指定一个渐变的方向
+                        to left
+                        to right
+                        to bottom
+                        to top
+                        deg deg表示度数
+                        turn 表示圈
+
+                    - 渐变可以同时指定多个颜色，多个颜色默认情况下平均分布，
+                        也可以手动指定渐变的分布情况
+
+                    repeating-linear-gradient() 可以平铺的线性渐变
+             */
+            background-image: linear-gradient(45deg, rgb(0, 0, 0) 20px, green 180px, yellow 300px);
+            /* 
+                这里从左下角到右上角的线性区域，长度为对角线200*1.414=282.8 前20像素为纯黑 到180像素过渡到绿色 到300像素过渡到黄色，
+                但是黄色已经在外面了， 所以图像中观察不到纯黄色，只有绿色到黄色的过渡色
+            */
+        }
+
+        .jxjb {
+            width: 300px;
+            height: 200px;
+            border-radius: 50%;
+            /* 
+                 默认情况下径向渐变的形状根据元素的形状来计算的
+                    正方形 --> 圆形
+                    长方形 --> 椭圆形
+                    - 我们也可以手动指定径向渐变的大小
+                    circle
+                    ellipse
+
+                    - 也可以指定渐变的位置
+                    - 语法：
+                        radial-gradient(大小 at 位置, 颜色 位置 ,颜色 位置 ,颜色 位置)
+                            大小：
+                                circle 圆形
+                                ellipse 椭圆
+                                closest-side 近边	
+                                closest-corner 近角
+                                farthest-side 远边
+                                farthest-corner 远角
+
+                            位置：
+                                top right left center bottom
+                                
+
+
+             */
+            background-image: radial-gradient(farthest-corner at center center, yellow, green);
+        }
     </style>
 </head>
 
@@ -320,6 +556,54 @@
         </div>
     </div>
 
+    <h2>背景</h2>
+    <div class="bg">
+        <div class="bg2">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est quas id consequatur illo accusantium
+            laboriosam, laudantium repellat ipsa reprehenderit eos eveniet eaque suscipit animi voluptate, maiores
+            molestias ducimus dignissimos consequuntur?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est quas id consequatur illo accusantium
+            laboriosam, laudantium repellat ipsa reprehenderit eos eveniet eaque suscipit animi voluptate, maiores
+            molestias ducimus dignissimos consequuntur?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est quas id consequatur illo accusantium
+            laboriosam, laudantium repellat ipsa reprehenderit eos eveniet eaque suscipit animi voluptate, maiores
+            molestias ducimus dignissimos consequuntur?
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="bg3"></div>
+    <!-- 小技巧 CTRL+F5 强制清除缓存刷新 -->
+    <!-- 
+        这里的按钮会出现一个问题，就是第一次加载时，
+        从静态到悬停，中间会有一个加载悬停图片的过程，
+        这会导致图像闪一下，用户体验不好，我们通过下一节的雪碧图解决该问题
+    -->
+    <div class="bg4"><a href="javascript:;"></a></div>
+    <h2 class="clearfix">雪碧图</h2>
+    <!-- 雪碧图的好处是一次性加载，防止多个状态切换，加载延时造成的闪烁 -->
+    <!-- 解决图片闪烁的问题：
+    可以将多个小图片统一保存到一个大图片中，然后通过调整background-position来显示的图片
+    这样图片会同时加载到网页中 就可以有效的避免出现闪烁的问题
+    这个技术在网页中应用十分广泛，被称为CSS-Sprite，这种图我们称为雪碧图
+    
+    雪碧图的使用步骤：
+    1.先确定要使用的图标
+    2.测量图标的大小
+    3.根据测量结果创建一个元素
+    4.将雪碧图设置为元素的背景图片
+    5.设置一个偏移量以显示正确的图片
+    
+    雪碧图的特点：
+    一次性将多个图片加载进页面，降低请求的次数，加快访问速度，提升用户的体验 -->
+    <div class="xbt"><a href="javascript:;"></a></div>
+
+    <h2 class="clearfix">背景渐变</h2>
+    <div class="jb"></div>
+
+    <h2>径向渐变</h2>
+    <div class="jxjb"></div>
 </body>
 
 </html>

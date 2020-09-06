@@ -13,6 +13,59 @@
             display: table;
             clear: both;
         }
+
+        table {
+            width: 50%;
+            border: 1px solid black;
+            margin: 0 auto;
+
+            /* border-spacing: 指定边框之间的距离 */
+            /* border-spacing: 0px; */
+
+            /* border-collapse: collapse; 设置边框的合并 */
+            border-collapse: collapse;
+        }
+
+        td,
+        th {
+            border: 1px solid black;
+            height: 100px;
+            /* 默认情况下元素在td中是垂直居中的 可以通过 vertical-align 来修改*/
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        /* 
+            如果表格中没有使用tbody而是直接使用tr，
+                那么浏览器会自动创建一个tbody，并且将tr全都放到tbody中
+                tr不是table的子元素
+         */
+        tbody>tr:nth-child(odd) {
+            background-color: rgb(183, 221, 173);
+        }
+
+        tbody>tr:nth-child(even) {
+            background-color: rgb(223, 223, 223);
+        }
+
+        .box1 {
+            width: 300px;
+            height: 300px;
+            background-color: orange;
+
+            /* 将元素设置为单元格 td  */
+            display: table-cell;
+            vertical-align: middle;
+
+        }
+
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            margin: 0 auto;
+
+        }
     </style>
 </head>
 
@@ -30,9 +83,161 @@
             </li>
         </ul>
     </nav>
-    <h1></h1>
+    <h1>表格的样式</h1>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+    <table>
+        <tr>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+            <th>地址</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>孙悟空</td>
+            <td>男</td>
+            <td>18</td>
+            <td>花果山</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>猪八戒</td>
+            <td>男</td>
+            <td>28</td>
+            <td>高老庄</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>沙和尚</td>
+            <td>男</td>
+            <td>38</td>
+            <td>流沙河</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>唐僧</td>
+            <td>男</td>
+            <td>16</td>
+            <td>女儿国</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>孙悟空</td>
+            <td>男</td>
+            <td>18</td>
+            <td>花果山</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>猪八戒</td>
+            <td>男</td>
+            <td>28</td>
+            <td>高老庄</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>沙和尚</td>
+            <td>男</td>
+            <td>38</td>
+            <td>流沙河</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>唐僧</td>
+            <td>男</td>
+            <td>16</td>
+            <td>女儿国</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>孙悟空</td>
+            <td>男</td>
+            <td>18</td>
+            <td>花果山</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>猪八戒</td>
+            <td>男</td>
+            <td>28</td>
+            <td>高老庄</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>沙和尚</td>
+            <td>男</td>
+            <td>38</td>
+            <td>流沙河</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>唐僧</td>
+            <td>男</td>
+            <td>16</td>
+            <td>女儿国</td>
+        </tr>
+    </table>
+    <h2>表单</h2>
+    <!-- 
+            表单：
+                - 在现实生活中表单用于提交数据
+                - 在网页中也可以使用表单，网页中的表单用于将本地的数据提交给远程的服务器
+                - 使用form标签来创建一个表单
+    
+         -->
+    <!-- 
+            form的属性
+                action 表单要提交的服务器的地址
+         -->
+    <form action="target.html">
+        <!--
+               文本框
+               注意：数据要提交到服务器中，必须要为元素指定一个name属性值
+            -->
+        文本框 <input type="text" name="username">
+        <br><br>
+        <!-- 
+                密码框
+             -->
+        密码框 <input type="password" name="password">
+        <br><br>
+
+        <!--
+                 单选按钮
+                    - 像这种选择框，必须要指定一个value属性，value属性最终会作为用户的填写的值传递给服务器
+                    - checked 可以将单选按钮设置为默认选中
+               -->
+        单选按钮 <input type="radio" name="hello" value="a">
+        <input type="radio" name="hello" value="b" checked>
+        <br><br>
+
+        <!-- 
+                多选框
+             -->
+        多选框 <input type="checkbox" name="test" value="1">
+        <input type="checkbox" name="test" value="2">
+        <input type="checkbox" name="test" value="3" checked>
+
+        <br><br>
+
+        <!-- 下拉列表 -->
+        <select name="haha">
+            <option value="i">选项一</option>
+            <option selected value="ii">选项二</option>
+            <option value="iii">选项三</option>
+        </select>
 
 
+
+        <br><br>
+        <!-- 
+                提交按钮
+             -->
+        <input type="submit" value="注册">
+    </form>
 </body>
 
 </html>

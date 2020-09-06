@@ -4,11 +4,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../CSS/reset.css">
+    <link rel="stylesheet" href="./../Media/font awesome/css/all.css">
+    <style>
+        .outer {
+            width: 240px;
+            height: auto;
+            border: 2px #ddd solid;
+            box-shadow: 5px 5px 5px rgba(182, 182, 182, 0.5);
+            margin: 10px auto;
+            border-radius: 2%;
+            color: rgb(121, 119, 119);
+        }
+
+        .title {
+            color: rgb(78, 78, 78);
+            font-size: 18px;
+            margin: 5px 20px;
+        }
+
+        .location {
+            font-size: 16px;
+            margin: 5px 20px;
+        }
+
+        .description {
+            font-size: 15px;
+            margin: 0px 0px;
+            padding: 20px 20px;
+            border-bottom: rgb(121, 119, 119) 1px solid;
+
+        }
+
+        .rating {
+            font-size: 15px;
+            margin: 20px 20px 10px 20px;
+        }
+
+        .star {
+            float: left;
+        }
+
+        .light {
+            color: rgb(108, 230, 77);
+        }
+
+        .rating>.fab {
+            float: right;
+        }
+
+        .clearfix::before,
+        .clearfix::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+    </style>
     <title>电影卡片</title>
 </head>
 
 <body>
-
+    <div class="outer">
+        <div class="img">
+            <img src="./../Media/img/movie/1.jpg" alt="Main Pic">
+        </div>
+        <div class="title">Animaition Film</div>
+        <div class="location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Animaitions</span>
+        </div>
+        <div class="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, quibusdam aperiam
+            officia at quis eligendi sit quod libero dolorum animi error ratione alias sequi voluptate excepturi in a et
+            doloribus?</div>
+        <div class="rating clearfix">
+            <ul class="star">
+                <li class="fas fa-star light"></li>
+                <li class="fas fa-star light"></li>
+                <li class="fas fa-star light"></li>
+                <li class="fas fa-star"></li>
+            </ul>
+            <i class="fab fa-facebook"></i>
+        </div>
+    </div>
 </body>
 
 </html>

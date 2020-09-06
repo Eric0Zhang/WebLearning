@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+<!-- 本节内容：表格 表单 CSS样式 -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>表格和表单的CSS</title>
+    <style>
+        /* before解决外边距折叠, after解决高度塌陷, 用于包裹其他元素的div外框 */
+        .clearfix::before,
+        .clearfix::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">
+                    Index</a>
+            </li>
+            <li><a href="csslearning.html">
+                    CSS Index</a>
+            </li>
+            <li><a href="css_projects.html">
+                    CSS Projects</a>
+            </li>
+        </ul>
+    </nav>
+    <h1></h1>
+
+
+</body>
+
+</html>

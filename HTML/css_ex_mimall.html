@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小米商城</title>
+    <link rel="stylesheet" href="./../CSS/reset.css">
+    <link rel="stylesheet" href="./../Media/font awesome/css/all.css">
+    <style>
+        nav {
+            background-color: #333;
+            font-size: 12px;
+        }
+
+        nav>div {
+            width: 1226px;
+            height: 40px;
+            margin: 0 auto;
+        }
+
+        nav ul.top-left>li {
+            float: left;
+            line-height: 40px;
+            margin-right: 5px;
+        }
+
+        nav ul.top-right>li {
+            float: right;
+            line-height: 40px;
+            margin-right: 5px;
+        }
+
+        div.cart {
+            height: 40px;
+            float: right;
+            line-height: 40px;
+            margin-right: 5px;
+            color: #b0b0b0;
+            background-color: #424242;
+            padding: 0px 10px;
+        }
+
+        nav li.bar {
+            background-color: #505050;
+            width: 1px;
+            height: 10px;
+            margin-top: 15px;
+        }
+
+
+        nav a {
+            text-decoration: none;
+            color: #b0b0b0;
+        }
+
+        nav a:hover:not(.carttext) {
+            color: white;
+        }
+
+        nav div.cart {
+            position: relative;
+        }
+
+        nav div.cart:hover {
+            background-color: white;
+        }
+
+        nav div.cart:hover>a {
+            color: orange;
+        }
+
+        nav div.cartblock {
+            display: none;
+            width: 316px;
+            height: 100px;
+            background-color: white;
+            position: absolute;
+            top: 40px;
+            right: 0px;
+            box-shadow: rgba(0, 0, 0, 0.6) 2px 2px 5px;
+            color: rgb(73, 73, 73);
+            line-height: 100px;
+            text-align: center;
+            vertical-align: center;
+        }
+
+
+        nav div.cart:hover>div.cartblock {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div>
+            <ul class="top-left">
+                <li><a href="javascript:;">小米商城</a></li>
+                <li class="bar"></li>
+                <li><a href="javascript:;">MIUI</a></li>
+                <li class="bar"></li>
+                <li><a href="javascript:;">IOT</a></li>
+                <li class="bar"></li>
+                <li><a href="javascript:;">云服务</a></li>
+                <li class="bar"></li>
+                <li><a href="javascript:;">金融</a></li>
+                <li class="bar"></li>
+                <li><a href="javascript:;">有品</a></li>
+                <li class="bar"></li>
+                <li><a href="javascript:;">小爱开放平台</a></li>
+                <li class="bar"></li>
+                <li><a href="javascript:;">企业团购</a></li>
+                <li class="bar"></li>
+                <li><a href="javascript:;">资质证照</a></li>
+                <li class="bar"></li>
+                <li><a href="javascript:;">协议规则</a></li>
+                <li class="bar"></li>
+                <li><a href="javascript:;">下载app</a></li>
+                <li class="bar"></li>
+                <li><a href="javascript:;">智能生活</a></li>
+                <li class="bar"></li>
+                <li><a href="javascript:;">Select Location</a></li>
+            </ul>
+            <div class="cart">
+                <a class="carttext" href="javascript:;">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>购物车(0)</span>
+                </a>
+                <div class="cartblock">
+                    您的购物车中没有商品!
+                </div>
+            </div>
+            <ul class="top-right">
+                <li><a href="javascript:;">登录</a></li>
+                <li class="bar"></li>
+                <li><a href="javascript:;">注册</a></li>
+                <li class="bar"></li>
+                <li><a href="javascript:;">消息通知</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <main>
+
+    </main>
+</body>
+
+</html>

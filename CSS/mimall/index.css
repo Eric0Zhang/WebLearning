@@ -1,0 +1,139 @@
+/* 小米商城首页的样式表 */
+nav {
+    background-color: #333;
+    font-size: 12px;
+}
+
+nav>div {
+    height: 40px;
+    margin: 0 auto;
+    
+}
+
+nav ul.top-left>li {
+    float: left;
+    line-height: 40px;
+    margin-right: 5px;
+}
+nav ul.top-right{
+    float: right;
+}
+
+nav ul.top-right>li {
+    float: left;
+    line-height: 40px;
+    margin-right: 5px;
+}
+
+div.cart {
+    width: 68px;
+    height: 40px;
+    float: right;
+    line-height: 40px;
+    margin-right: 5px;
+    margin-left: 20px;
+    color: #b0b0b0;
+    background-color: #424242;
+    padding: 0px 10px;
+}
+
+nav li.bar {
+    background-color: #505050;
+    width: 1px;
+    height: 10px;
+    margin-top: 15px;
+}
+
+
+nav a {
+    text-decoration: none;
+    color: #b0b0b0;
+}
+
+nav a:hover:not(.carttext) {
+    color: white;
+}
+
+nav div.cart {
+    position: relative;
+}
+
+nav div.cart:hover {
+    background-color: white;
+}
+
+nav div.cart:hover>a {
+    color: orange;
+}
+
+nav div.cartblock {
+    display: none;
+    width: 316px;
+    height: 100px;
+    background-color: white;
+    position: absolute;
+    top: 40px;
+    right: 0px;
+    box-shadow:  2px 2px 5px;
+    line-height: 100px;
+    text-align: center;
+    vertical-align: center;
+    box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.2);
+
+}
+
+
+nav div.cart:hover>div.cartblock {
+    display: block;
+}
+
+nav .qr{
+    /* display: none; */
+    width: 124px;
+    height: 0px;
+    overflow: hidden;
+    box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    /* 注意text-align是针对父元素而不是针对文字本身 */
+    text-align: center;
+    /* 注意这里继承了li的line-height所以必须单独指定1倍行距 */
+    line-height: 1;
+    position: absolute;
+    left: -38px;
+    /* 为属性的变化添加过渡效果 */
+    transition: height 0.5s;
+}
+
+nav .qr>img{
+    width: 90px;
+    height: 90px;
+    margin: 17px;
+    margin-bottom: 10px;
+}
+
+nav .triangle{
+    display: none;
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border:10px solid transparent;
+    border-top: none;
+    border-bottom-color: white;
+    top: 30px;
+    margin: 0px 12px;
+}
+
+nav .app{
+    position: relative;
+}
+
+nav .app:hover .triangle{
+    display: block;
+}
+
+nav .app:hover .qr
+{
+    height: 148px;
+}
+nav .qr>span{
+    color: #333;
+}

@@ -1,0 +1,21 @@
+/* 小米商城整个项目的基础样式表 */
+
+/* 高度塌陷 打开BFC */
+.clearfix:before,
+.clearfix:after{
+    content: '';
+    display: table;
+    clear: both;
+}
+
+/* 默认字体 */
+body{
+    font: 14px/1.5 Helvetica Neue,Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif;
+    color: #333;
+    min-width: 1226px;
+}
+
+/* 宽度类，首页的所有元素的最大宽度类 */
+.w{
+    width: 1226px;
+}

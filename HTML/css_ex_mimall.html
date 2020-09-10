@@ -5,96 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>小米商城</title>
+    <!-- 清除样式表 -->
     <link rel="stylesheet" href="./../CSS/reset.css">
+    <!-- 图标字体样式表 -->
     <link rel="stylesheet" href="./../Media/font awesome/css/all.css">
-    <style>
-        nav {
-            background-color: #333;
-            font-size: 12px;
-        }
-
-        nav>div {
-            width: 1226px;
-            height: 40px;
-            margin: 0 auto;
-        }
-
-        nav ul.top-left>li {
-            float: left;
-            line-height: 40px;
-            margin-right: 5px;
-        }
-
-        nav ul.top-right>li {
-            float: right;
-            line-height: 40px;
-            margin-right: 5px;
-        }
-
-        div.cart {
-            height: 40px;
-            float: right;
-            line-height: 40px;
-            margin-right: 5px;
-            color: #b0b0b0;
-            background-color: #424242;
-            padding: 0px 10px;
-        }
-
-        nav li.bar {
-            background-color: #505050;
-            width: 1px;
-            height: 10px;
-            margin-top: 15px;
-        }
-
-
-        nav a {
-            text-decoration: none;
-            color: #b0b0b0;
-        }
-
-        nav a:hover:not(.carttext) {
-            color: white;
-        }
-
-        nav div.cart {
-            position: relative;
-        }
-
-        nav div.cart:hover {
-            background-color: white;
-        }
-
-        nav div.cart:hover>a {
-            color: orange;
-        }
-
-        nav div.cartblock {
-            display: none;
-            width: 316px;
-            height: 100px;
-            background-color: white;
-            position: absolute;
-            top: 40px;
-            right: 0px;
-            box-shadow: rgba(0, 0, 0, 0.6) 2px 2px 5px;
-            color: rgb(73, 73, 73);
-            line-height: 100px;
-            text-align: center;
-            vertical-align: center;
-        }
-
-
-        nav div.cart:hover>div.cartblock {
-            display: block;
-        }
-    </style>
+    <!-- 公共基础样式表 -->
+    <link rel="stylesheet" href="./../CSS/mimall/base.css">
+    <!-- 首页专用样式表 -->
+    <link rel="stylesheet" href="./../CSS/mimall/index.css">
 </head>
 
 <body>
     <nav>
-        <div>
+        <div class="w">
             <ul class="top-left">
                 <li><a href="javascript:;">小米商城</a></li>
                 <li class="bar"></li>
@@ -116,7 +39,18 @@
                 <li class="bar"></li>
                 <li><a href="javascript:;">协议规则</a></li>
                 <li class="bar"></li>
-                <li><a href="javascript:;">下载app</a></li>
+                <li class="app">
+                    <a href="javascript:;">
+                        下载app
+                        <!-- 利用边框的斜边实现三角形 -->
+                        <div class="triangle"></div>
+                        <!-- 这里注意一下 超链接是可以包裹div的 -->
+                        <div class="qr">
+                            <img src="./../Media/img/mimall/download.png" alt="下载app">
+                            <span>小米商城app</span>
+                        </div>
+                    </a>
+                </li>
                 <li class="bar"></li>
                 <li><a href="javascript:;">智能生活</a></li>
                 <li class="bar"></li>
@@ -127,6 +61,7 @@
                     <i class="fas fa-shopping-cart"></i>
                     <span>购物车(0)</span>
                 </a>
+                <!-- <div class="cover"></div> -->
                 <div class="cartblock">
                     您的购物车中没有商品!
                 </div>

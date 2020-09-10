@@ -1,53 +1,54 @@
 /* 小米商城首页的样式表 */
 nav {
     background-color: #333;
-    font-size: 12px;
+    font-size       : 12px;
 }
 
 nav>div {
     height: 40px;
     margin: 0 auto;
-    
+
 }
 
 nav ul.top-left>li {
-    float: left;
-    line-height: 40px;
+    float       : left;
+    line-height : 40px;
     margin-right: 5px;
 }
-nav ul.top-right{
+
+nav ul.top-right {
     float: right;
 }
 
 nav ul.top-right>li {
-    float: left;
-    line-height: 40px;
+    float       : left;
+    line-height : 40px;
     margin-right: 5px;
 }
 
 div.cart {
-    width: 68px;
-    height: 40px;
-    float: right;
-    line-height: 40px;
-    margin-right: 5px;
-    margin-left: 20px;
-    color: #b0b0b0;
+    width           : 68px;
+    height          : 40px;
+    float           : right;
+    line-height     : 40px;
+    margin-right    : 5px;
+    margin-left     : 20px;
+    color           : #b0b0b0;
     background-color: #424242;
-    padding: 0px 10px;
+    padding         : 0px 10px;
 }
 
 nav li.bar {
     background-color: #505050;
-    width: 1px;
-    height: 10px;
-    margin-top: 15px;
+    width           : 1px;
+    height          : 10px;
+    margin-top      : 15px;
 }
 
 
 nav a {
     text-decoration: none;
-    color: #b0b0b0;
+    color          : #b0b0b0;
 }
 
 nav a:hover:not(.carttext) {
@@ -67,18 +68,18 @@ nav div.cart:hover>a {
 }
 
 nav div.cartblock {
-    display: none;
-    width: 316px;
-    height: 100px;
+    display         : none;
+    width           : 316px;
+    height          : 100px;
     background-color: white;
-    position: absolute;
-    top: 40px;
-    right: 0px;
-    box-shadow:  2px 2px 5px;
-    line-height: 100px;
-    text-align: center;
-    vertical-align: center;
-    box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.2);
+    position        : absolute;
+    top             : 40px;
+    right           : 0px;
+    box-shadow      : 2px 2px 5px;
+    line-height     : 100px;
+    text-align      : center;
+    vertical-align  : center;
+    box-shadow      : 0 2px 2px 1px rgba(0, 0, 0, 0.2);
 
 }
 
@@ -87,53 +88,125 @@ nav div.cart:hover>div.cartblock {
     display: block;
 }
 
-nav .qr{
+nav .qr {
     /* display: none; */
-    width: 124px;
-    height: 0px;
-    overflow: hidden;
-    box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    width           : 124px;
+    height          : 0px;
+    overflow        : hidden;
+    box-shadow      : 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
     /* 注意text-align是针对父元素而不是针对文字本身 */
-    text-align: center;
+    text-align      : center;
     /* 注意这里继承了li的line-height所以必须单独指定1倍行距 */
-    line-height: 1;
-    position: absolute;
-    left: -38px;
+    line-height     : 1;
+    position        : absolute;
+    left            : -38px;
     /* 为属性的变化添加过渡效果 */
-    transition: height 0.5s;
+    transition      : height 0.5s;
+    background-color: white;
 }
 
-nav .qr>img{
-    width: 90px;
-    height: 90px;
-    margin: 17px;
+nav .qr>img {
+    width        : 90px;
+    height       : 90px;
+    margin       : 17px;
     margin-bottom: 10px;
 }
 
-nav .triangle{
-    display: none;
-    width: 0px;
-    height: 0px;
-    position: absolute;
-    border:10px solid transparent;
-    border-top: none;
+nav .triangle {
+    display            : none;
+    width              : 0px;
+    height             : 0px;
+    position           : absolute;
+    border             : 10px solid transparent;
+    border-top         : none;
     border-bottom-color: white;
-    top: 30px;
-    margin: 0px 12px;
+    top                : 30px;
+    margin             : 0px 12px;
 }
 
-nav .app{
+nav .app {
     position: relative;
 }
 
-nav .app:hover .triangle{
+nav .app:hover .triangle {
     display: block;
 }
 
-nav .app:hover .qr
-{
+nav .app:hover .qr {
     height: 148px;
 }
-nav .qr>span{
+
+nav .qr>span {
     color: #333;
+}
+
+header {
+    height: 100px;
+}
+
+header .cheader {
+    margin        : 0 auto;
+    vertical-align: center;
+    z-index       : 111;
+}
+
+header .cheader .logo {
+    float           : left;
+    width           : 55px;
+    height          : 55px;
+    background-color: #ff6700;
+    margin          : 22.5px 0px;
+    position        : relative;
+    overflow        : hidden;
+
+}
+
+header .cheader .mi {
+    width     : 55px;
+    height    : 55px;
+    position  : absolute;
+    right     : 0px;
+    transition: right 0.5s;
+}
+
+header .cheader .home {
+    width     : 55px;
+    height    : 55px;
+    position  : absolute;
+    right     : 55px;
+    top       : 0px;
+    transition: right 0.5s;
+}
+
+header .cheader .logo:hover .mi {
+    right: -55px;
+}
+
+header .cheader .logo:hover .home {
+    right: 0px;
+}
+
+header .cnav a {
+    text-decoration: none;
+    font-size      : 16px;
+    color          : #333;
+}
+
+header .cnav a:hover {
+    color: #ff6700;
+}
+
+header .cnav ul {
+    float       : left;
+    padding-left: 58px;
+}
+
+header .cnav li {
+    float       : left;
+    line-height : 100px;
+    margin-right: 20px;
+}
+
+header .cnav>ul>.hidden {
+    visibility: hidden;
 }

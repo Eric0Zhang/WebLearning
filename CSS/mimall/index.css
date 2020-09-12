@@ -151,6 +151,7 @@ header .cheader {
     margin        : 0 auto;
     vertical-align: center;
     z-index       : 111;
+    position      : relative;
 
 }
 
@@ -200,18 +201,18 @@ header .cnav a:hover {
     color: #ff6700;
 }
 
-header .cnav ul {
+header .cnav ul:not(.sidebar) {
     float       : left;
     padding-left: 58px;
 }
 
-header .cnav li {
+header .cnav ul:not(.sidebar)>li {
     float        : left;
     line-height  : 100px;
     padding-right: 20px;
 }
 
-header .cnav>ul>.hidden {
+header .cnav>ul .hidden {
     visibility: hidden;
 }
 
@@ -279,4 +280,119 @@ header .search-btn:hover {
 
 header .search {
     margin: 0;
+}
+
+header .cnav .sidebar {
+    background-color: rgba(105, 101, 101, 0.6);
+    height          : 420px;
+    width           : 234px;
+    border          : 0;
+    color           : #fff;
+    position        : absolute;
+    left            : 0px;
+    top             : 100px;
+    padding         : 20px 0px;
+    z-index         : 999;
+}
+
+header .cnav .sidebar a {
+    color: #fff;
+}
+
+
+header .cnav .sidebar li {
+    margin     : 0px;
+    padding    : 0px 30px;
+    line-height: 42px;
+    height     : 42px;
+}
+
+header .cnav .sidebar li:hover {
+    background-color: #ff6700;
+}
+
+header .cnav .sidebar li:hover~.details {
+    display: block;
+}
+
+header .cnav .sidebar li span {
+    float: left;
+}
+
+header .cnav .sidebar li i {
+    float     : right;
+    margin-top: 13px;
+}
+
+header .cnav .details {
+    display         : none;
+    position        : absolute;
+    left            : 234px;
+    top             : 0px;
+    height          : 460px;
+    width           : 992px;
+    background-color: #fff;
+    box-shadow      : 0px 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+article .banner {
+    width           : 1226px;
+    height          : 460px;
+    margin          : 0 auto;
+    z-index         : 1000;
+    background-color: rosybrown;
+    position        : relative;
+    z-index         : 1;
+}
+
+article .banner img {
+    width   : 100%;
+    height  : 100%;
+    position: absolute;
+}
+
+article .banner img.show {
+    z-index: 10;
+}
+
+article .banner .pointer {
+    position: absolute;
+    bottom  : 20px;
+    right   : 20px;
+    z-index : 9999;
+}
+
+article .banner .pointer a {
+    float           : left;
+    width           : 8px;
+    height          : 8px;
+    border-radius   : 50%;
+    margin          : 4px;
+    background-color: rgba(63, 63, 63, 0.5);
+    border          : rgba(168, 168, 168, 0.6) 3px solid;
+    background-clip : content-box;
+}
+
+article .banner .pointer a:hover,
+article .banner .pointer a.active {
+    background-color: white;
+    border          : rgba(56, 56, 56, 0.5) 3px solid;
+}
+
+article .banner .arrow {
+    width           : 60px;
+    height          : 60px;
+    background-color: rgba(128, 128, 128, 0.5);
+    position        : absolute;
+    right           : 0px;
+    bottom          : 200px;
+    z-index         : 9999;
+    vertical-align  : center;
+    text-align      : center;
+}
+
+article .banner .arrow i {
+    font-size : 50px;
+    font-style: normal;
+    color     : rgba(240, 240, 240, 0.6);
 }

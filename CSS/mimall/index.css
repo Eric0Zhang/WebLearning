@@ -379,20 +379,171 @@ article .banner .pointer a.active {
     border          : rgba(56, 56, 56, 0.5) 3px solid;
 }
 
-article .banner .arrow {
-    width           : 60px;
-    height          : 60px;
-    background-color: rgba(128, 128, 128, 0.5);
-    position        : absolute;
-    right           : 0px;
-    bottom          : 200px;
-    z-index         : 9999;
-    vertical-align  : center;
-    text-align      : center;
+article .banner .arrow-left a,
+article .banner .arrow-right a {
+    width  : 41.5px;
+    height : 69px;
+    display: block;
 }
 
-article .banner .arrow i {
-    font-size : 50px;
-    font-style: normal;
-    color     : rgba(240, 240, 240, 0.6);
+article .banner .arrow-left {
+    width              : 41.5px;
+    height             : 69px;
+    background-image   : url(./../../Media/img/mimall/icon-slides.png);
+    background-position: -83px 0px;
+    position           : absolute;
+    left               : 234px;
+    bottom             : 200px;
+    z-index            : 9999;
+    vertical-align     : center;
+    text-align         : center;
+}
+
+article .banner .arrow-right {
+    width              : 41.5px;
+    height             : 69px;
+    background-image   : url(./../../Media/img/mimall/icon-slides.png);
+    background-position: -124.5px 0px;
+    position           : absolute;
+    right              : 0px;
+    bottom             : 200px;
+    z-index            : 9999;
+    vertical-align     : center;
+    text-align         : center;
+}
+
+article .banner .arrow-left:hover {
+    background-position: 0px;
+}
+
+article .banner .arrow-right:hover {
+    background-position: -41.5px;
+}
+
+.tools {
+    width       : 30px;
+    position    : fixed;
+    bottom      : 100px;
+    /* 
+        布局的等式
+            left + margin-left + width + margin-right + right = 视口的宽度
+            auto + 0 + 30 + -643px + 50% = 视口宽度
+            这里设置margin-right auto就会将块从中心推到右侧
+    */
+    right       : 50%;
+    margin-right: -643px;
+
+    background-color: white;
+    box-shadow      : 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
+    border-radius   : 5%;
+}
+
+.tools ul {
+    text-align: center;
+}
+
+.tools li {
+    margin: 10px 5px;
+}
+
+.tools a {
+    text-decoration: none;
+    color          : rgb(128, 128, 128);
+}
+
+.tools li:hover a {
+    color: #ff6700;
+}
+
+article .ad {
+    margin    : 0 auto;
+    margin-top: 24px;
+
+}
+
+article .short-cut {
+    width           : 234px;
+    height          : 170px;
+    float           : left;
+    background-color: #5f5750;
+
+}
+
+article .short-cut li {
+    float     : left;
+    width     : 76px;
+    height    : 84px;
+    text-align: center;
+    position  : relative;
+}
+
+article .short-cut a {
+    text-decoration: none;
+    color          : #CFCCCA;
+}
+
+article .short-cut i {
+    font-size  : 30px;
+    padding-top: 20px;
+}
+
+article .short-cut span {
+    font-size: 12px;
+    display  : block;
+}
+
+article .short-cut a:hover {
+    color: white;
+}
+
+article .short-cut li::before {
+    content         : '';
+    width           : 64px;
+    height          : 1px;
+    background-color: rgba(168, 168, 168, 0.2);
+    position        : absolute;
+    left            : 8px;
+    top             : 2px;
+}
+
+article .short-cut li::after {
+    content         : '';
+    width           : 1px;
+    height          : 70px;
+    background-color: rgba(168, 168, 168, 0.2);
+    position        : absolute;
+    left            : 2px;
+    top             : 9px;
+}
+
+article .btad {
+    float          : left;
+    margin         : 0px;
+    background-clip: padding-box;
+}
+
+article .btad li {
+    float      : left;
+    margin-left: 15px;
+    width      : 316px;
+    height     : 170px;
+}
+
+article .btad li:first-child {
+    background-image: url(./../../Media/img/mimall/1.jpg);
+    background-size : contain;
+}
+
+article .btad li:nth-child(2) {
+    background-image: url(./../../Media/img/mimall/2.jpg);
+    background-size : contain;
+}
+
+article .btad li:nth-child(3) {
+    background-image: url(./../../Media/img/mimall/3.jpg);
+    background-size : contain;
+}
+
+article .ad .btad li:first-child {
+    margin-left: 14px;
 }

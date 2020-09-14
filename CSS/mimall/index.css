@@ -529,6 +529,12 @@ article .btad li {
     height     : 170px;
 }
 
+article .btad a {
+    width  : 316px;
+    height : 170px;
+    display: block;
+}
+
 article .btad li:first-child {
     background-image: url(./../../Media/img/mimall/1.jpg);
     background-size : contain;

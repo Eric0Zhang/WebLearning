@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh">
+<!-- 本节内容：动画 过渡 -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>动画</title>
+    <link rel="stylesheet" href="./../CSS/normalize.css">
+    <style>
+        .clearfix::before,
+        .clearfix::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        .box1 {
+            width: 800px;
+            height: 800px;
+            background-color: silver;
+            /* 这里外边距折叠, 必须要overflow:hidden */
+            overflow: hidden;
+
+        }
+
+        .box1 div {
+            width: 100px;
+            height: 100px;
+            margin-top: 100px;
+            margin-left: 700px;
+        }
+
+        .box2 {
+            background-color: #bbffaa;
+            /* 
+                过渡（transition）
+                    - 通过过渡可以指定一个属性发生变化时的切换方式
+                    - 通过过渡可以创建一些非常好的效果，提升用户的体验
+             */
+
+            /* 
+             transition-property: 指定要执行过渡的属性  
+                多个属性间使用,隔开 
+                如果所有属性都需要过渡，则使用all关键字
+                大部分属性都支持过渡效果，注意过渡时必须是从一个有效数值向另外一个有效数值进行过渡
+                auto是无法实现过渡的
+             */
+            /* transition-property: height, width; */
+
+            /*
+              transition-duration: 指定过渡效果的持续时间
+                时间单位：s 和 ms
+                多属性过渡, 其时间也用逗号隔开
+              */
+            /* transition-duration: 2000ms, 2s; */
+
+            /* 
+             transition-timing-function: 过渡的时序函数
+                指定过渡的执行的方式  
+                可选值：
+                    ease 默认值，慢速开始，先加速，再减速
+                    linear 匀速运动
+                    ease-in 加速运动
+                    ease-out 减速运动
+                    ease-in-out 先加速 后减速
+                    cubic-bezier() 来指定时序函数
+                        https://cubic-bezier.com
+                    steps() 分步执行过渡效果
+                        可以设置一个第二个值：
+                            end ， 在时间结束时执行过渡(默认值)
+                            start ， 在时间开始时执行过渡
+             */
+            /* transition-timing-function: cubic-bezier(.24, .95, .82, -0.88); */
+            /* transition-timing-function: steps(2, start); */
+
+
+            /* 
+             transition-delay: 过渡效果的延迟，等待一段时间后在执行过渡  
+             */
+            /* transition-delay: 2s; */
+
+
+            /* transition 可以同时设置过渡相关的所有属性，只有一个要求，如果要写延迟，则两个时间中第一个是持续时间，第二个是延迟 */
+            transition: margin-left 1s cubic-bezier(.24, .95, .82, -0.88);
+        }
+
+        .box3 {
+            background-color: orange;
+            transition: margin-left 1s ease-in-out;
+        }
+
+        .box1:hover div {
+            /* width: 200px;
+            height: 200px; */
+            margin-left: 0px;
+        }
+
+        .mitu {
+            height: 271px;
+            width: 132px;
+            background-image: url(./../Media/bigtap-mitu-queue-big.png);
+            transition: background-position-x 0.5s steps(3);
+            margin: 0 auto;
+        }
+
+        .mitu:hover {
+            background-position-x: -396px;
+        }
+
+        /* 
+        动画
+            动画和过渡类似，都是可以实现一些动态的效果，
+                不同的是过渡需要在某个属性发生变化时才会触发
+                动画可以自动触发动态效果
+                
+            设置动画效果，必须先要设置一个关键帧，关键帧设置了动画执行每一个步骤
+        */
+        @keyframes test {
+
+            /* from表示动画的开始位置 也可以使用 0% */
+            from {
+                margin-left: 0;
+                background-color: orange;
+            }
+
+            /* to动画的结束位置 也可以使用100%*/
+            to {
+                background-color: rgb(60, 199, 55);
+                margin-left: 700px;
+            }
+        }
+
+        .dh1 {
+            width: 800px;
+            height: 800px;
+            background-color: silver;
+            overflow: hidden;
+        }
+
+        .dh2 {
+            background-color: #bbffaa;
+            width: 100px;
+            height: 100px;
+            /* 设置box2的动画 */
+            /* animation-name: 要对当前元素生效的关键帧的名字 */
+            /* animation-name: test; */
+
+            /* animation-duration: 动画的执行时间 */
+            /* animation-duration: 4s; */
+
+
+
+            /* 动画的延时 */
+            /* animation-delay: 2s; */
+
+            /* animation-timing-function: ease-in-out; */
+
+            /* 
+            animation-iteration-count 动画执行的次数 
+                可选值：
+                    次数
+                    infinite 无限执行
+            */
+            /* animation-iteration-count: 1; */
+
+            /*
+             animation-direction
+                指定动画运行的方向
+                    可选值：
+                    normal 默认值  从 from 向 to运行 每次都是这样 
+                    reverse 从 to 向 from 运行 每次都是这样 
+                    alternate 从 from 向 to运行 重复执行动画时反向执行
+                    alternate-reverse 从 to 向 from运行 重复执行动画时反向执行
+
+            */
+            /* animation-direction: alternate-reverse; */
+
+            /* 
+                animation-play-state: 设置动画的执行状态 
+                可选值：
+                    running 默认值 动画执行
+                    paused 动画暂停
+            */
+            /* animation-play-state: paused; */
+
+            /* 
+            animation-fill-mode: 动画的填充模式
+                可选值：
+                    none 默认值 动画执行完毕元素回到原来位置
+                    forwards 动画执行完毕元素会停止在动画结束的位置
+                    backwards 动画延时等待时，元素就会处于开始位置
+                    both 结合了forwards 和 backwards
+            */
+            /* animation-fill-mode: both; */
+
+            /* 简写中执行时间在前, 延迟时间在后 */
+            animation: test 2s infinite 2s alternate backwards;
+        }
+
+        .dh1:hover .dh2 {
+            animation-play-state: paused;
+        }
+
+        .trump {
+            width: 100px;
+            height: 400px;
+            background-image: url(./../Media/img/animation/trump_run.png);
+            animation: trump 1s steps(5) 2s infinite normal both;
+        }
+
+        @keyframes trump {
+            from {
+                background-position-x: 0px;
+                /* background-position-y: 0px; */
+            }
+
+            to {
+                background-position-x: -500px;
+                /* background-position-y: 300px; */
+            }
+        }
+
+        .bx1 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            margin: 0 auto;
+            margin-top: 200px;
+
+            /* 
+                变形就是指通过CSS来改变元素的形状或位置
+                -   变形不会影响到页面的布局
+                - transform 用来设置元素的变形效果
+                    - 平移：
+                        translateX() 沿着x轴方向平移
+                        translateY() 沿着y轴方向平移
+                        translateZ() 沿着z轴方向平移
+                            - 平移元素，百分比是相对于自身计算的
+            */
+            /* transform: translateY(-100px); */
+            transform: translateX(100%);
+        }
+
+        .bx2 {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            margin: 0 auto;
+        }
+
+        /* 利用transform实现不定尺寸的元素居中 */
+        /* .bx3 {
+            
+            background-color: orange;
+            position: absolute;
+
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        } */
+
+        .bx4,
+        .bx5 {
+            width: 220px;
+            height: 300px;
+            background-color: #f2f2f2;
+            float: left;
+            margin: 0 10px;
+            transition: all .3s;
+        }
+
+        .bx4:hover,
+        .bx5:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, .3)
+        }
+
+        .pers {
+            perspective: 800px;
+            background-color: cornsilk;
+        }
+
+        .cube {
+
+            width: 200px;
+            height: 200px;
+            /* background-color: #bfa; */
+            margin: 100px auto;
+            /* 设置3d变形效果 */
+            transform-style: preserve-3d;
+            /* transform: rotateX(45deg) rotateZ(45deg); */
+            animation: rotate 20s infinite linear;
+
+        }
+
+        .cube>div {
+            width: 200px;
+            height: 200px;
+            /* 为元素设置透明效果 */
+            opacity: 0.7;
+            position: absolute;
+
+        }
+
+        .cube img {
+            vertical-align: top;
+        }
+
+        .cube .cb1 {
+            transform: rotateY(90deg) translateZ(100px);
+
+        }
+
+        .cube .cb2 {
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+
+        .cube .cb3 {
+            transform: rotateX(90deg) translateZ(100px);
+        }
+
+        .cube .cb4 {
+            transform: rotateX(-90deg) translateZ(100px);
+        }
+
+        .cube .cb5 {
+            transform: rotateY(180deg) translateZ(100px);
+        }
+
+        .cube .cb6 {
+            transform: rotateY(0deg) translateZ(100px);
+        }
+
+        @keyframes rotate {
+            form {
+                transform: rotateX(0) rotateY(0)
+            }
+
+            to {
+                transform: rotateX(1turn) rotateY(1turn)
+            }
+        }
+
+        /* 设置表的样式 */
+        .clock {
+            width: 500px;
+            height: 500px;
+            margin: 0 auto;
+            margin-top: 100px;
+            border-radius: 50%;
+            /* border: 10px solid black; */
+            position: relative;
+            background-image: url(./../Media/img/clock/bg.png);
+            background-size: cover;
+        }
+
+        .clock>div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+        }
+
+        /* 设置时针 */
+        .hour-wrapper {
+            height: 60%;
+            width: 60%;
+            animation: run 7200s linear infinite;
+        }
+
+        .hour {
+            height: 50%;
+            width: 6px;
+            background-color: #000;
+            margin: 0 auto;
+
+        }
+
+        /* 设置分针 */
+        .min-wrapper {
+            height: 70%;
+            width: 70%;
+            animation: run 600s steps(60) infinite;
+        }
+
+        .min {
+            height: 50%;
+            width: 4px;
+            background-color: #000;
+            margin: 0 auto
+        }
+
+        /* 设置秒针 */
+        .sec-wrapper {
+            height: 80%;
+            width: 80%;
+            animation: run 10s steps(60) infinite;
+        }
+
+        .sec {
+            height: 50%;
+            width: 2px;
+            background-color: #f00;
+            margin: 0 auto
+        }
+
+        /* 
+        旋转的关键帧
+        */
+        @keyframes run {
+            from {
+                transform: rotateZ(0);
+            }
+
+            to {
+                transform: rotateZ(360deg);
+            }
+        }
+    </style>
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">
+                    Index</a>
+            </li>
+            <li><a href="csslearning.html">
+                    CSS Index</a>
+            </li>
+            <li><a href="css_projects.html">
+                    CSS Projects</a>
+            </li>
+        </ul>
+    </nav>
+    <h1>动画</h1>
+    <h2>过渡</h2>
+    <div class="box1">
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </div>
+    <h2>米兔练习</h2>
+    <div class="mitu">
+
+    </div>
+
+    <h2>动画</h2>
+    <div class="dh1">
+        <div class="dh2"></div>
+    </div>
+
+    <h2>特朗普</h2>
+    <div class="trump">
+
+    </div>
+
+    <h2>变形</h2>
+
+    <div class="bx1"></div>
+    <div class="bx2"></div>
+    <!-- <div class="bx3">
+        aaaa
+    </div> -->
+
+    <div class="bx4">
+
+    </div>
+
+    <div class="bx5">
+
+    </div>
+
+    <h2 class="clearfix">平移和旋转</h2>
+    <!-- perspective必须相对于变形的父元素,相对于html的话,html的中点在页面总长的二分之一处,就有问题 -->
+    <div class="pers">
+        <!-- 创建一个外部的容器 -->
+        <div class="cube">
+            <!-- 引入图片 -->
+            <div class="cb1">
+                <img src="./../Media/img/avenger/1.jpg">
+            </div>
+
+            <div class="cb2">
+                <img src="./../Media/img/avenger/2.jpg">
+            </div>
+
+            <div class="cb3">
+                <img src="./../Media/img/avenger/3.jpg">
+            </div>
+
+            <div class="cb4">
+                <img src="./../Media/img/avenger/4.jpg">
+            </div>
+
+            <div class="cb5">
+                <img src="./../Media/img/avenger/5.jpg">
+            </div>
+
+            <div class="cb6">
+                <img src="./../Media/img/avenger/6.jpg">
+            </div>
+        </div>
+    </div>
+
+    <h2>时钟</h2>
+    <!-- 创建表的容器 -->
+    <div class="clock">
+        <!-- 创建时针 -->
+        <!-- 旋转的是指针的容器,直接旋转指针会以指针的中心旋转而不是顶端旋转 -->
+        <div class="hour-wrapper">
+            <div class="hour"></div>
+        </div>
+
+        <!-- 创建分针 -->
+        <div class="min-wrapper">
+            <div class="min"></div>
+        </div>
+
+        <!-- 创建秒针 -->
+        <div class="sec-wrapper">
+            <div class="sec"></div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

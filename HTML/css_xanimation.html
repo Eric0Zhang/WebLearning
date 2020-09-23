@@ -418,7 +418,49 @@
                 transform: rotateZ(360deg);
             }
         }
-    </style>
+
+        .sf {
+            perspective: 800px;
+
+        }
+
+        .sf .out {
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            transition: transform 2s;
+            margin: 100px auto;
+
+
+            /* 变形的原点 默认值 center*/
+            /* transform-origin:20px 20px;  */
+        }
+
+        .sf .out:hover {
+            /* 
+                对元素进行缩放的函数：
+                    scaleX() 水平方向缩放
+                    scaleY() 垂直方向缩放
+                    scale() 双方向的缩放
+            */
+            transform: scale(2)
+        }
+
+
+        .sf .img-wrapper {
+            width: 200px;
+            height: 200px;
+            border: 1px red solid;
+            overflow: hidden;
+        }
+
+        .sf img {
+            transition: transform .2s;
+        }
+
+        .sf .img-wrapper:hover img {
+            transform: scale(1.2);
+        }
     </style>
 </head>
 
@@ -524,6 +566,15 @@
             <div class="sec"></div>
         </div>
 
+    </div>
+
+    <h2>缩放</h2>
+    <div class="sf">
+        <div class="out"></div>
+
+        <div class="img-wrapper">
+            <img src="./../Media/an.jpg" width="100%">
+        </div>
     </div>
 
 </body>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>淘宝导航条</title>
+    <link rel="stylesheet" href="./../CSS/reset.css">
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        ul {
+            /* 注意宽度应当是与屏幕适配的,所以100% */
+            width: 100%;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+            align-content: space-around;
+            /* border: darkgreen 2px solid; */
+            margin: 10px auto;
+        }
+
+        li {
+            width: 61px;
+            height: 67px;
+            flex: auto;
+        }
+
+        a {
+            text-decoration: none;
+            text-align: center;
+        }
+
+        img {
+            display: block;
+            width: 61px;
+            height: 48px;
+            margin: 0 auto;
+        }
+
+        span {
+            margin-top: 3px;
+            display: block;
+            color: rgb(102, 102, 102);
+            font-family: '微软雅黑';
+            font-size: 11px;
+            line-height: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li><a href="javascript:;"><img src="./../Media/img/taobao/1.png" alt="1"><span>天猫</span></a></li>
+        <li><a href="javascript:;"><img src="./../Media/img/taobao/2.png" alt="2"><span>聚划算</span></a></li>
+        <li><a href="javascript:;"><img src="./../Media/img/taobao/3.png" alt="3"><span>天猫国际</span></a></li>
+        <li><a href="javascript:;"><img src="./../Media/img/taobao/4.png" alt="4"><span>外卖</span></a></li>
+        <li><a href="javascript:;"><img src="./../Media/img/taobao/5.png" alt="5"><span>天猫超市</span></a></li>
+    </ul>
+    <ul>
+        <li><a href="javascript:;"><img src="./../Media/img/taobao/6.png" alt="6"><span>充值中心</span></a></li>
+        <li><a href="javascript:;"><img src="./../Media/img/taobao/7.png" alt="7"><span>飞猪旅行</span></a></li>
+        <li><a href="javascript:;"><img src="./../Media/img/taobao/8.png" alt="8"><span>领金币</span></a></li>
+        <li><a href="javascript:;"><img src="./../Media/img/taobao/9.png" alt="9"><span>拍卖</span></a></li>
+        <li><a href="javascript:;"><img src="./../Media/img/taobao/10.png" alt="10"><span>分类</span></a></li>
+    </ul>
+</body>
+
+</html>

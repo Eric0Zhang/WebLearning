@@ -1,6 +1,153 @@
 // 这里定义手机屏幕宽度的像素数, 方便以后适配其他手机, 最常见的为750和1125两种
-@phone-width: 750;
+* {
+    margin : 0px;
+    padding: 0px;
+}
+
+@phone-width : 750;
+
+.w {
+    width : 6.93rem;
+    margin: 0 auto;
+}
 
 html {
-    font-size: 100vw/@phone-width*100;
+    font-size       : 100vw/@phone-width*100;
+    background-color: #eff0f4;
+}
+
+a {
+    text-decoration: none;
+}
+
+.top-bar:extend(.w) {
+    // background-color: #bfa;
+    display        : flex;
+    flex-flow      : row nowrap;
+    height         : 1.75rem;
+    font-size      : 0.12rem;
+    justify-content: space-between;
+    align-items    : center;
+
+    a {
+        color    : #24253d;
+        font-size: 0.5rem;
+
+        i {
+            color    : #999;
+            font-size: 0.5rem;
+        }
+    }
+
+}
+
+.banner:extend(.w) {
+    img {
+        width: 100%;
+    }
+}
+
+.menu:extend(.w) {
+    height         : 3.29rem;
+    display        : flex;
+    flex-flow      : row wrap;
+    font-size      : 0.3rem;
+    justify-content: space-between;
+    align-content  : space-evenly;
+
+    a {
+        color        : white;
+        display      : block;
+        width        : 3.27rem;
+        height       : 1.04rem;
+        line-height  : 1.04rem;
+        border-radius: 0.1rem;
+        overflow     : hidden;
+        text-align   : center;
+    }
+
+
+    >:nth-child(1) {
+
+        background-color: orange;
+    }
+
+    >:nth-child(2) {
+        background-color: rgb(196, 8, 196);
+    }
+
+    >:nth-child(3) {
+        background-color: rgb(248, 51, 100);
+    }
+
+    >:nth-child(4) {
+        background-color: rgb(66, 163, 253);
+    }
+}
+
+.title:extend(.w) {
+    font-size      : 0.4rem;
+    display        : flex;
+    height         : 0.36rem;
+    line-height    : 0.36rem;
+    flex-flow      : row nowrap;
+    justify-content: space-between;
+
+    .start {
+        display    : flex;
+        height     : 0.33rem;
+        line-height: 0.33rem;
+        font-size  : 0.33rem;
+    }
+
+    .bar {
+        width           : 0.06rem;
+        height          : 0.33rem;
+        background-color: #999;
+        margin          : auto 0;
+        margin-right    : 0.1rem;
+        flex            : none;
+    }
+
+
+    >span {
+        color    : #999;
+        font-size: 0.26rem;
+    }
+}
+
+article:extend(.w) {
+    height         : 4.06rem;
+    font-size      : 0.3rem;
+    display        : flex;
+    flex-flow      : row nowrap;
+    justify-content: space-between;
+
+    div {
+        margin-top      : 0.3rem;
+        width           : 3.26rem;
+        height          : 3.26rem;
+        background-color: white;
+        border-radius   : 0.15rem;
+        display         : flex;
+        flex-flow       : column nowrap;
+        justify-content : space-evenly;
+        align-items     : center;
+
+        img.cover {
+            width: 90%;
+        }
+
+        img:not(.cover) {
+            width: .5rem;
+        }
+
+        .teacher {
+            width          : 100%;
+            display        : flex;
+            flex-flow      : row wrap;
+            justify-content: space-evenly;
+            align-items    : center;
+        }
+    }
 }

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS的基本语法</title>
+</head>
+
+<body>
+    <h1>Hello World</h1>
+    <!-- JS语句最好放在body的最后位置,这样加载速度最快 -->
+    <script>
+        function greetMe(user) {
+            console.log('Hello ' + user);
+        }
+
+        greetMe('World'); // 'Hi Alice'
+    </script>
+    <h1>逻辑中断</h1>
+    <script type="text/javascript">
+        // 逻辑中断 （短路操作）
+        // 逻辑或： ||
+        // 逻辑与： &&
+
+        // 逻辑或：
+        // 语法： 表达式1 || 表达式2
+        // 如果第一个表达式的值为真：则返回表达式1
+        // 如果第一个表达式的值为假：则返回表达式2
+
+        // 逻辑与：
+        // 语法： 表达式1 && 表达式2
+        // 如果第一个表达式的值为真：则返回表达式2
+        // 如果第一个表达式的值为假：则返回表达式1
+
+        var b = 123 || 456;
+        console.log(b);
+        var b = 0 || 456;
+        console.log(b);
+
+        // 逻辑与
+        var b = 123 && 456;
+        console.log(b);
+        var b = 0 && 456;
+        console.log(b);
+
+        // 多个逻辑顺序执行
+        // if( 条件1 && 条件2 && 条件3)
+        // if( 条件1 || 条件2 || 条件3)
+        var b = 123 && 0 && 789;
+        console.log(b);
+    </script>
+    <h1>隐式类型转换</h1>
+    <script>
+        var b;
+        b = '37';
+        b -= 1; //减法会将字符串转换成数字
+        console.log('隐式转换输出:' + b);
+        b = '37';
+        b += 1; //加法(拼接)会将数字转换成字符串
+        console.log('隐式转换输出:' + b);
+    </script>
+</body>
+
+</html>

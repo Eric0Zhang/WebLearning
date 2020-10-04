@@ -1,0 +1,158 @@
+a {
+    text-decoration: none;
+    color: white;
+
+    &:hover {
+        color: rgb(177, 177, 177);
+    }
+}
+
+.top-bar-wrapper {
+    background-color: black;
+}
+
+.top-bar {
+    max-width: 1200px;
+    height: 48px;
+    display: flex;
+    padding: 0 15px;
+    justify-content: space-between;
+    background-color: black;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.left-menu {
+    .menu-icon:hover+.nav {
+        display: block;
+    }
+
+    // 这里由于Hover的是整个left-menu，
+    // 当left-menu随屏幕变大，移动到中间以后，菜单项也会弹出
+    // 目前没有办法解决，后面需要用JS
+    // &:hover .nav {
+    //     display: block;
+    // }
+
+    .menu-icon {
+        width: 18px;
+        height: 48px;
+        position: relative;
+
+        li {
+            position: absolute;
+            background-color: white;
+            width: 18px;
+            height: 1px;
+            transform-origin: left;
+            transition: 0.3s;
+        }
+
+        // 注意nth-child的前面是子元素本身，而不是父元素
+        li:nth-child(1) {
+            top: 18px;
+        }
+
+        li:nth-child(2) {
+            top: 24px;
+        }
+
+        li:nth-child(3) {
+            top: 30px;
+        }
+
+        &:hover li:first-child {
+            transform: rotate(40deg);
+        }
+
+        &:hover li:nth-child(2) {
+            display: none;
+        }
+
+        &:hover li:last-child {
+            transform: rotate(-40deg);
+        }
+
+
+    }
+
+    .nav {
+        display: none;
+        position: absolute;
+        top: 48px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        background-color: black;
+
+        li {
+            width: 80%;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            height: 30px;
+            border-bottom: 1px rgb(177, 177, 177) solid;
+        }
+
+        span {
+            color: white;
+        }
+    }
+}
+
+.logo {
+    width: 122px;
+    height: 32px;
+    background-image: url("./../../Media/img/meitu/dff63979.sprites-index@2x.png");
+    background-size: 400px 400px;
+
+}
+
+@media only screen {
+    @media (min-width:768px) {
+        .menu-icon {
+            display: none;
+        }
+
+        .left-menu {
+            order: 2;
+            // 内部元素自动伸缩
+            flex: auto;
+
+            .nav {
+                margin: 0 30px;
+                display: flex;
+                //去掉之前的绝对定位，恢复默认的定位
+                position: static;
+                padding: 0;
+                justify-content: space-around;
+                align-items: center;
+                // pointer-events: none;
+
+                li {
+                    width: auto;
+                    height: 48px;
+                    border-bottom: none;
+                    margin: 0;
+
+                    a {
+                        line-height: 48px;
+                    }
+
+                    span {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .logo {
+            order: 1;
+        }
+
+        .usr {
+            order: 3
+        }
+
+
+    }
+}

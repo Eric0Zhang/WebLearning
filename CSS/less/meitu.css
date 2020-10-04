@@ -1,0 +1,114 @@
+a {
+  text-decoration: none;
+  color: white;
+}
+a:hover {
+  color: #b1b1b1;
+}
+.top-bar-wrapper {
+  background-color: black;
+}
+.top-bar {
+  max-width: 1200px;
+  height: 48px;
+  display: flex;
+  padding: 0 15px;
+  justify-content: space-between;
+  background-color: black;
+  align-items: center;
+  margin: 0 auto;
+}
+.left-menu .menu-icon:hover + .nav {
+  display: block;
+}
+.left-menu .menu-icon {
+  width: 18px;
+  height: 48px;
+  position: relative;
+}
+.left-menu .menu-icon li {
+  position: absolute;
+  background-color: white;
+  width: 18px;
+  height: 1px;
+  transform-origin: left;
+  transition: 0.3s;
+}
+.left-menu .menu-icon li:nth-child(1) {
+  top: 18px;
+}
+.left-menu .menu-icon li:nth-child(2) {
+  top: 24px;
+}
+.left-menu .menu-icon li:nth-child(3) {
+  top: 30px;
+}
+.left-menu .menu-icon:hover li:first-child {
+  transform: rotate(40deg);
+}
+.left-menu .menu-icon:hover li:nth-child(2) {
+  display: none;
+}
+.left-menu .menu-icon:hover li:last-child {
+  transform: rotate(-40deg);
+}
+.left-menu .nav {
+  display: none;
+  position: absolute;
+  top: 48px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: black;
+}
+.left-menu .nav li {
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  height: 30px;
+  border-bottom: 1px #b1b1b1 solid;
+}
+.left-menu .nav span {
+  color: white;
+}
+.logo {
+  width: 122px;
+  height: 32px;
+  background-image: url("../../Media/img/meitu/dff63979.sprites-index@2x.png");
+  background-size: 400px 400px;
+}
+@media only screen and (min-width: 768px) {
+  .menu-icon {
+    display: none;
+  }
+  .left-menu {
+    order: 2;
+    flex: auto;
+  }
+  .left-menu .nav {
+    margin: 0 30px;
+    display: flex;
+    position: static;
+    padding: 0;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .left-menu .nav li {
+    width: auto;
+    height: 48px;
+    border-bottom: none;
+    margin: 0;
+  }
+  .left-menu .nav li a {
+    line-height: 48px;
+  }
+  .left-menu .nav li span {
+    display: none;
+  }
+  .logo {
+    order: 1;
+  }
+  .usr {
+    order: 3;
+  }
+}

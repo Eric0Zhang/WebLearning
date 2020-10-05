@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb18030">
+    <title>Untitled Document</title>
+    
+</head>
+<body>
+    <script type="text/javascript">   
+        /*
+         * param1 Array 
+         * param2 Array
+         * return true or false
+         */
+        function arraysSimilar(arr1, arr2){
+            if(!(arr1 instanceof Array) || !(arr2 instanceof Array))
+                return false;
+            if(arr1.length!== arr2.length)
+                return false;
+            var TYPES = ["string","boolean","number","undefined","null","function","date","window"],
+                i = 0,
+                map1 = [],
+                map2 = [],
+                t1,t2,
+                n = arr1.length;
+            
+            for(;i<n;i++)
+            {
+                t1 = TypeOf(arr1[i]);
+                t2 = TypeOf(arr2[i]);
+                if(map1[t1])
+                    map1[t1]++;
+                else
+                    map1[t1] = 1;
+                if(map2[t2])
+                    map2[t2]++;
+                else
+                    map2[t2] = 1;
+            }
+            
+            function TypeOf(foo)
+            {
+                var r;
+                if(foo === null)
+                    r = "null";//null返回object
+                else if(foo === window) 
+                    r='window';//窗口对象返回object
+                else if(foo instanceof Date)
+                    r = 'date';//日期对象返回object
+                else
+                    r = typeof foo;
+                return r;
+            }
+            
+            for(i=0;i<TYPES.length;i++)
+            {
+                if(map1[TYPES[i]]!==map2[TYPES[i]])
+                    return false;
+            }
+            
+            return true;
+        }
+    </script>
+    <script src="testData.js"></script>
+</body>
+</html>

@@ -8,6 +8,19 @@
 </head>
 
 <body>
+    <nav>
+        <ul>
+            <li><a href="index.html">
+                    Index</a>
+            </li>
+            <li><a href="js_index.html">
+                    JS Index</a>
+            </li>
+            <li><a href="js_projects.html">
+                    JS Projects</a>
+            </li>
+        </ul>
+    </nav>
     <h1>Hello World</h1>
     <!-- JS语句最好放在body的最后位置,这样加载速度最快 -->
     <script>
@@ -59,6 +72,48 @@
         b = '37';
         b += 1; //加法(拼接)会将数字转换成字符串
         console.log('隐式转换输出:' + b);
+    </script>
+    <h1>继承</h1>
+    <script>
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        Person.prototype.hi = function () {
+            console.log('Hi, my name is' + this.name + ", I'm " + this.age + ' years old now.');
+        };
+
+        Person.prototype.LEGS_NUM = 2;
+        Person.prototype.ARMS_NUM = 2;
+        Person.prototype.walk = function () {
+            console.log(this.name + 'is walking...');
+        };
+
+        function Student(name, age, className) {
+            Person.call(this, name, age);
+            this.className = className;
+        }
+
+        Student.prototype = Object.create(Person.prototype);
+        //注意: 这里如果不赋值为Student,则会沿用父函数的构造函数Person
+        Student.prototype.constructor = Student;
+
+        Student.prototype.hi = function () {
+            console.log('Hi, my name is ' + this.name + ", I'm " + this.age + ' years old now, and from ' + this
+                .className + '.');
+        };
+
+        Student.prototype.learn = function (subject) {
+            console.log(this.name + 'is learning ' + subject + ' at' + this.className + '.');
+        };
+
+        var eric = new Student('Elliot', 27, 'Class, Grade2');
+
+        eric.hi();
+        console.log(eric.name + ' has ' + eric.LEGS_NUM + ' legs.');
+        eric.walk();
+        eric.learn('Javascript');
     </script>
 </body>
 

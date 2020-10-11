@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS的基本语法</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #outer {
+            width: 500px;
+            margin: 50px auto;
+            padding: 10px;
+            background-color: rgb(223, 240, 198);
+            /*设置文本居中*/
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">
+                    Index</a>
+            </li>
+            <li><a href="js_index.html">
+                    JS Index</a>
+            </li>
+            <li><a href="js_projects.html">
+                    JS Projects</a>
+            </li>
+        </ul>
+    </nav>
+    <h1>事件</h1>
+    <!--
+			我们可以在事件对应的属性中设置一些js代码，
+				这样当事件被触发时，这些代码将会执行
+				
+			这种写法我们称为结构和行为耦合，不方便维护，不推荐使用	
+		-->
+    <!--<button id="btn" onmousemove="alert('讨厌，你点我干嘛！');">我是一个按钮</button>-->
+    <button id="btn">我是一个按钮</button>
+    <script type="text/javascript">
+        /*
+         * 事件，就是用户和浏览器之间的交互行为，
+         * 	比如：点击按钮，鼠标移动、关闭窗口。。。
+         */
+        //获取按钮对象
+        var btn = document.getElementById("btn");
+
+        /*
+         * 可以为按钮的对应事件绑定处理函数的形式来响应事件
+         * 	这样当事件被触发时，其对应的函数将会被调用
+         */
+
+        //绑定一个单击事件
+        //像这种为单击事件绑定的函数，我们称为单击响应函数
+        btn.onclick = function () {
+            alert("你还点~~~");
+        };
+    </script>
+    <h1>图片切换</h1>
+    <div id="outer">
+
+        <p id="info"></p>
+
+        <img src="./../Media/img/js/1.jpg" alt="冰棍" />
+
+        <button id="prev">上一张</button>
+        <button id="next">下一张</button>
+
+    </div>
+    <script>
+        /*
+         * 点击按钮切换图片
+         */
+
+        //获取两个按钮
+        var prev = document.getElementById("prev");
+        var next = document.getElementById("next");
+
+        /*
+         * 要切换图片就是要修改img标签的src属性
+         */
+
+        //获取img标签
+        var img = document.getElementsByTagName("img")[0];
+
+        //创建一个数组，用来保存图片的路径
+        var imgArr = ["../Media/img/js/1.jpg", "../Media/img/js/2.jpg", "../Media/img/js/3.jpg",
+            "../Media/img/js/4.jpg",
+            "../Media/img/js/5.jpg"
+        ];
+
+        //创建一个变量，来保存当前正在显示的图片的索引
+        var index = 0;
+
+        //获取id为info的p元素
+        var info = document.getElementById("info");
+        //设置提示文字
+        info.innerHTML = "一共 " + imgArr.length + " 张图片，当前第 " + (index + 1) + " 张";
+
+
+        //分别为两个按钮绑定单击响应函数
+        prev.onclick = function () {
+
+            /*
+             * 切换到上一张，索引自减
+             */
+            index--;
+
+            //判断index是否小于0
+            if (index < 0) {
+                index = imgArr.length - 1;
+            }
+            img.src = imgArr[index]; //当点击按钮以后，重新设置信息 info.innerHTML="一共 "
+            +
+            imgArr.length + " 张图片，当前第 " + (index + 1) + " 张";
+        };
+        next.onclick = function () {
+            /* * 切换到下一张是index自增 */
+            index++;
+            if (index > imgArr.length - 1) {
+                index = 0;
+            }
+
+            //切换图片就是修改img的src属性
+            //要修改一个元素的属性 元素.属性 = 属性值
+            img.src = imgArr[index];
+
+            //当点击按钮以后，重新设置信息
+            info.innerHTML = "一共 " + imgArr.length + " 张图片，当前第 " + (index + 1) + " 张";
+
+        };
+    </script>
+    <h1>DOM查询</h1>
+    <div id="total">
+        <div class="inner">
+            <p>
+                你喜欢哪个城市?
+            </p>
+
+            <ul id="city">
+                <li id="bj">北京</li>
+                <li>上海</li>
+                <li>东京</li>
+                <li>首尔</li>
+            </ul>
+
+            <br>
+            <br>
+
+            <p>
+                你喜欢哪款单机游戏?
+            </p>
+
+            <ul id="game">
+                <li id="rl">红警</li>
+                <li>实况</li>
+                <li>极品飞车</li>
+                <li>魔兽</li>
+            </ul>
+
+            <br />
+            <br />
+
+            <p>
+                你手机的操作系统是?
+            </p>
+
+            <ul id="phone">
+                <li>IOS</li>
+                <li id="android">Android</li>
+                <li>Windows Phone</li>
+            </ul>
+        </div>
+
+        <div class="inner">
+            gender:
+            <input class="hello" type="radio" name="gender" value="male" />
+            Male
+            <input class="hello" type="radio" name="gender" value="female" />
+            Female
+            <br>
+            <br>
+            name:
+            <input type="text" name="name" id="username" value="abcde" />
+        </div>
+    </div>
+    <div id="btnList">
+        <div><button id="btn01">查找#bj节点</button></div>
+        <div><button id="btn02">查找所有li节点</button></div>
+        <div><button id="btn03">查找name=gender的所有节点</button></div>
+        <div><button id="btn04">查找#city下所有li节点</button></div>
+        <div><button id="btn05">返回#city的所有子节点</button></div>
+        <div><button id="btn06">返回#phone的第一个子节点</button></div>
+        <div><button id="btn07">返回#bj的父节点</button></div>
+        <div><button id="btn08">返回#android的前一个兄弟节点</button></div>
+        <div><button id="btn09">返回#username的value属性值</button></div>
+        <div><button id="btn10">设置#username的value属性值</button></div>
+        <div><button id="btn11">返回#bj的文本值</button></div>
+    </div>
+    <script>
+        //为id为btn01的按钮绑定一个单击响应函数
+        var btn01 = document.getElementById("btn01");
+        btn01.onclick = function () {
+            //查找#bj节点
+            var bj = document.getElementById("bj");
+            //打印bj
+            //innerHTML 通过这个属性可以获取到元素内部的html代码
+            alert(bj.innerHTML);
+        };
+
+
+        //为id为btn02的按钮绑定一个单击响应函数
+        var btn02 = document.getElementById("btn02");
+        btn02.onclick = function () {
+            //查找所有li节点
+            //getElementsByTagName()可以根据标签名来获取一组元素节点对象
+            //这个方法会给我们返回一个类数组对象，所有查询到的元素都会封装到对象中
+            //即使查询到的元素只有一个，也会封装到数组中返回
+            var lis = document.getElementsByTagName("li");
+
+            //变量lis
+            for (var i = 0; i < lis.length; i++) {
+                alert(lis[i].innerHTML);
+            }
+        };
+        //为id为btn03的按钮绑定一个单击响应函数 
+        var btn03 = document.getElementById("btn03");
+        btn03.onclick = function () {
+            //查找name=gender的所有节点 
+            var inputs = document.getElementsByName("gender");
+
+            for (var i = 0; i < inputs.length; i++) {
+
+                //   innerHTML用于获取元素内部的HTML代码的 
+                //   对于自结束标签，这个属性没有意义 
+                //  alert(inputs[i].innerHTML); 
+                //  如果需要读取元素节点属性， 
+                //  直接使用 元素.属性名 
+                //  例子： 元素.id 元素.name 元素.value 
+                //  注意： class属性不能采用这种方式， 
+                //  读取class属性时需要使用 元素.className 
+
+                alert(inputs[i].className);
+            }
+        };
+
+        var btn04 = document.getElementById("btn04");
+        btn04.onclick = function () {
+            //查找#city下所有li节点
+            var city = document.getElementById("city");
+            var list = city.getElementsByTagName('li');
+            // list.forEach(element => {
+            //     alert(element.innerHTML);
+            // });
+            // 注意list并不是Array而是HTMLCollection
+            for (var i = 0; i < list.length; i++)
+                alert(list[i].innerHTML);
+        }
+
+        var btn05 = document.getElementById("btn05");
+        btn05.onclick = function () {
+            //返回#city的所有子节点
+            
+        }
+
+        var btn06 = document.getElementById("btn06");
+        btn06.onclick = function () {
+            //返回#phone的第一个子节点
+
+        }
+
+        var btn07 = document.getElementById("btn07");
+        btn07.onclick = function () {
+            //返回#bj的父节点
+            var father = document.getElementById('bj');
+            alert(father.parentElement());
+        }
+        var btn08 = document.getElementById("btn08");
+        btn08.onclick = function () {
+            //返回#android的前一个兄弟节点 
+
+        }
+        var btn09 = document.getElementById("btn09");
+        btn09.onclick = function () {
+            //读取#username的value属性值 
+
+        }
+        var btn10 = document.getElementById("btn10");
+        btn10.onclick = function () {
+            //设置#username的value属性值 
+
+        }
+        var btn11 = document.getElementById("btn11");
+        btn11.onclick = function () {
+            //返回#bj的文本值
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>添加删除记录练习</title>
+    <style>
+        #total {
+            width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            border-style: solid;
+            border-width: 1px;
+            padding: 5px;
+            margin: 5px;
+            background-color: #99ff99;
+            float: left;
+        }
+
+        .inner {
+            width: 400px;
+            border-style: solid;
+            border-width: 1px;
+            margin: 10px;
+            padding: 10px;
+            float: left;
+        }
+
+        #employeeTable {
+            border-spacing: 1px;
+            background-color: black;
+            margin: 80px auto 10px auto;
+        }
+
+        th,
+        td {
+            background-color: white;
+        }
+
+        #formDiv {
+            width: 250px;
+            border-style: solid;
+            border-width: 1px;
+            margin: 50px auto 10px auto;
+            padding: 10px;
+        }
+
+        #formDiv input {
+            width: 100%;
+        }
+
+        .word {
+            width: 40px;
+        }
+
+        .inp {
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <table id="employeeTable">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Salary</th>
+            <th>&nbsp;</th>
+        </tr>
+        <tr>
+            <td>Tom</td>
+            <td>tom@tom.com</td>
+            <td>5000</td>
+            <td><a href="javascript:;">Delete</a></td>
+        </tr>
+        <tr>
+            <td>Jerry</td>
+            <td>jerry@sohu.com</td>
+            <td>8000</td>
+            <td><a href="deleteEmp?id=002">Delete</a></td>
+        </tr>
+        <tr>
+            <td>Bob</td>
+            <td>bob@tom.com</td>
+            <td>10000</td>
+            <td><a href="deleteEmp?id=003">Delete</a></td>
+        </tr>
+    </table>
+
+    <div id="formDiv">
+
+        <h4>添加新员工</h4>
+
+        <table>
+            <tr>
+                <td class="word">name: </td>
+                <td class="inp">
+                    <input type="text" name="empName" id="empName" value="Eric" />
+                </td>
+            </tr>
+            <tr>
+                <td class="word">email: </td>
+                <td class="inp">
+                    <input type="text" name="email" id="email" value="eric@luoqian.cn" />
+                </td>
+            </tr>
+            <tr>
+                <td class="word">salary: </td>
+                <td class="inp">
+                    <input type="text" name="salary" id="salary" value="20000" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <button id="addEmpButton" value="abc">
+                        Submit
+                    </button>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+</body>
+<script>
+    linkCallback();
+
+    var sub = document.getElementById("addEmpButton");
+    sub.onclick = function () {
+        var name = document.getElementsByName('empName')[0];
+        var email = document.getElementsByName('email')[0];
+        var salary = document.getElementsByName('salary')[0];
+        var newline = document.createElement('tr');
+        var newname = document.createElement('td');
+        var newemail = document.createElement('td');
+        var newsal = document.createElement('td');
+        var newdelete = document.createElement('td');
+        newname.innerHTML = name.value;
+        newemail.innerHTML = email.value;
+        newsal.innerHTML = salary.value;
+        var newa = document.createElement('a');
+        newa.innerHTML = "Delete";
+        newa.href = "javascript:;";
+        newdelete.appendChild(newa);
+        newline.appendChild(newname);
+        newline.appendChild(newemail);
+        newline.appendChild(newsal);
+        newline.appendChild(newdelete);
+        var table = document.querySelector('#employeeTable');
+        table.appendChild(newline);
+        linkCallback();
+    };
+
+    function linkCallback() {
+        var links = document.getElementsByTagName('a');
+        for (var i = 0; i < links.length; i++) {
+            links[i].onclick = function () {
+                // 注意这是回调函数, 里面不能用links[i] 应当用this 
+                // 回调时i变量一直都是最大值
+                var tr = this.parentNode.parentNode;
+
+                /*
+                 * confirm()用于弹出一个带有确认和取消按钮的提示框
+                 * 需要一个字符串作为参数，该字符串将会作为提示文字显示出来
+                 * 如果用户点击确认则会返回true，如果点击取消则返回false
+                 */
+                var cf = confirm("确认删除吗?");
+                if (cf === true)
+                    tr.parentNode.removeChild(tr);
+                return false; //这样可以屏蔽超链接的跳转页面
+            }
+        }
+    }
+</script>
+
+</html>

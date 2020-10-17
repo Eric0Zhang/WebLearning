@@ -34,11 +34,10 @@
                 //获取滚动条滚动的距离
                 /*
                  * chrome认为浏览器的滚动条是body的，可以通过body.scrollTop来获取
-                 * 火狐等浏览器认为浏览器的滚动条是html的，
+                 * 火狐等浏览器认为浏览器的滚动条是html的，即documentElement
                  */
                 var st = document.body.scrollTop || document.documentElement.scrollTop;
                 var sl = document.body.scrollLeft || document.documentElement.scrollLeft;
-                //var st = document.documentElement.scrollTop;
 
 
                 //获取到鼠标的坐标

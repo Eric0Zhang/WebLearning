@@ -6,7 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BOM</title>
     <style>
+        #ch1 {
+            background-color: #bfa;
+        }
 
+        #count {
+            font-size: 100px;
+            font-weight: bolder;
+            background-color: #bfa;
+            color: blueviolet;
+        }
+
+
+        #outer {
+            width: 500px;
+            margin: 50px auto;
+            padding: 10px;
+            background-color: rgb(223, 240, 198);
+            /*设置文本居中*/
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -27,6 +46,7 @@
 
     <h1>BOM对象</h1>
     <div id="ch1">
+        请看源码~
     </div>
     <script>
         /*
@@ -94,26 +114,212 @@
         console.log(ua);
 
         if (/firefox/i.test(ua)) {
-            alert("你是火狐！！！");
+            console.log("你是火狐！！！");
         } else if (/chrome/i.test(ua)) {
-            alert("你是Chrome");
+            console.log("你是Chrome");
         } else if (/msie/i.test(ua)) {
-            alert("你是IE浏览器~~~");
+            console.log("你是IE浏览器~~~");
         } else if ("ActiveXObject" in window) {
-            alert("你是IE11，枪毙了你~~~");
+            console.log("你是IE11，枪毙了你~~~");
         }
-
         /*
          * 如果通过UserAgent不能判断，还可以通过一些浏览器中特有的对象，来判断浏览器的信息
          * 比如：ActiveXObject
          */
-        /*if("ActiveXObject" in window){
-        	alert("你是IE，我已经抓住你了~~~");
-        }else{
-        	alert("你不是IE~~~");
-        }*/
+    </script>
 
-        /*alert("ActiveXObject" in window);*/
+
+
+    <h1>历史History</h1>
+    <button id="btn">点我一下</button>
+    <script>
+        //获取按钮对象
+        var btn = document.getElementById("btn");
+
+        btn.onclick = function () {
+            /*
+             * length
+             * 	- 属性，可以获取到当成访问的链接数量
+             */
+            console.log(history.length);
+
+            /*
+             * back()
+             * 	- 可以用来回退到上一个页面，作用和浏览器的回退按钮一样
+             */
+            /*
+             * forward()
+             * 	- 可以跳转下一个页面，作用和浏览器的前进按钮一样
+             */
+
+            /*
+             * go()
+             * 	- 可以用来跳转到指定的页面
+             * 	- 它需要一个整数作为参数
+             * 		1:表示向前跳转一个页面 相当于forward()
+             * 		2:表示向前跳转两个页面
+             * 		-1:表示向后跳转一个页面
+             * 		-2:表示向后跳转两个页面
+             */
+            history.go(-2);
+        };
+    </script>
+    <h1>地址栏Location</h1>
+    <button id="btn2">点我一下</button>
+    <input type="text" />
+    <a href="01.BOM.html">去BOM</a>
+    <script>
+        //获取按钮对象
+        var btn2 = document.getElementById("btn2");
+
+        btn2.onclick = function () {
+
+            //如果直接打印location，则可以获取到地址栏的信息（当前页面的完整路径）
+            alert(location);
+
+            /*
+             * 如果直接将location属性修改为一个完整的路径，或相对路径
+             * 	则我们页面会自动跳转到该路径，并且会生成相应的历史记录
+             */
+            //location = "http://www.baidu.com";
+            //location = "01.BOM.html";
+
+            /*
+             * assign()
+             * 	- 用来跳转到其他的页面，作用和直接修改location一样
+             */
+            //location.assign("http://www.baidu.com");
+
+            /*
+             * reload()
+             * 	- 用于重新加载当前页面，作用和刷新按钮一样
+             * 	- 如果在方法中传递一个true，作为参数，则会强制清空缓存刷新页面
+             */
+            //location.reload(true);
+
+            /*
+             * replace()
+             * 	- 可以使用一个新的页面替换当前页面，调用完毕也会跳转页面
+             * 		不会生成历史记录，不能使用回退按钮回退
+             */
+            location.replace("js_dom.html");
+
+        };
+    </script>
+    <h1>定时调用</h1>
+    <!-- 定时器相关的几个方法都是属于window对象 -->
+    <!-- 包括:  setInterval -->
+    <p id="count"></p>
+    <script>
+        //获取count
+        var count = document.getElementById("count");
+
+        /*
+         * setInterval()
+         * 	- 定时调用
+         * 	- 可以将一个函数，每隔一段时间执行一次
+         * 	- 参数：
+         * 		1.回调函数，该函数会每隔一段时间被调用一次
+         * 		2.每次调用间隔的时间，单位是毫秒
+         * 
+         * 	- 返回值：
+         * 		返回一个Number类型的数据
+         * 		这个数字用来作为定时器的唯一标识
+         */
+        var num = 1;
+
+        var timer = setInterval(function () {
+
+            count.innerHTML = num++;
+
+            if (num == 30) {
+                //关闭定时器
+                clearInterval(timer);
+            }
+
+        }, 1000);
+
+        //console.log(timer);
+
+        //clearInterval()可以用来关闭一个定时器
+        //方法中需要一个定时器的标识作为参数，这样将关闭标识对应的定时器
+        //clearInterval(timer);
+    </script>
+
+    <h1>图片切换2.0</h1>
+    <div id="outer">
+
+        <p id="info"></p>
+
+        <img src="./../Media/img/js/1.jpg" alt="冰棍" />
+
+        <button id="prev">上一张</button>
+        <button id="next">下一张</button>
+
+    </div>
+    <script>
+        /*
+         * 点击按钮切换图片
+         */
+
+        //获取两个按钮
+        var prev = document.getElementById("prev");
+        var next = document.getElementById("next");
+
+        /*
+         * 要切换图片就是要修改img标签的src属性
+         */
+
+        //获取img标签
+        var img = document.getElementsByTagName("img")[0];
+
+        //创建一个数组，用来保存图片的路径
+        var imgArr = ["../Media/img/js/1.jpg", "../Media/img/js/2.jpg", "../Media/img/js/3.jpg",
+            "../Media/img/js/4.jpg",
+            "../Media/img/js/5.jpg"
+        ];
+
+        //创建一个变量，来保存当前正在显示的图片的索引
+        var index = 0;
+
+        //获取id为info的p元素
+        var info = document.getElementById("info");
+        //设置提示文字
+        info.innerHTML = "一共 " + imgArr.length + " 张图片，当前第 " + (index + 1) + " 张";
+
+
+        //分别为两个按钮绑定单击响应函数
+        prev.onclick = function () {
+
+            /*
+             * 切换到上一张，索引自减
+             */
+            index--;
+
+            //判断index是否小于0
+            if (index < 0) {
+                index = imgArr.length - 1;
+            }
+            img.src = imgArr[index]; //当点击按钮以后，重新设置信息 info.innerHTML="一共 "
+            +
+            imgArr.length + " 张图片，当前第 " + (index + 1) + " 张";
+        };
+        next.onclick = function () {
+            /* * 切换到下一张是index自增 */
+            index++;
+            if (index > imgArr.length - 1) {
+                index = 0;
+            }
+
+            //切换图片就是修改img的src属性
+            //要修改一个元素的属性 元素.属性 = 属性值
+            img.src = imgArr[index];
+
+            //当点击按钮以后，重新设置信息
+            info.innerHTML = "一共 " + imgArr.length + " 张图片，当前第 " + (index + 1) + " 张";
+
+        };
+        var timer2 = setInterval(next.onclick, 3000);
     </script>
 </body>
 

@@ -21,7 +21,7 @@
             /*居中*/
             margin: 50px auto;
             /*设置背景颜色*/
-            background-color: greenyellow;
+            background-color: rgb(192, 192, 192);
             /*设置padding*/
             padding: 10px 0;
             /*开启相对定位*/
@@ -59,6 +59,7 @@
             position: absolute;
             /*设置位置*/
             bottom: 15px;
+
             /*设置left值
 				 	outer宽度  520
 				 	navDiv宽度 25*5 = 125
@@ -71,21 +72,25 @@
             /*设置超链接浮动*/
             float: left;
             /*设置超链接的宽和高*/
-            width: 15px;
-            height: 15px;
+            width: 8px;
+            height: 8px;
             /*设置背景颜色*/
-            background-color: red;
+            background-color: black;
             /*设置左右外边距*/
             margin: 0 5px;
             /*设置透明*/
             opacity: 0.5;
             /*兼容IE8透明*/
             filter: alpha(opacity=50);
+
+            border-radius: 50%;
+            border: 3px white solid;
         }
 
         /*设置鼠标移入的效果*/
         #navDiv a:hover {
-            background-color: black;
+            background-color: white;
+            border: 3px black solid;
         }
     </style>
 
@@ -114,7 +119,8 @@
             //获取所有的a
             var allA = document.getElementsByTagName("a");
             //设置默认选中的效果
-            allA[index].style.backgroundColor = "black";
+            allA[index].style.backgroundColor = "white";
+            allA[index].style.borderColor = "black";
 
             /*
              	点击超链接切换到指定的图片
@@ -173,13 +179,15 @@
                     imgList.style.left = 0;
                 }
 
-                //遍历所有a，并将它们的背景颜色设置为红色
+                //遍历所有a，并将它们的背景颜色还原为样式表的默认样式
                 for (var i = 0; i < allA.length; i++) {
                     allA[i].style.backgroundColor = "";
+                    allA[i].style.borderColor = "";
                 }
 
                 //将选中的a设置为黑色
-                allA[index].style.backgroundColor = "black";
+                allA[index].style.backgroundColor = "white";
+                allA[index].style.borderColor = "black";
             };
 
             //定义一个自动切换的定时器的标识
@@ -197,10 +205,7 @@
                     index %= imgArr.length;
 
                     //执行动画，切换图片
-                    move(imgList, "left", -520 * index, 20, function () {
-                        //修改导航按钮
-                        setA();
-                    });
+                    move(imgList, "left", -520 * index, 20, setA);
 
                 }, 3000);
 

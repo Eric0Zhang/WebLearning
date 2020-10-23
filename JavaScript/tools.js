@@ -2,7 +2,7 @@
 /*
     * 参数：
     * 	obj:要执行动画的对象
-    * 	attr:要执行动画的样式，比如：left top width height
+    * 	attr:要执行动画的样式，比如：left top width height 要加双引号
     * 	target:执行动画的目标位置
     * 	speed:移动的速度(正数向右移动，负数向左移动)
     *  callback:回调函数，这个函数将会在动画执行完毕以后执行
@@ -114,6 +114,9 @@ function removeClass(obj, cn) {
     //删除class
     obj.className = obj.className.replace(reg, "");
 
+    //连续两个空格,转变成单独一个空格,防止空格越积越多
+    reg = new RegExp("  ");
+    obj.className = obj.className.replace(reg, " ");
 }
 
 /*

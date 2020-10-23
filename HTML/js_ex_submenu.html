@@ -25,7 +25,7 @@
     <link rel="stylesheet" type="text/css" href="./../CSS/sdmenu.css" />
 
     <script type="text/javascript" src="./../JavaScript/tools.js"></script>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         window.onload = function () {
 
             /*
@@ -100,7 +100,7 @@
 
 
         };
-    </script>
+    </script> -->
 
 </head>
 
@@ -137,6 +137,53 @@
             <a href="#">Current or not</a>
         </div>
     </div>
+    <script>
+        var titles = document.getElementsByClassName("menuSpan");
+        //父元素区别于父节点
+        var openDiv = titles[0].parentNode;
+        for (var index = 0; index < titles.length; index++) {
+            const title = titles[index];
+            title.onclick = function () {
+                var div = title.parentNode;
+                //方案一
+                // if (openDiv && openDiv != div) {
+                //     //有打开的,但是点击的不是打开的
+                //     toggleMenu(openDiv);
+                //     openDiv = div;
+                // } else if (openDiv === div) {
+                //     //有打开的,但是点击的就是打开的
+                //     openDiv = null;
+                // } else {
+                //     //没有打开的
+                //     openDiv = div;
+                // }
+                // toggleMenu(div);
+
+                //方案二
+                if (openDiv != div && !hasClass(openDiv, "collapsed")) {
+                    //如果点击的不是openDiv, 同时openDiv还是打开的, 就翻转openDiv
+                    toggleMenu(openDiv);
+                }
+                //翻转点击项
+                toggleMenu(div);
+                //将点击项设置为openDiv(注意这里如果点击项是打开的,则会将其关闭,然后openDiv所对应的项目就是关闭的了)
+                openDiv = div;
+
+            };
+        }
+
+        function toggleMenu(menu) {
+            //offsetxxx直接获取数值, getcomputedstyle则是字符串
+            var begin = menu.offsetHeight;
+            toggleClass(menu, "collapsed");
+            var end = menu.offsetHeight;
+            menu.style.height = begin + "px";
+            move(menu, "height", end, 5, function () {
+                //如果不清楚内联,下次toggle的时候class将不能生效
+                menu.style.height = "";
+            });
+        }
+    </script>
 </body>
 
 </html>

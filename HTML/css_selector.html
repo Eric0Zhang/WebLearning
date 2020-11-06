@@ -153,6 +153,12 @@
             content: "]";
             color: tan;
         }
+
+        .brother~li {
+            /* 这里验证了所有兄弟元素只能是其后的,
+            之前的没用,想要改之前的只能用JS */
+            font-size: 30px;
+        }
     </style>
 </head>
 
@@ -223,7 +229,7 @@
         <li>第一个</li>
         <li>第二个</li>
         <span>我是夹在中间的span</span>
-        <li>第三个</li>
+        <li class="brother">第三个</li>
         <li>第四个</li>
         <li>第五个</li>
     </ul>
